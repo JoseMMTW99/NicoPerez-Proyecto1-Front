@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #1c3738;
+}
+
+label{
+    font-size: 1.4rem;
+    color: #ecfee8;
+}
+
+#tarjeta{
+    background-color: #379392;
+    border-radius: 20px;
+    border-color: #ecfee8;
+}
