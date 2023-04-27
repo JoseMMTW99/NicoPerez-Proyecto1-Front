@@ -3,11 +3,10 @@ import './perfil.css'
 
 function Perfil() {
 
-    const logeado = localStorage.getItem('logeado')
-
-    // if (!logeado) {
-    //     window.location.replace('/')
-    // }
+    const idUser = localStorage.getItem('id')
+    if (idUser === null) {
+        window.location.replace('/')
+    }
 
   return (
       <div className="d-flex align-items-center" style={{ height: "90vh" }}>
@@ -19,7 +18,7 @@ function Perfil() {
                         <li>Piso: Número de piso</li>
                         <li>Puerta: Número o Letra de Puerta</li>
                       </ul>
-                      <button className="col-md-3 rounded p-1 mt-3">Descargar PDF</button>
+                      <button className="col-md-3 rounded p-1 mt-3">Descargar comprobante</button>
                 </div>
             </div>
         </div>

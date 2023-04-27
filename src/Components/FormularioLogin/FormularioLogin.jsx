@@ -1,17 +1,38 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import './formularioLogin.css'
+import axios from "axios";
 
 function FormularioLogin() {
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
+    const [errorMensaje, setErrorMensaje] = useState("");
     const { register, handleSubmit, formState: { errors } } = useForm({ mode: "onBlur", defaultValues: { email: "", password: "", }, });
 
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
         setLoading(true);
-        localStorage.setItem('logeado', true)
-        console.log(data);
-        window.location.replace('/Perfil')
-    };
+        const respuesta = await axios.post(
+            `http://localhost:8000/users/login-user`,
+            {
+              email: data.email.trim().toLowerCase(),
+              password: data.password,
+            }
+          );
+        if (respuesta.status === 200) {
+        localStorage.setItem("id", respuesta.data.user._id);
+        if (respuesta.data.user.role === "admin") {
+            localStorage.setItem("token", respuesta.data.token);
+            window.location.replace("/Administracion");
+        } else {
+            window.location.replace("/Perfil");
+        }
+        }
+        if (respuesta.status === 206) {
+        setLoading(false);
+        setError(true);
+        setErrorMensaje(respuesta.data.message)
+        }
+        };
 
     return (
         <div className="d-flex align-items-center" style={{ height: "90vh" }}>
@@ -23,7 +44,7 @@ function FormularioLogin() {
                                 <label htmlFor="email">Correo Electrónico</label>
                                 <input
                                     type="text"
-                                    className={`form-control ${errors.email ? "is-invalid" : ""} mt-2`}
+                                    className={`form-control form-control-lg ${errors.email ? "is-invalid" : ""} mt-2`}
                                     placeholder="Escriba su correo electrónico"
                                     {...register("email", {
                                         required: true,
@@ -47,8 +68,8 @@ function FormularioLogin() {
                                 <label htmlFor="password">Contraseña</label>
                                 <input
                                     type="password"
-                                    className={`form-control ${errors.password ? "is-invalid" : ""} mt-2`}
-                                    placeholder="Introduzca su contraseña"
+                                    className={`form-control form-control-lg ${errors.password ? "is-invalid" : ""} mt-2`}
+                                    placeholder="Escriba su contraseña"
                                     {...register("password", { required: true, maxLength: 40 })}
                                 />
                                 {errors.password && errors.password.type === "required" && (
@@ -60,6 +81,13 @@ function FormularioLogin() {
                                     </div>
                                 )}
                             </div>
+                            {error ? (
+                            <>
+                                <p className="text-danger mt-2 ms-1 fs-6">{errorMensaje}</p>
+                            </>
+                            ) : (
+                            <></>
+                            )}
                             <div className='mt-3 d-flex justify-content-center'>
                                 <button type="submit" className="w-100 rounded p-1 mt-2">
                                     {loading ? (

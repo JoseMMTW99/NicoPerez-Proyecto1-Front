@@ -1,6 +1,12 @@
 import React from "react";
 
 const Administrador = () => {
+
+    const tokenAdmin = localStorage.getItem('token')
+    if (tokenAdmin === null) {
+        window.location.replace('/')
+    }
+
     return (
         <div>
             <div className="d-flex align-items-center" style={{ height: "90vh" }}>
