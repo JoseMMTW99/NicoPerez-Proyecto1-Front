@@ -14,28 +14,28 @@ function FormularioLogin() {
         const respuesta = await axios.post(
             `http://localhost:8000/users/login-user`,
             {
-              email: data.email.trim().toLowerCase(),
-              password: data.password,
+                email: data.email.trim().toLowerCase(),
+                password: data.password,
             }
-          );
+        );
         if (respuesta.status === 200) {
-        localStorage.setItem("id", respuesta.data.user._id);
-        if (respuesta.data.user.role === "admin") {
-            localStorage.setItem("token", respuesta.data.token);
-            window.location.replace("/Administracion");
-        } else {
-            window.location.replace("/Perfil");
-        }
+            localStorage.setItem("id", respuesta.data.user._id);
+            if (respuesta.data.user.role === "admin") {
+                localStorage.setItem("token", respuesta.data.token);
+                window.location.replace("/Administracion");
+            } else {
+                window.location.replace("/Perfil");
+            }
         }
         if (respuesta.status === 206) {
-        setLoading(false);
-        setError(true);
-        setErrorMensaje(respuesta.data.message)
+            setLoading(false);
+            setError(true);
+            setErrorMensaje(respuesta.data.message)
         }
-        };
+    };
 
     return (
-        <div className="d-flex align-items-center" style={{ height: "90vh" }}>
+        <div className="d-flex align-items-center" style={{ height: "100vh" }}>
             <div className="container">
                 <div className="row justify-content-center p-5 ms-2 mx-2" id='tarjeta'>
                     <div className="col-md-6">
@@ -82,14 +82,14 @@ function FormularioLogin() {
                                 )}
                             </div>
                             {error ? (
-                            <>
-                                <p className="text-danger mt-2 ms-1 fs-6">{errorMensaje}</p>
-                            </>
+                                <>
+                                    <p className="text-danger mt-2 ms-1 fs-6">{errorMensaje}</p>
+                                </>
                             ) : (
-                            <></>
+                                <></>
                             )}
                             <div className='mt-3 d-flex justify-content-center'>
-                                <button type="submit" className="w-100 rounded p-1 mt-2">
+                                <button type="submit" className="w-100 rounded btn btn-dark p-2 mt-2 btn-lg">
                                     {loading ? (
                                         <span
                                             className="spinner-border spinner-border-sm mr-2"

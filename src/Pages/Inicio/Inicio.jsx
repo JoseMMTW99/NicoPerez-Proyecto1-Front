@@ -4,9 +4,9 @@ import './inicio.css'
 
 function Inicio() {
   return (
-    <>
-    <FormularioLogin/>´
-    </>
+    <div className='container-fluid'>
+    <FormularioLogin/>
+    </div>
   )
 }
 
