@@ -14,7 +14,7 @@ const CambiarContraseña = () => {
     const onSubmit = async (data) => {
         setLoading(true);
         const respuesta = await axios.patch(
-            `http://localhost:8000/users/cambiar-contrasena`,
+            `https://serpa-administracion-jose-martinez-teran.up.railway.app/users/cambiar-contrasena`,
             {
                 id: idUser,
                 password: data.password

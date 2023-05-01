@@ -13,7 +13,7 @@ const UsuariosEdificio = () =>{
     }
 
     useEffect(() =>{
-        const response = axios.get(`http://localhost:8000/users/obtener-users`)
+        const response = axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/users/obtener-users`)
         .then((response) =>{
             const filteredUsuarios = response.data.filter((usuario) => usuario.edificio === edificio);
             setUsuarios(filteredUsuarios);

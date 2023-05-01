@@ -14,7 +14,7 @@ function Perfil() {
 
   useEffect(() =>{
     if (idUser !== null){
-        axios.get(`http://localhost:8000/users/${idUser}`)
+        axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/users/${idUser}`)
         .then((response) =>{
             setUsers(response.data);
         })
@@ -27,7 +27,7 @@ function Perfil() {
 const downloadPdf = async () => {
   setIsLoading(true);
   try {
-    const response = await axios.get(`http://localhost:8000/uploads/getpdf/${idUser}`, {
+    const response = await axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/uploads/getpdf/${idUser}`, {
       responseType: 'blob',
     });
     console.log(response);

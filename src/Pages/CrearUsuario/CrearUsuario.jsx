@@ -21,7 +21,7 @@ const CrearUsuario = () => {
     const onSubmit = async (data) => {
         setLoading(true);
         const respuesta = await axios.post(
-            `http://localhost:8000/users/crear-user`,
+            `https://serpa-administracion-jose-martinez-teran.up.railway.app/users/crear-user`,
             {
                 name: data.name.trim(),
                 surname: data.surname.trim(),
