@@ -1,5 +1,6 @@
 import React from 'react'
 import './perfil.css'
+import axios from 'axios'
 
 function Perfil() {
 
@@ -7,6 +8,23 @@ function Perfil() {
   // if (idUser === null) {
   //     window.location.replace('/')
   // }
+
+  const downloadPdf = async (userId) => {
+    try {
+      const response = await axios.get(`http://localhost:8000/uploads/getpdfs?userId=${userId}`, {
+        responseType: 'blob',
+      });
+  
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'comprobante.pdf');
+      document.body.appendChild(link);
+      link.click();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="d-flex align-items-center" style={{ height: "100vh" }}>
@@ -19,7 +37,7 @@ function Perfil() {
               <li>Piso: Número de piso</li>
               <li>Puerta: Número o Letra de Puerta</li>
             </ul>
-            <button className="col-12 rounded p-1 mt-3 btn btn-dark p-2 btn-lg">Descargar comprobante</button>
+            <button className="col-12 rounded p-1 mt-3 btn btn-dark p-2 btn-lg" onClick={() => downloadPdf(idUser)}>Descargar comprobante</button>
           </div>
           <div className='col-md-6'>
             <div className="d-flex flex-column">

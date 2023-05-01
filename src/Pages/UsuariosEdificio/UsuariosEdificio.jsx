@@ -1,4 +1,5 @@
 import React from "react";
+import SubirArchivo from "../../Components/SubirArchivo/SubirArchivo";
 
 const UsuariosEdificio = () =>{
     return(
@@ -21,6 +22,7 @@ const UsuariosEdificio = () =>{
                                 </tr>
                             </tbody>
                         </table>
+                        <SubirArchivo/>
                         <button className="w-100 btn btn-dark rounded p-2 mt-3 btn-lg">Volver a Administración</button>
                     </div>
                 </div>
