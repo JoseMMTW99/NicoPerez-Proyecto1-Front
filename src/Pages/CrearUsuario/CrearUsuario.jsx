@@ -1,43 +1,183 @@
-import React from "react";
+import React, { useState } from 'react';
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import { createRouter } from '@remix-run/router';
 
 const CrearUsuario = () => {
+
+    const [loading, setLoading] = useState(false);
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const edificio = localStorage.getItem('edificio')
+
+    if (edificio === null) {
+        window.location.replace('/Administracion')
+    }
+
+    const tokenAdmin = localStorage.getItem('token')
+    if (tokenAdmin === null) {
+        window.location.replace('/')
+    }
+
+    const onSubmit = async (data) => {
+        setLoading(true);
+        const respuesta = await axios.post(
+            `http://localhost:8000/users/crear-user`,
+            {
+                name: data.name.trim(),
+                surname: data.surname.trim(),
+                email: data.email.trim().toLowerCase(),
+                dni: data.dni.trim(),
+                edificio: edificio,
+                piso: data.piso.trim(),
+                puerta: data.puerta.trim(),
+
+            }
+        );
+        if (respuesta.status === 200) {
+            window.location.replace('/Administracion')
+        }
+        if (respuesta.status === 206) {
+            setLoading(false);
+        }
+    };
+
     return (
         <div className="d-flex align-items-center" style={{ height: "100vh" }}>
             <div className="container">
                 <div className="row justify-content-center p-5 ms-2 mx-2" id='tarjeta'>
-                    <h1 className='text-center p-3'>Crear Usuario</h1>
-                    <form>
-                        <div className="form-group">
-                            <label htmlFor="nombre">Nombre:</label>
-                            <input type="text" className="form-control rounded" id="nombre" name="nombre" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="apellido">Apellido:</label>
-                            <input type="text" className="form-control rounded" id="apellido" name="apellido" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="documento">Documento:</label>
-                            <input type="text" className="form-control rounded" id="documento" name="documento" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="mail">Mail:</label>
-                            <input type="text" className="form-control rounded" id="mail" name="mail" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="edificio">Edificio:</label>
-                            <input type="text" className="form-control rounded" id="edificio" name="edificio" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="piso">Piso:</label>
-                            <input type="text" className="form-control rounded" id="piso" name="piso" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="puerta">Puerta:</label>
-                            <input type="text" className="form-control rounded" id="puerta" name="puerta" />
-                        </div>
-                        <button className="w-100 btn btn-dark rounded p-2 mt-3 btn-lg">Crear Usuario</button>
-                        <button className="w-100 btn btn-dark rounded p-2 mt-5 btn-lg">Volver a Administración</button>
+                    <h1 className='text-center p-3'>Crear usuario</h1>                    
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                            <div className="form-group">
+                                <label htmlFor="text">Nombre</label>
+                                <input
+                                    type="text"
+                                    className={`form-control form-control-lg ${errors.name ? "is-invalid" : ""} mt-2`}
+                                    {...register("name", {
+                                        required: true,
+                                        maxLength: 40,
+                                    })}
+                                />
+                                {errors.name && errors.name.type === "required" && (
+                                    <div className="invalid-feedback">Nombre requerido</div>
+                                )}
+                                {errors.name && errors.name.type === "maxLength" && (
+                                    <div className="invalid-feedback">
+                                        No puede contener más de 40 caracteres
+                                    </div>
+                                )}
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="text">Apellido</label>
+                                <input
+                                    type="text"
+                                    className={`form-control form-control-lg ${errors.surname ? "is-invalid" : ""} mt-2`}
+                                    {...register("surname", {
+                                        required: true,
+                                        maxLength: 40,
+                                    })}
+                                />
+                                {errors.surname && errors.surname.type === "required" && (
+                                    <div className="invalid-feedback">Apellido requerido</div>
+                                )}
+                                {errors.surname && errors.surname.type === "maxLength" && (
+                                    <div className="invalid-feedback">
+                                        No puede contener más de 40 caracteres
+                                    </div>
+                                )}
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="text">Documento</label>
+                                <input
+                                    type="text"
+                                    className={`form-control form-control-lg ${errors.dni ? "is-invalid" : ""} mt-2`}
+                                    {...register("dni", {
+                                        required: true,
+                                        maxLength: 40,
+                                    })}
+                                />
+                                {errors.dni && errors.dni.type === "required" && (
+                                    <div className="invalid-feedback">Documento requerido</div>
+                                )}
+                                {errors.dni && errors.dni.type === "maxLength" && (
+                                    <div className="invalid-feedback">
+                                        No puede contener más de 40 caracteres
+                                    </div>
+                                )}
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="email">Correo Electrónico</label>
+                                <input
+                                    type="text"
+                                    className={`form-control form-control-lg ${errors.email ? "is-invalid" : ""} mt-2`}
+                                    {...register("email", {
+                                        required: true,
+                                        pattern: /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/i,
+                                        maxLength: 40,
+                                    })}
+                                />
+                                {errors.email && errors.email.type === "required" && (
+                                    <div className="invalid-feedback">Correo requerido</div>
+                                )}
+                                {errors.email && errors.email.type === "pattern" && (
+                                    <div className="invalid-feedback">Correo invalido</div>
+                                )}
+                                {errors.email && errors.email.type === "maxLength" && (
+                                    <div className="invalid-feedback">
+                                        No puede contener más de 40 caracteres
+                                    </div>
+                                )}
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="text">Piso</label>
+                                <input
+                                    type="text"
+                                    className={`form-control form-control-lg ${errors.piso ? "is-invalid" : ""} mt-2`}
+                                    {...register("piso", {
+                                        required: true,
+                                        maxLength: 40,
+                                    })}
+                                />
+                                {errors.piso && errors.piso.type === "required" && (
+                                    <div className="invalid-feedback">Piso requerido</div>
+                                )}
+                                {errors.piso && errors.piso.type === "maxLength" && (
+                                    <div className="invalid-feedback">
+                                        No puede contener más de 40 caracteres
+                                    </div>
+                                )}
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="text">Puerta</label>
+                                <input
+                                    type="text"
+                                    className={`form-control form-control-lg ${errors.puerta ? "is-invalid" : ""} mt-2`}
+                                    {...register("puerta", {
+                                        required: true,
+                                        maxLength: 40,
+                                    })}
+                                />
+                                {errors.puerta && errors.puerta.type === "required" && (
+                                    <div className="invalid-feedback">Puerta requerida</div>
+                                )}
+                                {errors.puerta && errors.puerta.type === "maxLength" && (
+                                    <div className="invalid-feedback">
+                                        No puede contener más de 40 caracteres
+                                    </div>
+                                )}
+                            </div>
+                        <button className="w-100 btn btn-dark rounded p-2 mt-3 btn-lg">
+                        {loading ? (
+                            <span
+                                className="spinner-border spinner-border-sm mr-2"
+                                role="status"
+                                aria-hidden="true"
+                            ></span>
+                        ) : (
+                            "Crear"
+                        )}
+                        </button>
                     </form>
+                    <a href='/Administracion'><button className="w-100 btn btn-dark rounded p-2 mt-5 btn-lg">Volver a Administración</button></a>
                 </div>
             </div>
         </div>
