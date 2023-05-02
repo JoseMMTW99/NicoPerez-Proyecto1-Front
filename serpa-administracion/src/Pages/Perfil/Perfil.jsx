@@ -33,10 +33,13 @@ const downloadPdf = async () => {
     console.log(response);
 
     if(response.status === 200){
+      const date = new Date();
+      const month = new Intl.DateTimeFormat('es-ES', { month: 'long' }).format(date);
+      const filename = `Comprobante Serpa ${users.name} ${month}.pdf`;
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement('a');
       link.href = url;
-      link.setAttribute('download', 'Comprobante - Serpa.pdf');
+      link.setAttribute('download', filename);
       document.body.appendChild(link);
       link.click();
       setIsLoading(false);

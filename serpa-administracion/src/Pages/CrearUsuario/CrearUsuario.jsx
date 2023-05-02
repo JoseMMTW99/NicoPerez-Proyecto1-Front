@@ -19,6 +19,7 @@ const CrearUsuario = () => {
     }
 
     const onSubmit = async (data) => {
+        console.log('hola');
         setLoading(true);
         const respuesta = await axios.post(
             `https://serpa-administracion-jose-martinez-teran.up.railway.app/users/crear-user`,
@@ -30,7 +31,8 @@ const CrearUsuario = () => {
                 edificio: edificio,
                 piso: data.piso.trim(),
                 puerta: data.puerta.trim(),
-
+                tipo: data.tipo,
+                baulera: data.baulera.trim()
             }
         );
         if (respuesta.status === 200) {
@@ -164,6 +166,39 @@ const CrearUsuario = () => {
                                         No puede contener más de 40 caracteres
                                     </div>
                                 )}
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="text">Baulera</label>
+                                <input
+                                    type="text"
+                                    className={`form-control form-control-lg ${errors.baulera ? "is-invalid" : ""} mt-2`}
+                                    {...register("baulera", {
+                                        required: true,
+                                        maxLength: 40,
+                                    })}
+                                />
+                                {errors.baulera && errors.baulera.type === "required" && (
+                                    <div className="invalid-feedback">Campo requerido</div>
+                                )}
+                                {errors.baulera && errors.baulera.type === "maxLength" && (
+                                    <div className="invalid-feedback">
+                                        No puede contener más de 40 caracteres
+                                    </div>
+                                )}
+                            </div>
+                            <div className="form-group mt-1">
+                                <label htmlFor="text">Tipo</label>
+                                <select  className="form-select form-select-lg mt-2"
+                                    {...register("tipo", { required: true })}
+                                    id="tipo"
+                                    name="tipo"
+                                    >
+                                    <option className='text-dark' value="">Seleccionar</option>
+                                    <option className='text-dark' value="Departamento">Departamento</option>
+                                    <option className='text-dark' value="Local">Local</option>
+                                    <option className='text-dark' value="Oficina">Oficina</option>
+                                    <option className='text-dark' value="Cochera">Cochera</option>
+                                </select>
                             </div>
                         <button className="w-100 btn btn-dark rounded p-2 mt-3 btn-lg">
                         {loading ? (

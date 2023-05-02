@@ -3,6 +3,7 @@ import FormularioLogin from '../../Components/FormularioLogin/FormularioLogin'
 import './inicio.css'
 
 function Inicio() {
+
   return (
     <div className='container-fluid'>
     <FormularioLogin/>
