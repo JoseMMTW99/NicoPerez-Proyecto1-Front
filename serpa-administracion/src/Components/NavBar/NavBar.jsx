@@ -1,8 +1,29 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import logo from '../../assets/LogoBlanco.png'
+import PerfilNavBar from '../PerfilNavBar/PerfilNavBar'
 import './navBar.css'
+import axios from 'axios'
 
 function NavBar() {
+
+    const [users, setUsers] = useState({})
+    const idUser = localStorage.getItem('id')
+    if (idUser === null) {
+        window.location.replace('/')
+    }
+  
+    useEffect(() =>{
+      if (idUser !== null){
+          axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/users/${idUser}`)
+          .then((response) =>{
+              setUsers(response.data);
+          })
+          .catch((error) =>{
+              console.error(error);
+          })
+      }
+  }, [idUser])
+
   return (
     <>
     <nav className="navbar navbar-expand-lg">
@@ -13,9 +34,7 @@ function NavBar() {
             </button>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li className="nav-item">
-                        <a className="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
+                    <PerfilNavBar usuario={users}/>
                 </ul>
             </div>
         </div>

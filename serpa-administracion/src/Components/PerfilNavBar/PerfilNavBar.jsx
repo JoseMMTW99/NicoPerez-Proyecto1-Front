@@ -1,13 +1,18 @@
 import React from 'react'
+import imagenPerfil from '../../assets/perfilColor.png';
+import './perfilNavBar.css'
 
-function PerfilNavBar() {
+function PerfilNavBar(usuario) {
+
+  console.log(usuario);
+
   return (
     <>
-        <div style={{ backgroundColor: 'white', borderRadius: '50%', display: 'flex', alignItems: 'center', padding: 5 }}>
-            <div style={{ backgroundColor: '#74BCAC', borderRadius: '50%', width: 50, height: 50, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img src={profileImage} style={{ width: 40, height: 40, borderRadius: '50%' }} alt="Profile" />
+        <div style={{display: 'flex', alignItems: 'center', padding: 5 }}>
+            <div className='usuarioNavBarPerfil px-5 rounded-3'>{usuario.usuario.name} {usuario.usuario.surname}</div>
+            <div className='iconoNavBarPerfil'>
+                <img src={imagenPerfil} className='imagenNavBarPerfil' alt="PerfilIcono" />
             </div>
-            <div style={{ marginLeft: 10 }}>{username}</div>
         </div>
     </>
   )

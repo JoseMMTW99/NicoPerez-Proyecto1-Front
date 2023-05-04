@@ -1,0 +1,23 @@
+.usuarioNavBarPerfil{
+    background-color: white;
+    font-size: 1.5rem;
+    position: absolute;
+    right: 50px;
+    z-index: 0;
+}
+
+.iconoNavBarPerfil{
+    background-color: white;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.imagenNavBarPerfil{
+    width: 32px;
+    z-index: 2;
+}

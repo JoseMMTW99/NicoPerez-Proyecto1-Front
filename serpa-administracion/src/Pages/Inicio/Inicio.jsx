@@ -6,7 +6,7 @@ function Inicio() {
 
   return (
     <div className='container-fluid'>
-    <FormularioLogin/>
+      <FormularioLogin/>
     </div>
   )
 }
