@@ -32,7 +32,7 @@ const Administrador = () => {
         <div>
             <div className="d-flex align-items-center" style={{ height: "100vh" }}>
                 <div className="container">
-                    <div className="row p-5 ms-2 mx-2" id='tarjeta'>
+                    <div className="row p-5 ms-2 mx-2">
                         <h1 className='text-center p-3'>Administración</h1>
                         {
                             edificios.sort((a, b) => (a.name > b.name) ? 1 : -1).map((edificio) => (<CardEdificio key={edificio._id} edificio={edificio} />))

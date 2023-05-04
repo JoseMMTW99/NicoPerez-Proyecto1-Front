@@ -42,7 +42,7 @@ const UsuariosEdificio = () =>{
     return(
         <>
             <div className='d-flex justify-content-center m-5'>
-                <div className="p-5 w-100" id='tarjeta'>
+                <div className="p-5 w-100">
                     <h1 className='text-center p-3'>{edificio}</h1>
                     <div className="col-11 col-sm-11 col-md-10 col-lg-7 col-xl-7 col-xxl-7 mx-auto">
                         <div className="input-group mb-3">
@@ -90,7 +90,7 @@ export default UsuariosEdificio;
 
 {/* <div className="" style={{ height: "100vh" }}>
 <div className="container">
-    <div className="p-5 ms-2 mx-2" id='tarjeta'>
+    <div className="p-5 ms-2 mx-2">
         <h1 className='text-center p-3'>{edificio}</h1>
                                 <table className="table table-responsive text-center">
                                     <thead>

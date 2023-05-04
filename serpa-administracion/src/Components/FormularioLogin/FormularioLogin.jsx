@@ -36,15 +36,15 @@ function FormularioLogin() {
 
     return (
         <div className="d-flex align-items-center" style={{ height: "100vh" }}>
-            <div className="container">
-                <div className="row justify-content-center p-5 ms-2 mx-2" id='tarjeta'>
+            <div className="container container-login">
+                <div className="row justify-content-center p-5 ms-2 mx-2">
                     <div className="col-md-6">
+                        <h1 className='text-center fuente-600'>INGRESAR</h1>
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <div className="form-group">
-                                <label htmlFor="email">Correo Electrónico</label>
+                            <div className="form-group border-bottom">
                                 <input
                                     type="text"
-                                    className={`form-control form-control-lg ${errors.email ? "is-invalid" : ""} mt-2`}
+                                    className={`form-control border-0 form-control-lg ${errors.email ? "is-invalid" : ""} mt-2`}
                                     placeholder="Escriba su correo electrónico"
                                     {...register("email", {
                                         required: true,
@@ -64,11 +64,10 @@ function FormularioLogin() {
                                     </div>
                                 )}
                             </div>
-                            <div className="form-group mt-3">
-                                <label htmlFor="password">Contraseña</label>
+                            <div className="form-group border-bottom mt-3">
                                 <input
                                     type="password"
-                                    className={`form-control form-control-lg ${errors.password ? "is-invalid" : ""} mt-2`}
+                                    className={`form-control border-0 form-control-lg ${errors.password ? "is-invalid" : ""} mt-2`}
                                     placeholder="Escriba su contraseña"
                                     {...register("password", { required: true, maxLength: 40 })}
                                 />
@@ -100,6 +99,7 @@ function FormularioLogin() {
                                         "Iniciar Sesión"
                                     )}
                                 </button>
+                                ¿Olvide mi contraseña?
                             </div>
                         </form>
                     </div>

@@ -66,7 +66,7 @@ const cambiarContraseña = () => {
     <>
     <div className="d-flex align-items-center" style={{ height: "100vh" }}>
       <div className="container">
-        <div className="row p-5 ms-2 mx-2" id='tarjeta'>
+        <div className="row p-5 ms-2 mx-2">
           <div className='col-md-6'>
             <h1 className='pt-3'>{users.name} {users.surname}</h1>
             <ul className='pt-3'>

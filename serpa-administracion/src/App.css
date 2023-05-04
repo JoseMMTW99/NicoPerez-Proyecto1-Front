@@ -2,4 +2,8 @@
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+body{
+  background-image: url(../src/assets/fondo.jpg);
+}
+
 @media (min-width: 768px) {}
