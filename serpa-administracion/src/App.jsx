@@ -8,10 +8,12 @@ import CrearUsuario from './Pages/CrearUsuario/CrearUsuario';
 import UsuariosEdificio from './Pages/UsuariosEdificio/UsuariosEdificio';
 import CambiarContraseña from './Pages/CambiarContraseña/CambiarContraseña';
 import CrearEdificio from './Pages/CrearEdificio/CrearEdificio';
+import NavBar from './Components/NavBar/NavBar';
 
 function App() {
   return (
     <>
+      <NavBar/>
       <Routes>
         <Route path="/" element={<Inicio />} />
         <Route path="/Administracion" element={<Administrador />} />
