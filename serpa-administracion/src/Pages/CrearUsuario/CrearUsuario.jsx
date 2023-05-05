@@ -20,7 +20,6 @@ const CrearUsuario = () => {
     }
 
     const onSubmit = async (data) => {
-        console.log('hola');
         setLoading(true);
         const respuesta = await axios.post(
             `https://serpa-administracion-jose-martinez-teran.up.railway.app/users/crear-user`,
@@ -49,7 +48,7 @@ const CrearUsuario = () => {
     return (
         <>
             <div className="container-fluid container-body">
-                <h1 className='text-center mt-5'>Nombre de Edificio</h1>
+                <h1 className='text-center mt-5 text-white'>{edificio}</h1>
                 <div className="row">
                     <div className=' col-11 col-sm-11 col-md-6 col-lg-5 col-xl-5 col-xxl-4 container-crear-usuario pt-2 pb-2'>
                         <h3 className='text-center mt-4 mb-4'>Nuevo Usuario</h3>
