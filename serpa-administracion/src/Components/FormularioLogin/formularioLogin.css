@@ -83,6 +83,11 @@ input:-webkit-autofill:active {
     border-color: none;
 }
 
+.form-control.is-invalid:focus {
+    box-shadow: none;
+    border-color: none;
+}
+
 .botonLogin{
     display: none;
 }

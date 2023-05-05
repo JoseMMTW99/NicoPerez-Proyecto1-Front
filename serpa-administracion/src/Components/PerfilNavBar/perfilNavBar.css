@@ -21,3 +21,17 @@
     width: 32px;
     z-index: 2;
 }
+
+.cerrarSesionNavBarPerfil{
+    z-index: 10000;
+    position: relative;
+    left: 10px;
+    top: 50px;
+    z-index: 0;
+    color: white;
+    font-size: 1.3rem;
+}
+
+.cerrarSesionNavBarPerfil:hover{
+    cursor: pointer;
+}

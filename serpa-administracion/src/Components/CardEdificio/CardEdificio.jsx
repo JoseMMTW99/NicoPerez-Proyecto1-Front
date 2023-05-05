@@ -1,4 +1,6 @@
 import React from 'react'
+import icono from '../../assets/building.png'
+import './cardEdificio.css'
 
 function CardEdificio(edificio) {
 
@@ -9,12 +11,12 @@ function CardEdificio(edificio) {
 
     return (
         <>
-        <div className="col-md-6 p-1">
-            <div className="card-body border rounded" onClick={irAEdificio}>
-                <div className='text-center mt-3 fs-1'><i className="bi bi-building"></i></div>
-                <div className='mb-4'><h3 className="card-title text-center m-2">{edificio.edificio.name}</h3></div>
+            <div className='cardEdificio d-flex flex-column'  onClick={irAEdificio}>
+                <div className='text-center fs-1 iconoEdificios mx-auto'><img src={icono} className='iconoEdificioImagen'/></div>
+                <div className="card-body px-2 border rounded-4">
+                    <div className=''><h3 className="card-title text-center">{edificio.edificio.name}</h3></div>
+                </div>
             </div>
-        </div>
         </>
     )
 

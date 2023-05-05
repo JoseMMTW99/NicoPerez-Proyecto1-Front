@@ -55,10 +55,10 @@ function FormularioLogin() {
                             <div className="row">
                                 <div className="position-relative">
                                     <img src={emailLogo} alt="Email Logo" className='logoLogin emailLogo border-0 position-absolute start-0' />
-                                    <div className="form-group border-bottom border-dark inputLogin">
+                                    <div className={`form-group border-bottom ${errors.email ? "border-danger" : "border-dark"} inputLogin`}>
                                         <input
                                             type="text"
-                                            className={`form-control border-0  p-0 form-control-lg ${errors.email ? "is-invalid" : ""} mt-2`}
+                                            className={`form-control border-0  p-0 form-control-lg mt-2`}
                                             placeholder="Escriba aquí su usuario"
                                             {...register("email", {
                                                 required: true,
@@ -66,38 +66,30 @@ function FormularioLogin() {
                                                 maxLength: 40,
                                             })}
                                         />
-                                        {errors.email && errors.email.type === "required" && (
-                                            <div className="invalid-feedback">Correo requerido</div>
-                                        )}
-                                        {errors.email && errors.email.type === "pattern" && (
-                                            <div className="invalid-feedback">Correo invalido</div>
-                                        )}
-                                        {errors.email && errors.email.type === "maxLength" && (
-                                            <div className="invalid-feedback">
-                                                No puede contener más de 40 caracteres
-                                            </div>
-                                        )}
                                     </div>
                                 </div>
                             </div>
+                            {errors.email && errors.email.type === "required" && (
+                                <p className="text-danger mt-2 ms-1 fs-6">Correo requerido</p>
+                            )}
+                            {errors.email && errors.email.type === "pattern" && (
+                                <p className="text-danger mt-2 ms-1 fs-6">Correo invalido</p>
+                            )}
+                            {errors.email && errors.email.type === "maxLength" && (
+                                <p className="text-danger mt-2 ms-1 fs-6">
+                                    No puede contener más de 40 caracteres
+                                </p>
+                            )}
                             <div className="row">
                                 <div className="position-relative">
                                     <img src={passwordLogo} alt="Password Logo" className='logoLogin passwordLogo border-0 position-absolute start-0' />
-                                    <div className="form-group border-bottom border-dark mt-3 inputLogin">
+                                    <div className={`form-group border-bottom ${errors.email ? "border-danger" : "border-dark"} mt-3 inputLogin`}>
                                         <input
                                             type={passwordVisible ? "text" : "password"}
-                                            className={`form-control border-0 p-0 form-control-lg ${errors.password ? "is-invalid" : ""} mt-2`}
+                                            className={`form-control border-0 p-0 form-control-lg mt-2`}
                                             placeholder="Escriba aquí su contraseña"
                                             {...register("password", { required: true, maxLength: 40 })}
                                         />
-                                        {errors.password && errors.password.type === "required" && (
-                                            <div className="invalid-feedback">Contraseña requerida</div>
-                                        )}
-                                        {errors.password && errors.password.type === "maxLength" && (
-                                            <div className="invalid-feedback">
-                                                No puede contener más de 40 caracteres
-                                            </div>
-                                        )}
                                     </div>
                                     <button
                                     className="btn me-3 border-0 position-absolute end-0 btnOjo"
@@ -108,6 +100,14 @@ function FormularioLogin() {
                                     </button>
                                 </div>
                             </div>
+                            {errors.password && errors.password.type === "required" && (
+                                <p className="text-danger mt-2 ms-1 fs-6">Contraseña requerida</p>
+                            )}
+                            {errors.password && errors.password.type === "maxLength" && (
+                                <p className="text-danger mt-2 ms-1 fs-6">
+                                    No puede contener más de 40 caracteres
+                                </p>
+                            )}
                             {error ? (
                                 <>
                                     <p className="text-danger mt-2 ms-1 fs-6">{errorMensaje}</p>

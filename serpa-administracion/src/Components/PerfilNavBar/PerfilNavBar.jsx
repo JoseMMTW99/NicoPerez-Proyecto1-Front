@@ -4,10 +4,15 @@ import './perfilNavBar.css'
 
 function PerfilNavBar(usuario) {
 
-  console.log(usuario);
+  const cerrarSesion = () => {
+    localStorage.removeItem('idUsuarioLogeado');
+    localStorage.removeItem('token');
+    window.location.replace('/')
+  }
 
   return (
     <>
+        <div className='cerrarSesionNavBarPerfil' onClick={cerrarSesion}><i>Salir</i></div>
         <div style={{display: 'flex', alignItems: 'center', padding: 5 }}>
             <div className='usuarioNavBarPerfil px-5 rounded-3'>{usuario.usuario.name} {usuario.usuario.surname}</div>
             <div className='iconoNavBarPerfil'>

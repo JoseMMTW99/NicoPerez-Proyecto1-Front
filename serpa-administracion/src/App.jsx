@@ -9,7 +9,6 @@ import UsuariosEdificio from './Pages/UsuariosEdificio/UsuariosEdificio';
 import CambiarContraseña from './Pages/CambiarContraseña/CambiarContraseña';
 import CrearEdificio from './Pages/CrearEdificio/CrearEdificio';
 import NavBar from './Components/NavBar/NavBar';
-import Footer from './Components/Footer/Footer';
 
 function App() {
 
@@ -27,7 +26,6 @@ function App() {
         <Route path="/CambiarContraseña" element={<CambiarContraseña />} />
         <Route path="/CrearEdificio" element={<CrearEdificio />} />
       </Routes>
-      <Footer/>
     </>
   );
 }
