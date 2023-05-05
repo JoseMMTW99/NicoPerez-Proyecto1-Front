@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { createRouter } from '@remix-run/router';
+import './crearUsuario.css'
 
 const CrearUsuario = () => {
 
@@ -44,16 +45,18 @@ const CrearUsuario = () => {
     };
 
     return (
-        <div className="d-flex align-items-center" style={{ height: "100vh" }}>
-            <div className="container">
-                <div className="row justify-content-center p-5 ms-2 mx-2">
-                    <h1 className='text-center p-3'>Crear usuario</h1>                    
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                            <div className="form-group">
-                                <label htmlFor="text">Nombre</label>
+        <>
+            <div className="container-fluid container-body">
+                <h1 className='text-center mt-5'>Nombre de Edificio</h1>
+                <div className="row">
+                    <div className=' col-11 col-sm-11 col-md-6 col-lg-5 col-xl-5 col-xxl-4 container-crear-usuario pt-2 pb-2'>
+                        <h3 className='text-center mt-4 mb-4'>Nuevo Usuario</h3>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-8 mx-auto">
                                 <input
                                     type="text"
-                                    className={`form-control form-control-lg ${errors.name ? "is-invalid" : ""} mt-2`}
+                                    placeholder='Nombre'
+                                    className={`form-control mt-2 mb-2 pt-2 pb-2 ${errors.name ? "is-invalid" : ""}`}
                                     {...register("name", {
                                         required: true,
                                         maxLength: 40,
@@ -68,11 +71,11 @@ const CrearUsuario = () => {
                                     </div>
                                 )}
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="text">Apellido</label>
+                            <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-8  mx-auto">
                                 <input
                                     type="text"
-                                    className={`form-control form-control-lg ${errors.surname ? "is-invalid" : ""} mt-2`}
+                                    placeholder='Apellido'
+                                    className={`form-control mt-2 mb-2 pt-2 pb-2 ${errors.name ? "is-invalid" : ""}`}
                                     {...register("surname", {
                                         required: true,
                                         maxLength: 40,
@@ -87,11 +90,11 @@ const CrearUsuario = () => {
                                     </div>
                                 )}
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="text">Documento</label>
+                            <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-8  mx-auto">
                                 <input
                                     type="text"
-                                    className={`form-control form-control-lg ${errors.dni ? "is-invalid" : ""} mt-2`}
+                                    placeholder='Documento'
+                                    className={`form-control  ${errors.dni ? "is-invalid" : ""} mt-2`}
                                     {...register("dni", {
                                         required: true,
                                         maxLength: 40,
@@ -106,11 +109,11 @@ const CrearUsuario = () => {
                                     </div>
                                 )}
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="email">Correo Electrónico</label>
+                            <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-8  mx-auto">
                                 <input
                                     type="text"
-                                    className={`form-control form-control-lg ${errors.email ? "is-invalid" : ""} mt-2`}
+                                    placeholder='Correo Electrónico'
+                                    className={`form-control mt-2 mb-2 pt-2 pb-2 ${errors.email ? "is-invalid" : ""}`}
                                     {...register("email", {
                                         required: true,
                                         pattern: /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/i,
@@ -129,11 +132,11 @@ const CrearUsuario = () => {
                                     </div>
                                 )}
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="text">Piso</label>
+                            <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-8  mx-auto">
                                 <input
                                     type="text"
-                                    className={`form-control form-control-lg ${errors.piso ? "is-invalid" : ""} mt-2`}
+                                    placeholder='Piso'
+                                    className={`form-control mt-2 mb-2 pt-2 pb-2 ${errors.piso ? "is-invalid" : ""}`}
                                     {...register("piso", {
                                         required: true,
                                         maxLength: 40,
@@ -148,11 +151,11 @@ const CrearUsuario = () => {
                                     </div>
                                 )}
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="text">Puerta</label>
+                            <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-8  mx-auto">
                                 <input
                                     type="text"
-                                    className={`form-control form-control-lg ${errors.puerta ? "is-invalid" : ""} mt-2`}
+                                    placeholder='Puerta'
+                                    className={`form-control mt-2 mb-2 pt-2 pb-2 ${errors.puerta ? "is-invalid" : ""}`}
                                     {...register("puerta", {
                                         required: true,
                                         maxLength: 40,
@@ -167,11 +170,11 @@ const CrearUsuario = () => {
                                     </div>
                                 )}
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="text">Baulera</label>
+                            <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-8  mx-auto">
                                 <input
                                     type="text"
-                                    className={`form-control form-control-lg ${errors.baulera ? "is-invalid" : ""} mt-2`}
+                                    placeholder='Baulera'
+                                    className={`form-control mt-2 mb-2 pt-2 pb-2 ${errors.baulera ? "is-invalid" : ""}`}
                                     {...register("baulera", {
                                         required: true,
                                         maxLength: 40,
@@ -186,36 +189,35 @@ const CrearUsuario = () => {
                                     </div>
                                 )}
                             </div>
-                            <div className="form-group mt-1">
-                                <label htmlFor="text">Tipo</label>
-                                <select  className="form-select form-select-lg mt-2"
+                            <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-8  mx-auto mt-1">
+                                <select className="form-select mt-2 mb-2 pt-2 pb-2"
                                     {...register("tipo", { required: true })}
                                     id="tipo"
                                     name="tipo"
-                                    >
-                                    <option className='text-dark' value="">Seleccionar</option>
+                                >
+                                    <option className='text-dark' value="">Tipo</option>
                                     <option className='text-dark' value="Departamento">Departamento</option>
                                     <option className='text-dark' value="Local">Local</option>
                                     <option className='text-dark' value="Oficina">Oficina</option>
                                     <option className='text-dark' value="Cochera">Cochera</option>
                                 </select>
                             </div>
-                        <button className="w-100 btn btn-dark rounded p-2 mt-3 btn-lg">
-                        {loading ? (
-                            <span
-                                className="spinner-border spinner-border-sm mr-2"
-                                role="status"
-                                aria-hidden="true"
-                            ></span>
-                        ) : (
-                            "Crear"
-                        )}
-                        </button>
-                    </form>
-                    <a href='/Administracion'><button className="w-100 btn btn-dark rounded p-2 mt-5 btn-lg">Volver a Administración</button></a>
+                            <button className="btn-crear-usuario mt-3 mb-3">
+                                {loading ? (
+                                    <span
+                                        className="spinner-border spinner-border-sm mr-2"
+                                        role="status"
+                                        aria-hidden="true"
+                                    ></span>
+                                ) : (
+                                    "Agregar"
+                                )}
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 
