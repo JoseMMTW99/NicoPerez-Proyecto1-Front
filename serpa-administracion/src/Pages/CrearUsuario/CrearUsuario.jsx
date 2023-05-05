@@ -44,6 +44,8 @@ const CrearUsuario = () => {
         }
     };
 
+    document.body.classList.add('crear-usuario');
+
     return (
         <>
             <div className="container-fluid container-body">
