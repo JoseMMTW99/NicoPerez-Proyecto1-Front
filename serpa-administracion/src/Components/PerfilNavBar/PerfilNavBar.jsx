@@ -12,13 +12,15 @@ function PerfilNavBar(usuario) {
 
   return (
     <>
+      <div className='cajaPerfilNavBar'>
         <div className='cerrarSesionNavBarPerfil' onClick={cerrarSesion}><i>Salir</i></div>
-        <div style={{display: 'flex', alignItems: 'center', padding: 5 }}>
+        <div className='divNavBarPerfil' style={{display: 'flex', alignItems: 'center', padding: 5 }}>
             <div className='usuarioNavBarPerfil px-5 rounded-3'>{usuario.usuario.name} {usuario.usuario.surname}</div>
             <div className='iconoNavBarPerfil'>
                 <img src={imagenPerfil} className='imagenNavBarPerfil' alt="PerfilIcono" />
             </div>
         </div>
+      </div>
     </>
   )
 }

@@ -2,3 +2,50 @@
     background: url("../../assets/fondoInveritdo.jpg") no-repeat center center fixed;
     background-size: cover;
 }
+
+.botonAgregarEdificioNavBar{
+    background-color: #7e1493;
+    border: 1px solid #7e1493;
+    border-bottom: 1px solid rgba(171, 171, 171, 0.5);
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 600;
+    width: 100%;
+    text-align: start;
+}
+
+.botonCerrarSesionNavBar{
+    background-color: #7e1493;
+    border: 1px solid #7e1493;
+    border-top: 1px solid rgba(171, 171, 171, 0.5);
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 600;
+    width: 100%;
+    text-align: start;
+}
+
+.divBotonAgregarEdificioNavBar{
+    width: 100%;
+}
+
+.espaciadoNavBarCollapse{
+    margin-bottom: 7rem;
+}
+
+@media (max-width: 576px) {
+    .navbar-collapse{
+        background-color: #7e1493;
+    }
+}
+@media (min-width: 576px) and (max-width:992px) {
+    .navbar-collapse{
+        background-color: #7e1493;
+    }
+}
+@media (min-width: 992px) {
+    .divBotonAgregarEdificioNavBar{
+        display: none;
+    }
+}
+

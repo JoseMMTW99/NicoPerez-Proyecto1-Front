@@ -4,10 +4,6 @@
     margin-bottom: 2rem;
 }
 
-.cajaGrandeEdificios{
-    width: 70%;
-}
-
 .tituloEdificios{
     font-weight: 600;
     letter-spacing: -2px;
@@ -30,6 +26,12 @@
         text-align: center;
         padding-left: 0rem;
     }
+    .divBotonAgregarEdificio{
+        display: none;
+    }
+    .cajaGrandeEdificios{
+        width: 90%;
+    }
 }
 
 @media (min-width: 576px) and (max-width: 992px) {  
@@ -40,10 +42,36 @@
         text-align: center;
         padding-left: 0rem;
     }
+    .divBotonAgregarEdificio{
+        display: none;
+    }
+    .cajaGrandeEdificios{
+        width: 90%;
+    }
 }
 
 @media (min-width: 992px){
     .cajaEdificiosBorde{
         gap: 3%;
     }    
+    .divBotonAgregarEdificio{
+        text-align: start;
+    }
+    .cajaGrandeEdificios{
+        width: 80%;
+    }
+}
+
+.botonAgregarEdificio{
+    background-color: #c03dd1 ;
+    border: 1px solid #c03dd1 ;
+    border-radius: 10px;
+    font-size: 2rem;
+    color: white;
+    font-weight: 600;
+}
+
+svg.bi-plus {
+    width: 40px;
+    height: 40px;
 }
