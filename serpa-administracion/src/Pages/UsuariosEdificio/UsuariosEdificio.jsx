@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import FilaUsuariosEdificio from '../../Components/FilaUsuariosEdificio/FilaUsuariosEdificio'
+import './usuariosEdificio.css'
 
 const UsuariosEdificio = () =>{
 
@@ -42,8 +43,8 @@ const UsuariosEdificio = () =>{
     return(
         <>
             <div className='d-flex justify-content-center m-5'>
-                <div className="p-5 w-100">
-                    <h1 className='text-center p-3'>{edificio}</h1>
+                <div className="pt-5 pb-5 w-100">
+                    <h1 className='text-center'>{edificio}</h1>
                     <div className="col-11 col-sm-11 col-md-10 col-lg-7 col-xl-7 col-xxl-7 mx-auto">
                         <div className="input-group mb-3">
                             <input
@@ -56,29 +57,33 @@ const UsuariosEdificio = () =>{
                             />
                         </div>
                     </div>
-                    <div className="table-responsive">
-                        <table className="table">
-                            <thead>
-                                <tr>
-                                    <th className="fs-4">Cliente</th>
-                                    <th className="fs-4">Correo</th>
-                                    <th className="fs-4">Documento</th>
-                                    <th className="fs-4">Piso</th>
-                                    <th className="fs-4">Puerta</th>
-                                    <th className="fs-4">Tipo</th>
-                                    <th className="fs-4">Baulera</th>
-                                    <th className="fs-4">Comprobante</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {
-                                usuariosPrint.sort((a, b) => a.piso - b.piso).map((usuario) => ( <FilaUsuariosEdificio key={usuario._id} usuario={usuario}/>))
-                                }
-                            </tbody>
-                        </table>
+                    <div className='tabla-usuarios'>
+                        <div className="table-responsive">
+                            <table className="table">
+                                <thead>
+                                    <tr className='text-center'>
+                                        <th className="fs-4">Cliente</th>
+                                        <th className="fs-4">Correo</th>
+                                        <th className="fs-4">Documento</th>
+                                        <th className="fs-4">Piso</th>
+                                        <th className="fs-4">Puerta</th>
+                                        <th className="fs-4">Tipo</th>
+                                        <th className="fs-4">Baulera</th>
+                                        <th className="fs-4">Subir Comprobante</th>
+                                        <th className="fs-4">Desc. Comp.</th>
+                                        <th className="fs-4">Camb. Contraseña</th>
+                                    </tr>
+                                </thead>
+                                <tbody className='text-center'>
+                                    {
+                                    usuariosPrint.sort((a, b) => a.piso - b.piso).map((usuario) => ( <FilaUsuariosEdificio key={usuario._id} usuario={usuario}/>))
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                        <a href='/CrearUsuario'><button className="w-100 btn btn-dark rounded p-2 mt-4 btn-lg">Crear usuario</button></a>
-                        <a href='/Administracion'><button className="w-100 btn btn-dark rounded p-2 mt-3 btn-lg">Volver a Administración</button></a>
+                        <a href='/CrearUsuario'><button className="btn-edificio mt-2">Crear usuario</button></a>
+                        <a href='/Administracion'><button className="btn-edificio-2 mt-2 ms-2">Volver a Administración</button></a>
                 </div>
             </div>
         </>

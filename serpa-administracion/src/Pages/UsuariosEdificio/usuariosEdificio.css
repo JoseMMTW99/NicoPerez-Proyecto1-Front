@@ -1,0 +1,23 @@
+.tabla-usuarios{
+    background-color: white;
+    font-size: 25px;
+    border-radius: 10px;
+}
+
+.btn-edificio{
+    height: 35px;
+    width: 120px;
+    color: white;
+    background-color: #dc47ef;
+    border-radius: 10px;  
+    border-color: #dc47ef;
+}
+
+.btn-edificio-2{
+    height: 35px;
+    width: 240px;
+    color: white;
+    background-color: #dc47ef;
+    border-radius: 10px;  
+    border-color: #dc47ef;
+}

@@ -48,12 +48,12 @@ const CrearUsuario = () => {
     return (
         <>
             <div className="container-fluid container-body">
-                <h1 className='text-center mt-5 text-white'>{edificio}</h1>
+                <h1 className='text-center mt-5 text-dark'>{edificio}</h1>
                 <div className="row">
-                    <div className=' col-11 col-sm-11 col-md-6 col-lg-5 col-xl-5 col-xxl-4 container-crear-usuario pt-2 pb-2'>
-                        <h3 className='text-center mt-4 mb-4'>Nuevo Usuario</h3>
+                    <div className=' col-11 col-sm-11 col-md-8 col-lg-6 col-xl-5 col-xxl-4 container-crear-usuario pt-2 pb-2'>
+                        <h3 className='text-center mt-2 mb-4 text-white'>Nuevo Usuario</h3>
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-8 mx-auto">
+                            <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
                                 <input
                                     type="text"
                                     placeholder='Nombre'
@@ -72,7 +72,7 @@ const CrearUsuario = () => {
                                     </div>
                                 )}
                             </div>
-                            <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-8  mx-auto">
+                            <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-7  mx-auto">
                                 <input
                                     type="text"
                                     placeholder='Apellido'
@@ -91,7 +91,7 @@ const CrearUsuario = () => {
                                     </div>
                                 )}
                             </div>
-                            <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-8  mx-auto">
+                            <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-7  mx-auto">
                                 <input
                                     type="text"
                                     placeholder='Documento'
@@ -110,7 +110,7 @@ const CrearUsuario = () => {
                                     </div>
                                 )}
                             </div>
-                            <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-8  mx-auto">
+                            <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-7  mx-auto">
                                 <input
                                     type="text"
                                     placeholder='Correo Electrónico'
@@ -133,7 +133,7 @@ const CrearUsuario = () => {
                                     </div>
                                 )}
                             </div>
-                            <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-8  mx-auto">
+                            <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-7  mx-auto">
                                 <input
                                     type="text"
                                     placeholder='Piso'
@@ -152,7 +152,7 @@ const CrearUsuario = () => {
                                     </div>
                                 )}
                             </div>
-                            <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-8  mx-auto">
+                            <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-7  mx-auto">
                                 <input
                                     type="text"
                                     placeholder='Puerta'
@@ -171,7 +171,7 @@ const CrearUsuario = () => {
                                     </div>
                                 )}
                             </div>
-                            <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-8  mx-auto">
+                            <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-7  mx-auto">
                                 <input
                                     type="text"
                                     placeholder='Baulera'
@@ -190,7 +190,7 @@ const CrearUsuario = () => {
                                     </div>
                                 )}
                             </div>
-                            <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-8  mx-auto mt-1">
+                            <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-7  mx-auto mt-1">
                                 <select className="form-select mt-2 mb-2 pt-2 pb-2"
                                     {...register("tipo", { required: true })}
                                     id="tipo"
@@ -215,6 +215,9 @@ const CrearUsuario = () => {
                                 )}
                             </button>
                         </form>
+                    </div>
+                    <div className="footerAdministrador">
+                        <h3 className='fs-4 text-center mt-3'>Desarrollado por Uppering</h3>
                     </div>
                 </div>
             </div>
