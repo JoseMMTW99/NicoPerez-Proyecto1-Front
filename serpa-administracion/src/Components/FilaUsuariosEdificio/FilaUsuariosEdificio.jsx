@@ -9,31 +9,34 @@ function FilaUsuariosEdificio(usuario) {
     const [isLoading, setIsLoading] = useState(false);
 
     const downloadPdf = async () => {
-        setIsLoading(true);
-        try {
-          const response = await axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/uploads/getpdf/${usuario.usuario._id}`, {
-            responseType: 'blob',
-          });
-      
-          if(response.status === 200){
-            const date = new Date();
-            const month = new Intl.DateTimeFormat('es-ES', { month: 'long' }).format(date);
-            const filename = `Comprobante Serpa ${usuario.usuario.name} ${month}.pdf`;
-            const url = window.URL.createObjectURL(new Blob([response.data]));
-            const link = document.createElement('a');
-            link.href = url;
-            link.setAttribute('download', filename);
-            document.body.appendChild(link);
-            link.click();
-            setIsLoading(false);
-          } else if (response.status === 206){
-            setIsLoading(false);
-            setError(true)
-          }
-        } catch (error) {
-          console.log(error);
+      setIsLoading(true);
+      try {
+        const response = await axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/uploads/getpdf/${usuario.usuario._id}`, {
+          responseType: 'blob',
+        });
+    
+        if (response.status === 200) {
+          const date = new Date();
+          const month = new Intl.DateTimeFormat('es-ES', { month: 'long' }).format(date);
+    
+          const fileExtension = response.data.type.split('/')[1];
+    
+          const downloadFilename = `Comprobante Serpa ${usuario.usuario.name} ${month}.${fileExtension}`;
+          const url = window.URL.createObjectURL(new Blob([response.data]));
+          const link = document.createElement('a');
+          link.href = url;
+          link.setAttribute('download', downloadFilename);
+          document.body.appendChild(link);
+          link.click();
+          setIsLoading(false);
+        } else if (response.status === 206) {
+          setIsLoading(false);
+          setError(true);
         }
-      };
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
     return (
         <>

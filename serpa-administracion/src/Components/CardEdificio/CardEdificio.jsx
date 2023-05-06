@@ -5,9 +5,9 @@ import './cardEdificio.css'
 function CardEdificio(edificio) {
 
     const irAEdificio = () => {
-        localStorage.setItem('edificio', edificio.edificio.name)
-        window.location.replace('/edificio')
-    }
+        const edificioName = edificio.edificio.name;
+        window.location.replace(`/edificio/${edificioName}`);
+      };
 
     return (
         <>

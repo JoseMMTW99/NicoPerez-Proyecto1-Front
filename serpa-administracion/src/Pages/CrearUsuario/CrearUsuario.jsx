@@ -1,23 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react'
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { createRouter } from '@remix-run/router';
+import { useParams } from 'react-router-dom';
 import './crearUsuario.css'
 
 const CrearUsuario = () => {
 
     const [loading, setLoading] = useState(false);
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const edificio = localStorage.getItem('edificio')
-
-    if (edificio === null) {
-        window.location.replace('/Administracion')
-    }
-
+    const { edificioName } = useParams();
+    const [edificios, setEdificios] = useState([]);
+    const [edificio, setEdificio] = useState(null);
     const tokenAdmin = localStorage.getItem('token')
+
     if (tokenAdmin === null) {
         window.location.replace('/')
     }
+
+    useEffect(() => {
+        const response = axios
+          .get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/edificio/get-edificio`)
+          .then((response) => {
+            setEdificios(response.data);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      }, [tokenAdmin]);
+
+    useEffect(() => {
+    const selectedEdificio = edificios.find((e) => e.name === edificioName);
+    setEdificio(selectedEdificio);
+    }, [edificios, edificioName]);
 
     const onSubmit = async (data) => {
         setLoading(true);
@@ -28,7 +43,7 @@ const CrearUsuario = () => {
                 surname: data.surname.trim(),
                 email: data.email.trim().toLowerCase(),
                 dni: data.dni.trim(),
-                edificio: edificio,
+                edificio: edificioName,
                 piso: data.piso.trim(),
                 puerta: data.puerta.trim(),
                 tipo: data.tipo,
@@ -47,8 +62,9 @@ const CrearUsuario = () => {
 
     return (
         <>
+        {edificio ? (
             <div className="container-fluid container-body">
-                <h1 className='text-center mt-5 text-dark'>{edificio}</h1>
+                <h1 className='text-center mt-5 text-white'>{edificioName}</h1>
                 <div className="row">
                     <div className=' col-11 col-sm-11 col-md-8 col-lg-6 col-xl-5 col-xxl-4 container-crear-usuario pt-2 pb-2'>
                         <h3 className='text-center mt-2 mb-4 text-white'>Nuevo Usuario</h3>
@@ -221,6 +237,13 @@ const CrearUsuario = () => {
                     </div>
                 </div>
             </div>
+        ) : (
+            <>
+                <div className='mx-auto text-center mt-5'>
+                    <a href='/Administracion' className=''><button className="btn-edificio-2 mt-2 ms-2">Volver a Administración</button></a>
+                </div>
+            </>
+        )}
         </>
     )
 }

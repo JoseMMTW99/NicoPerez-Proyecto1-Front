@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom';
 import axios from 'axios'
 import FilaUsuariosEdificio from '../../Components/FilaUsuariosEdificio/FilaUsuariosEdificio'
 import './usuariosEdificio.css'
@@ -7,24 +8,46 @@ const UsuariosEdificio = () =>{
 
     const [usuarios, setUsuarios] = useState([])
     const [usuariosPrint, setUsuariosPrint] = useState([])
-    const edificio = localStorage.getItem('edificio')
+    const { edificioName } = useParams();
+    const [edificios, setEdificios] = useState([]);
+    const [edificio, setEdificio] = useState(null);
 
     const tokenAdmin = localStorage.getItem('token')
     if (tokenAdmin === null) {
         window.location.replace('/')
     }
 
+    const volverAdmin = () => {
+        window.location.replace('/Administracion')
+    }
+
+    useEffect(() => {
+        const response = axios
+          .get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/edificio/get-edificio`)
+          .then((response) => {
+            setEdificios(response.data);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      }, [tokenAdmin]);
+
+    useEffect(() => {
+    const selectedEdificio = edificios.find((e) => e.name === edificioName);
+    setEdificio(selectedEdificio);
+    }, [edificios, edificioName]);
+
     useEffect(() =>{
         const response = axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/users/obtener-users`)
         .then((response) =>{
-            const filteredUsuarios = response.data.filter((usuario) => usuario.edificio === edificio);
+            const filteredUsuarios = response.data.filter((usuario) => usuario.edificio === edificioName);
             setUsuarios(filteredUsuarios);
             setUsuariosPrint(filteredUsuarios);
         })
         .catch((error) =>{
             console.error(error);
         })
-    }, [edificio])
+    }, [edificioName])
 
     const searchCoinciden = (busqueda) => {
         const resultados = usuarios.filter(
@@ -40,11 +63,16 @@ const UsuariosEdificio = () =>{
         setUsuariosPrint(resultados);
       };
 
+    const crearUsuario = () => {
+        window.location.replace(`/CrearUsuario/${edificioName}`);
+    };
+
     return(
         <>
+        {edificio ? (
             <div className='d-flex justify-content-center m-5'>
                 <div className="pt-5 pb-5 w-100">
-                    <h1 className='text-center mb-3 text-white tituloEdificio'>{edificio}</h1>
+                    <h1 className='text-center mb-3 text-white tituloEdificio'>{edificioName}</h1>
                     <div className="col-11 col-sm-11 col-md-10 col-lg-7 col-xl-7 col-xxl-7 mx-auto">
                         <div className="input-group mb-3">
                             <input
@@ -82,10 +110,17 @@ const UsuariosEdificio = () =>{
                             </table>
                         </div>
                     </div>
-                        <a href='/CrearUsuario'><button className="btn-edificio mt-2">Crear usuario</button></a>
+                        <button className="btn-edificio mt-2" onClick={crearUsuario}>Crear usuario</button>
                         <a href='/Administracion'><button className="btn-edificio-2 mt-2 ms-2">Volver a Administración</button></a>
                 </div>
             </div>
+        ) : (
+            <>
+                <div className='mx-auto text-center mt-5'>
+                    <a href='/Administracion' className=''><button className="btn-edificio-2 mt-2 ms-2">Volver a Administración</button></a>
+                </div>
+            </>
+          )}
         </>
     )
 }

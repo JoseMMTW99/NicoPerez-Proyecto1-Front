@@ -31,10 +31,15 @@ const downloadPdf = async () => {
       responseType: 'blob',
     });
 
-    if(response.status === 200){
+    if (response.status === 200) {
       const date = new Date();
       const month = new Intl.DateTimeFormat('es-ES', { month: 'long' }).format(date);
-      const filename = `Comprobante Serpa ${users.name} ${month}.pdf`;
+
+      const contentDisposition = response.headers['content-disposition'];
+      const filenameMatch = contentDisposition.match(/filename[^;=\n]*="?(.[^"\n]*).?/);
+      const fileExtension = filenameMatch && filenameMatch.length > 1 ? filenameMatch[1].split('.').pop() : '';
+
+      const filename = `Comprobante Serpa ${users.name} ${month}.${fileExtension}`;
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement('a');
       link.href = url;
@@ -42,9 +47,9 @@ const downloadPdf = async () => {
       document.body.appendChild(link);
       link.click();
       setIsLoading(false);
-    } else if (response.status === 206){
+    } else if (response.status === 206) {
       setIsLoading(false);
-      setError(true)
+      setError(true);
     }
   } catch (error) {
     console.log(error);

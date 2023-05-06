@@ -20,8 +20,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Inicio />} />
         <Route path="/Administracion" element={<Administrador />} />
-        <Route path="/CrearUsuario" element={<CrearUsuario   />} />
-        <Route path="/Edificio" element={<UsuariosEdificio   />} />
+        <Route path="/CrearUsuario/:edificioName" element={<CrearUsuario   />} />
+        <Route path="/edificio/:edificioName" element={<UsuariosEdificio />} />
         <Route path="/Perfil" element={<Perfil />} />
         <Route path="/CambiarContraseña" element={<CambiarContraseña />} />
         <Route path="/CrearEdificio" element={<CrearEdificio />} />
