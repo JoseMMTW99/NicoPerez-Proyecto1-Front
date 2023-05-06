@@ -44,7 +44,7 @@ const UsuariosEdificio = () =>{
         <>
             <div className='d-flex justify-content-center m-5'>
                 <div className="pt-5 pb-5 w-100">
-                    <h1 className='text-center'>{edificio}</h1>
+                    <h1 className='text-center mb-3 text-white tituloEdificio'>{edificio}</h1>
                     <div className="col-11 col-sm-11 col-md-10 col-lg-7 col-xl-7 col-xxl-7 mx-auto">
                         <div className="input-group mb-3">
                             <input

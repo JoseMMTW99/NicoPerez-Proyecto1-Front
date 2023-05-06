@@ -1,0 +1,8 @@
+.botonDescargarAdmin{
+    border: 1px solid #dc47ef;
+    background-color: #dc47ef ;
+    color: white;
+    border-radius: 10px;
+    padding-inline: 3rem;
+    font-size: 1.3rem;
+}

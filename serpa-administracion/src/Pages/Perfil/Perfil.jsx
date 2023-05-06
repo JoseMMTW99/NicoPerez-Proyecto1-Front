@@ -30,7 +30,6 @@ const downloadPdf = async () => {
     const response = await axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/uploads/getpdf/${idUser}`, {
       responseType: 'blob',
     });
-    console.log(response);
 
     if(response.status === 200){
       const date = new Date();
@@ -74,7 +73,7 @@ const cambiarContraseña = () => {
               <li>Piso: {users.piso}</li>
               <li>Puerta: {users.puerta}</li>
             </ul>
-            {isLoading ? ( // show spinner if loading is true
+            {isLoading ? (
                 <div className="d-flex justify-content-center mt-3">
                   <div className="spinner-border" role="status">
                     <span className="visually-hidden">Descargando...</span>

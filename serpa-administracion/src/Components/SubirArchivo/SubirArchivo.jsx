@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import './subirArchivo.css'
 
 function SubirArchivo(usuario) {
   const [loading, setLoading] = useState(false);
@@ -47,7 +48,7 @@ function SubirArchivo(usuario) {
             className="form-control"
             {...register("file", { required: true })}
           />
-          <button type="submit" className={success ? "btn btn-success" : "btn btn-primary"}>
+          <button type="submit" className={success ? "btn btn-success" : "btn btn-personalizado"}>
             {loading && (
               <span
                 className="spinner-border spinner-border-sm me-2"
@@ -67,7 +68,7 @@ function SubirArchivo(usuario) {
           </button>
         </div>
         {errors.file && (
-          <span className="text-danger">Campo requerido.</span>
+          <span className="text-danger fs-6">Seleccione un archivo.</span>
         )}
         {error && <p className="text-danger">{errorMessage}</p>}
       </form>
