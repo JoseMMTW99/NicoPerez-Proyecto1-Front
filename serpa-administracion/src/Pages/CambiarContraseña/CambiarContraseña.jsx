@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import './cambiarContraseña.css'
 
 // CAMBIAR LA CONTRASEÑA MEDIANTE PARAMETRO DE URL
 
@@ -26,73 +27,85 @@ const CambiarContraseña = () => {
     };
 
     return (
-        <div className="d-flex align-items-center">
-            <div className="container">
-                <div className="row justify-content-center p-5 ms-2 mx-2">
-                    <h1 className='text-center text-white p-5'>Cambiar contraseña</h1>                    
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        <div className="form-group mt-3">
-                            <input
-                                type="password"
-                                className={`form-control form-control-lg ${errors.password ? "is-invalid" : ""} mt-2`}
-                                placeholder="Escriba su contraseña"
-                                {...register("password", { 
-                                    required: true,
-                                    pattern: /^[a-z0-9]{6,25}$/i,
-                                    maxLength: 25, 
-                                    minLength: 6, 
-                                })}
-                            />
-                            {errors.password && errors.password.type === "required" && (
-                                <div className="invalid-feedback">Contraseña requerida</div>
-                            )}
-                            {errors.password && errors.password.type === "pattern" && (
-                                <div className="invalid-feedback">Contraseña invalida</div>
-                            )}
-                            {errors.password && errors.password.type === "minLength" && (
-                                <div className="invalid-feedback">
-                                    No puede contener menos de 6 caracteres
-                                </div>
-                            )}
-                            {errors.password && errors.password.type === "maxLength" && (
-                                <div className="invalid-feedback">
-                                    No puede contener más de 25 caracteres
-                                </div>
-                            )}
-                        </div>
-                        <div className="form-group mt-3">
-                            <input
-                                type="password"
-                                className={`form-control form-control-lg ${errors.password2 ? "is-invalid" : ""} mt-2`}
-                                placeholder="Confirmar contraseña"
-                                {...register("password2", {
-                                    required: true,
-                                    validate: value => value === password || "Las contraseñas no coinciden."
-                                })}
-                            />
-                            {errors.password2 && errors.password2.type === "required" && (
-                                <div className="invalid-feedback">Contraseña requerida</div>
-                            )}
-                            {errors.password2 && errors.password2.message && (
-                                <div className="invalid-feedback">{errors.password2.message}</div>
-                            )}
-                        </div>
-                        <button className="btn-crear-usuario mt-3 mb-3" type="submit">
-                        {loading ? (
-                            <span
-                                className="spinner-border spinner-border-sm mr-2"
-                                role="status"
-                                aria-hidden="true"
-                            ></span>
-                        ) : (
-                            "Cambiar"
-                        )}
+        <>
+            <div className="container-fluid container-body">
+                <div className='divBotonAgregarEdificio'>
+                    <a href={`/Administracion`}>
+                        <button className="botonAgregarEdificio m-5 px-4">
+                            <i className="bi bi-arrow-left-short"></i>
                         </button>
-                    </form>
-                    <a href='/Perfil' className='mt-5'><button className="w-100 btn btn-dark rounded p-2 btn-lg">Volver al inicio</button></a>
+                    </a>
+                </div>
+                <div className="row">
+                    <div className='col-11 col-sm-11 col-md-8 col-lg-6 col-xl-5 col-xxl-4 container-cambiar-contraseña pt-2 pb-2'>
+                        <h3 className='text-center mt-2 mb-4 text-white'>Cambiar Contraseña</h3>
+
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
+                                <input
+                                    type="password"
+                                    className={`form-control mt-2 mb-2 pt-2 pb-2 ${errors.password ? "is-invalid" : ""} mt-2`}
+                                    placeholder="Escriba su contraseña"
+                                    {...register("password", { 
+                                        required: true,
+                                        pattern: /^[a-z0-9]{6,25}$/i,
+                                        maxLength: 25, 
+                                        minLength: 6, 
+                                    })}
+                                />
+                                {errors.password && errors.password.type === "required" && (
+                                    <div className="invalid-feedback">Contraseña requerida</div>
+                                )}
+                                {errors.password && errors.password.type === "pattern" && (
+                                    <div className="invalid-feedback">Contraseña invalida</div>
+                                )}
+                                {errors.password && errors.password.type === "minLength" && (
+                                    <div className="invalid-feedback">
+                                        No puede contener menos de 6 caracteres
+                                    </div>
+                                )}
+                                {errors.password && errors.password.type === "maxLength" && (
+                                    <div className="invalid-feedback">
+                                        No puede contener más de 25 caracteres
+                                    </div>
+                                )}
+                            </div>
+                            <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
+                                <input
+                                    type="password"
+                                    className={`form-control mt-2 mb-2 pt-2 pb-2 ${errors.password2 ? "is-invalid" : ""} mt-2`}
+                                    placeholder="Confirmar contraseña"
+                                    {...register("password2", {
+                                        required: true,
+                                        validate: value => value === password || "Las contraseñas no coinciden."
+                                    })}
+                                />
+                                {errors.password2 && errors.password2.type === "required" && (
+                                    <div className="invalid-feedback">Contraseña requerida</div>
+                                )}
+                                {errors.password2 && errors.password2.message && (
+                                    <div className="invalid-feedback">{errors.password2.message}</div>
+                                )}
+                            </div>
+                            <button className="btn-crear-usuario mt-3 mb-3">
+                                {loading ? (
+                                    <span
+                                        className="spinner-border spinner-border-sm mr-2"
+                                        role="status"
+                                        aria-hidden="true"
+                                    ></span>
+                                ) : (
+                                    "Agregar"
+                                )}
+                            </button>
+                        </form>
+                    </div>
+                    <div className="footerAdministrador">
+                        <h3 className='fs-4 text-center mt-3'>Desarrollado por Uppering</h3>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

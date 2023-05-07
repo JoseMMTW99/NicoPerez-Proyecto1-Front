@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import FilaUsuariosEdificio from '../../Components/FilaUsuariosEdificio/FilaUsuariosEdificio'
 import './usuariosEdificio.css'
@@ -17,6 +17,11 @@ const UsuariosEdificio = () =>{
     if (tokenAdmin === undefined) {
         window.location.replace('/')
     }
+
+    // const BackButton = () => {
+    //     const history = useNavigate();
+    //     console.log(history.location);
+    // }
 
     useEffect(() => {
         const response = axios
@@ -60,22 +65,17 @@ const UsuariosEdificio = () =>{
         setUsuariosPrint(resultados);
       };
 
-    const crearUsuario = () => {
-        window.location.replace(`/CrearUsuario/${edificioName}`);
-    };
-
     return(
         <>
         {edificio ? (
+        <>
+            <div className='divBotonAgregarEdificio m-5'>
+                <button className="botonAgregarEdificio px-4">
+                    <i className="bi bi-arrow-left-short"></i>
+                </button>
+            </div>
             <div className='d-flex justify-content-center m-5'>
-                <div className='divBotonAgregarEdificio'>
-                    <a href={`/Administracion`}>
-                        <button className="botonAgregarEdificio mt-4 px-4">
-                            <i className="bi bi-arrow-left-short"></i>
-                        </button>
-                    </a>
-                </div>
-                <div className="pt-5 pb-5 w-100">
+                <div className="pb-5 w-100">
                     <h1 className='text-center mb-3 text-white tituloEdificio'>{edificioName}</h1>
                     <div className="col-11 col-sm-11 col-md-10 col-lg-7 col-xl-7 col-xxl-7 mx-auto">
                         <div className="input-group mb-3">
@@ -126,6 +126,7 @@ const UsuariosEdificio = () =>{
                     </div>
                 </div>
             </div>
+        </>
         ) : (
             <>
                 <div className='mx-auto text-center mt-5'>
