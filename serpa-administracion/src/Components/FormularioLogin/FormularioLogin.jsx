@@ -7,6 +7,7 @@ import emailLogo from '../../assets/email.png'
 import passwordLogo from '../../assets/password.png'
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Cookies from 'js-cookie'
 
 function FormularioLogin() {
     const [loading, setLoading] = useState(false);
@@ -25,9 +26,9 @@ function FormularioLogin() {
             }
         );
         if (respuesta.status === 200) {
-            localStorage.setItem("id", respuesta.data.user._id);
+            Cookies.set('id', respuesta.data.user._id, { expires: 365 });
             if (respuesta.data.user.role === "admin") {
-                localStorage.setItem("token", respuesta.data.token);
+                Cookies.set('token', respuesta.data.token, { expires: 365 });
                 window.location.replace("/Administracion");
             } else {
                 window.location.replace("/Perfil");

@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios'
 import FilaUsuariosEdificio from '../../Components/FilaUsuariosEdificio/FilaUsuariosEdificio'
 import './usuariosEdificio.css'
+import Cookies from 'js-cookie'
 
 const UsuariosEdificio = () =>{
 
@@ -12,8 +13,8 @@ const UsuariosEdificio = () =>{
     const [edificios, setEdificios] = useState([]);
     const [edificio, setEdificio] = useState(null);
 
-    const tokenAdmin = localStorage.getItem('token')
-    if (tokenAdmin === null) {
+    const tokenAdmin = Cookies.get('token');
+    if (tokenAdmin === undefined) {
         window.location.replace('/')
     }
 

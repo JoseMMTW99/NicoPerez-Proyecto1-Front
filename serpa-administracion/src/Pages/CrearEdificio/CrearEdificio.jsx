@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { createRouter } from '@remix-run/router';
+import Cookies from 'js-cookie'
 
 const CrearEdificio = () => {
 
@@ -10,8 +11,8 @@ const CrearEdificio = () => {
 
     const name = watch("name", "");
 
-    const tokenAdmin = localStorage.getItem('token')
-    if (tokenAdmin === null) {
+    const tokenAdmin = Cookies.get('token');
+    if (tokenAdmin === undefined) {
         window.location.replace('/')
     }
 

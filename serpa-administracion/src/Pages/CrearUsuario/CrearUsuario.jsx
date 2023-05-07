@@ -4,6 +4,7 @@ import axios from "axios";
 import { createRouter } from '@remix-run/router';
 import { useParams } from 'react-router-dom';
 import './crearUsuario.css'
+import Cookies from 'js-cookie'
 
 const CrearUsuario = () => {
 
@@ -12,9 +13,10 @@ const CrearUsuario = () => {
     const { edificioName } = useParams();
     const [edificios, setEdificios] = useState([]);
     const [edificio, setEdificio] = useState(null);
-    const tokenAdmin = localStorage.getItem('token')
 
-    if (tokenAdmin === null) {
+
+    const tokenAdmin = Cookies.get('token');
+    if (tokenAdmin === undefined) {
         window.location.replace('/')
     }
 

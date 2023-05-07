@@ -3,23 +3,25 @@ import logo from '../../assets/LogoBlanco.png'
 import PerfilNavBar from '../PerfilNavBar/PerfilNavBar'
 import './navBar.css'
 import axios from 'axios'
+import Cookies from 'js-cookie'
 
 function NavBar() {
 
     const [users, setUsers] = useState({})
-    const idUser = localStorage.getItem('id')
-    if (idUser === null) {
+
+    const idUser = Cookies.get('id');
+    if (idUser === undefined) {
         window.location.replace('/')
     }
 
     const cerrarSesion = () => {
-        localStorage.removeItem('idUsuarioLogeado');
-        localStorage.removeItem('token');
+        Cookies.remove('id');
+        Cookies.remove('token');
         window.location.replace('/')
     }
 
     useEffect(() => {
-        if (idUser !== null) {
+        if (idUser !== undefined) {
             axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/users/${idUser}`)
                 .then((response) => {
                     setUsers(response.data);

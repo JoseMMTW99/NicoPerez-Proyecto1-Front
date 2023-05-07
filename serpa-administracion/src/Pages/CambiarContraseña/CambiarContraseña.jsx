@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
+// CAMBIAR LA CONTRASEÑA MEDIANTE PARAMETRO DE URL
+
 const CambiarContraseña = () => {
 
     const [loading, setLoading] = useState(false);
@@ -9,7 +11,6 @@ const CambiarContraseña = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
     const password = watch("password", "");
-    const idUser = localStorage.getItem('id')
 
     const onSubmit = async (data) => {
         setLoading(true);

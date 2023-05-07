@@ -3,21 +3,21 @@ import './administrador.css'
 import axios from 'axios'
 import CardEdificio from '../../Components/CardEdificio/CardEdificio'
 import icono from '../../assets/building.png'
-
+import Cookies from 'js-cookie'
 
 const Administrador = () => {
 
     const [edificios, setEdificios] = useState([])
 
-    const tokenAdmin = localStorage.getItem('token')
-    if (tokenAdmin === null) {
+    const tokenAdmin = Cookies.get('token');
+    if (tokenAdmin === undefined) {
         window.location.replace('/')
     }
   
     const cerrarSesion = () => {
-      localStorage.removeItem('idUsuarioLogeado');
-      localStorage.removeItem('token');
-      window.location.replace('/')
+        Cookies.remove('id');
+        Cookies.remove('token');
+        window.location.replace('/')
     }
   
     useEffect(() =>{

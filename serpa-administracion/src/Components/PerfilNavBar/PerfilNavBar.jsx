@@ -1,12 +1,13 @@
 import React from 'react'
 import imagenPerfil from '../../assets/perfilColor.png';
 import './perfilNavBar.css'
+import Cookies from 'js-cookie'
 
 function PerfilNavBar(usuario) {
 
   const cerrarSesion = () => {
-    localStorage.removeItem('idUsuarioLogeado');
-    localStorage.removeItem('token');
+    Cookies.remove('id');
+    Cookies.remove('token');
     window.location.replace('/')
   }
 
