@@ -66,7 +66,14 @@ const CrearUsuario = () => {
         <>
         {edificio ? (
             <div className="container-fluid container-body">
-                <h1 className='text-center mt-5 text-white'>{edificioName}</h1>
+                <div className='divBotonAgregarEdificio'>
+                    <a href={`/Administracion`}>
+                        <button className="botonAgregarEdificio m-5 px-4">
+                            <i className="bi bi-arrow-left-short"></i>
+                        </button>
+                    </a>
+                </div>
+                <h1 className='text-center text-white'>{edificioName}</h1>
                 <div className="row">
                     <div className=' col-11 col-sm-11 col-md-8 col-lg-6 col-xl-5 col-xxl-4 container-crear-usuario pt-2 pb-2'>
                         <h3 className='text-center mt-2 mb-4 text-white'>Nuevo Usuario</h3>

@@ -18,10 +18,6 @@ const UsuariosEdificio = () =>{
         window.location.replace('/')
     }
 
-    const volverAdmin = () => {
-        window.location.replace('/Administracion')
-    }
-
     useEffect(() => {
         const response = axios
           .get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/edificio/get-edificio`)
@@ -72,6 +68,13 @@ const UsuariosEdificio = () =>{
         <>
         {edificio ? (
             <div className='d-flex justify-content-center m-5'>
+                <div className='divBotonAgregarEdificio'>
+                    <a href={`/Administracion`}>
+                        <button className="botonAgregarEdificio mt-4 px-4">
+                            <i className="bi bi-arrow-left-short"></i>
+                        </button>
+                    </a>
+                </div>
                 <div className="pt-5 pb-5 w-100">
                     <h1 className='text-center mb-3 text-white tituloEdificio'>{edificioName}</h1>
                     <div className="col-11 col-sm-11 col-md-10 col-lg-7 col-xl-7 col-xxl-7 mx-auto">
@@ -111,8 +114,16 @@ const UsuariosEdificio = () =>{
                             </table>
                         </div>
                     </div>
-                        <button className="btn-edificio mt-2" onClick={crearUsuario}>Crear usuario</button>
-                        <a href='/Administracion'><button className="btn-edificio-2 mt-2 ms-2">Volver a Administración</button></a>
+                    <div className='divBotonAgregarEdificio mt-4'>
+                        <a href={`/Crear/Usuario/${edificioName}`}>
+                            <button className="botonAgregarEdificio mt-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-plus" viewBox="0 0 16 16">
+                                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                </svg>
+                                Crear usuario
+                            </button>
+                        </a>
+                    </div>
                 </div>
             </div>
         ) : (
@@ -127,33 +138,3 @@ const UsuariosEdificio = () =>{
 }
 
 export default UsuariosEdificio;
-
-
-{/* <div className="" style={{ height: "100vh" }}>
-<div className="container">
-    <div className="p-5 ms-2 mx-2">
-        <h1 className='text-center p-3'>{edificio}</h1>
-                                <table className="table table-responsive text-center">
-                                    <thead>
-                                        <tr>
-                                            <th className="fs-4">Cliente</th>
-                                            <th className="fs-4">Correo</th>
-                                            <th className="fs-4">Documento</th>
-                                            <th className="fs-4">Piso</th>
-                                            <th className="fs-4">Puerta</th>
-                                            <th className="fs-4">Tipo</th>
-                                            <th className="fs-4">Baulera</th>
-                                            <th className="fs-4">Comprobante</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {
-                                        usuarios.sort((a, b) => a.piso - b.piso).map((usuario) => ( <FilaUsuariosEdificio key={usuario._id} usuario={usuario}/>))
-                                        }
-                                    </tbody>
-                                </table>
-        <a href='/CrearUsuario'><button className="w-100 btn btn-dark rounded p-2 mt-4 btn-lg">Crear usuario</button></a>
-        <a href='/Administracion'><button className="w-100 btn btn-dark rounded p-2 mt-3 btn-lg">Volver a Administración</button></a>
-    </div>
-</div>
-</div> */}

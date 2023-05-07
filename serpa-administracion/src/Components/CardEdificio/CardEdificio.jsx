@@ -6,7 +6,7 @@ function CardEdificio(edificio) {
 
     const irAEdificio = () => {
         const edificioName = edificio.edificio.name;
-        window.location.replace(`/edificio/${edificioName}`);
+        window.location.replace(`/Edificio/${edificioName}`);
       };
 
     return (

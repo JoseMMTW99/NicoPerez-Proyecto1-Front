@@ -20,11 +20,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Inicio />} />
         <Route path="/Administracion" element={<Administrador />} />
-        <Route path="/CrearUsuario/:edificioName" element={<CrearUsuario   />} />
-        <Route path="/edificio/:edificioName" element={<UsuariosEdificio />} />
+        <Route path="/Crear/Usuario/:edificioName" element={<CrearUsuario   />} />
+        <Route path="/Edificio/:edificioName" element={<UsuariosEdificio />} />
         <Route path="/Perfil" element={<Perfil />} />
         <Route path="/CambiarContraseña" element={<CambiarContraseña />} />
-        <Route path="/CrearEdificio" element={<CrearEdificio />} />
+        <Route path="/Crear/Edificio" element={<CrearEdificio />} />
       </Routes>
     </>
   );
