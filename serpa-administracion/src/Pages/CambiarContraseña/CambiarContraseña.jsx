@@ -26,13 +26,12 @@ const CambiarContraseña = () => {
     };
 
     return (
-        <div className="d-flex align-items-center" style={{ height: "100vh" }}>
+        <div className="d-flex align-items-center">
             <div className="container">
                 <div className="row justify-content-center p-5 ms-2 mx-2">
-                    <h1 className='text-center p-3'>Cambiar contraseña</h1>                    
+                    <h1 className='text-center text-white p-5'>Cambiar contraseña</h1>                    
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-group mt-3">
-                            <label htmlFor="password">Nueva contraseña</label>
                             <input
                                 type="password"
                                 className={`form-control form-control-lg ${errors.password ? "is-invalid" : ""} mt-2`}
@@ -62,11 +61,10 @@ const CambiarContraseña = () => {
                             )}
                         </div>
                         <div className="form-group mt-3">
-                            <label htmlFor="password2">Repetir contraseña</label>
                             <input
                                 type="password"
                                 className={`form-control form-control-lg ${errors.password2 ? "is-invalid" : ""} mt-2`}
-                                placeholder="Escriba su contraseña"
+                                placeholder="Confirmar contraseña"
                                 {...register("password2", {
                                     required: true,
                                     validate: value => value === password || "Las contraseñas no coinciden."
@@ -79,7 +77,7 @@ const CambiarContraseña = () => {
                                 <div className="invalid-feedback">{errors.password2.message}</div>
                             )}
                         </div>
-                        <button className="w-100 btn btn-dark rounded p-2 mt-3 btn-lg" type="submit">
+                        <button className="btn-crear-usuario mt-3 mb-3" type="submit">
                         {loading ? (
                             <span
                                 className="spinner-border spinner-border-sm mr-2"
