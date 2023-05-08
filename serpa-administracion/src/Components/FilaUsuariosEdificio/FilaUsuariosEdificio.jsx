@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import SubirArchivo from '../SubirArchivo/SubirArchivo'
 import axios from 'axios'
-import './FilaUsuariosEdificio.css'
+import './filaUsuariosEdificio.css'
 
 function FilaUsuariosEdificio(usuario) {
 
