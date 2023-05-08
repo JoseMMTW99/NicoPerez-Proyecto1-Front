@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { createRouter } from '@remix-run/router';
 import Cookies from 'js-cookie'
-import './CrearEdificio.css'
+import './crearEdificio.css'
 
 const CrearEdificio = () => {
 
