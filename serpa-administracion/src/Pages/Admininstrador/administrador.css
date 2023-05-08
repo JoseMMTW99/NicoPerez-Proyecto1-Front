@@ -17,6 +17,14 @@
     padding-bottom: 4rem;
 }
 
+.footerAdministrador {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+  
+
 @media (max-width: 576px){
     .cajaEdificiosBorde{
         gap: 0%;

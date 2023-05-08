@@ -69,12 +69,14 @@ const UsuariosEdificio = () =>{
         <>
         {edificio ? (
         <>
-            <div className='divBotonAgregarEdificio m-5'>
-                <button className="botonAgregarEdificio px-4">
-                    <i className="bi bi-arrow-left-short"></i>
-                </button>
+            <div className='divBotonAgregarEdificio mt-4 ms-3'>
+                <a href={`/Administracion`}>
+                    <button className="botonAgregarEdificio px-4">
+                        <i className="bi bi-arrow-left-short"></i>
+                    </button>
+                </a>
             </div>
-            <div className='d-flex justify-content-center m-5'>
+            <div className='d-flex m-5'>
                 <div className="pb-5 w-100">
                     <h1 className='text-center mb-3 text-white tituloEdificio'>{edificioName}</h1>
                     <div className="col-11 col-sm-11 col-md-10 col-lg-7 col-xl-7 col-xxl-7 mx-auto">
@@ -134,6 +136,9 @@ const UsuariosEdificio = () =>{
                 </div>
             </>
           )}
+          <div className="footerAdministrador">
+            <h3 className='fs-4 text-center text-white'>Desarrollado por Uppering</h3>
+        </div>
         </>
     )
 }

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import './administrador.css'
 import axios from 'axios'
 import CardEdificio from '../../Components/CardEdificio/CardEdificio'
-import icono from '../../assets/building.png'
 import Cookies from 'js-cookie'
 
 const Administrador = () => {
@@ -53,10 +52,11 @@ const Administrador = () => {
                     </button>
                 </a>
             </div>
+
         </div>
-        {/* <div className="footerAdministrador">
-            <h3 className='fs-4'>Desarrollado por Uppering</h3>
-        </div> */}
+        <div className="footerAdministrador">
+            <h3 className='fs-4 text-center'>Desarrollado por Uppering</h3>
+        </div>
         </>
     )
 }
