@@ -2,30 +2,28 @@ import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { useParams } from 'react-router-dom';
 import axios from "axios";
-import './cambiarContraseña.css'
+import './cambiarContraseñaAdmin.css'
 
-// CAMBIAR LA CONTRASEÑA MEDIANTE PARAMETRO DE URL
-
-const CambiarContraseña = () => {
+const CambiarContraseñaAdmin = () => {
 
     const [loading, setLoading] = useState(false);
     const [errorMensaje, setErrorMensaje] = useState("");
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const { token } = useParams();
+    const { user } = useParams();
 
     const password = watch("password", "");
 
     const onSubmit = async (data) => {
         setLoading(true);
         const respuesta = await axios.post(
-            `http://localhost:8000/users/recuperar-password-token`,
+            `http://localhost:8000/users/recuperar-password-admin`,
             {
-                token: token,
+                id: user,
                 password:data.password
             }
         );
         if (respuesta.status === 200) {
-            window.location.replace('/')
+            window.location.replace('/Administracion')
         }
         setLoading(false);
     };
@@ -34,7 +32,7 @@ const CambiarContraseña = () => {
         <>
             <div className="container-fluid container-body">
                 <div className='divBotonVolverAtras'>
-                    <a href={`/`}>
+                    <a href={`/Administracion`}>
                         <button className="botonAgregarEdificio m-5 px-4">
                             <i className="bi bi-arrow-left-short"></i>
                         </button>
@@ -113,4 +111,4 @@ const CambiarContraseña = () => {
     )
 }
 
-export default CambiarContraseña;
+export default CambiarContraseñaAdmin;

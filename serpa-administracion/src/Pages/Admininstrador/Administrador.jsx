@@ -20,7 +20,7 @@ const Administrador = () => {
     }
   
     useEffect(() =>{
-        const response = axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/edificio/get-edificio`)
+        const response = axios.get(`http://localhost:8000/edificio/get-edificio`)
         .then((response) =>{
             setEdificios(response.data);
         })
@@ -42,7 +42,7 @@ const Administrador = () => {
                     edificios.sort((a, b) => (a.name > b.name) ? 1 : -1).map((edificio) => (<CardEdificio key={edificio._id} edificio={edificio} />))
                 }
             </div>
-            <div className='divBotonAgregarEdificio mt-4'>
+            <div className='divBotonVolverAtras mt-4'>
                 <a href='/Crear/Edificio'>
                     <button className="botonAgregarEdificio mt-4 ">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-plus" viewBox="0 0 16 16">

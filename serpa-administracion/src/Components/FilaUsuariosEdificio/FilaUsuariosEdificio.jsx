@@ -11,7 +11,7 @@ function FilaUsuariosEdificio(usuario) {
     const downloadPdf = async () => {
       setIsLoading(true);
       try {
-        const response = await axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/uploads/getpdf/${usuario.usuario._id}`, {
+        const response = await axios.get(`http://localhost:8000/uploads/getpdf/${usuario.usuario._id}`, {
           responseType: 'blob',
         });
     
@@ -64,6 +64,13 @@ function FilaUsuariosEdificio(usuario) {
                 {
                     error ? <div className='text-center text-muted fs-6'>¡No hay comprobante!</div> : <></>
                 }
+                </td>
+                <td className='border'>
+                  <a href={`/Administracion/Recuperar-contraseña/${usuario.usuario._id}`}>
+                    <button className="botonDescargarAdmin">
+                        <i className="bi bi-lock-fill"></i>
+                    </button>
+                  </a>
                 </td>
             </tr>
             
