@@ -11,7 +11,7 @@ function FilaUsuariosEdificio(usuario) {
     const downloadPdf = async () => {
       setIsLoading(true);
       try {
-        const response = await axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/uploads/getpdf/${usuario.usuario._id}`, {
+        const response = await axios.get(`http://localhost:8000/uploads/getpdf/${usuario.usuario._id}`, {
           responseType: 'blob',
         });
     

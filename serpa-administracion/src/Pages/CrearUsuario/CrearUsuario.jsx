@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { createRouter } from '@remix-run/router';
+import { useNavigate } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import './crearUsuario.css'
 import Cookies from 'js-cookie'
+
 
 const CrearUsuario = () => {
 
@@ -14,15 +16,20 @@ const CrearUsuario = () => {
     const [edificios, setEdificios] = useState([]);
     const [edificio, setEdificio] = useState(null);
 
+    const navigate = useNavigate();
 
     const tokenAdmin = Cookies.get('token');
     if (tokenAdmin === undefined) {
         window.location.replace('/')
     }
 
+    const handleGoBack = () => {
+        navigate(-1);
+      };
+
     useEffect(() => {
         const response = axios
-          .get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/edificio/get-edificio`)
+          .get(`http://localhost:8000/edificio/get-edificio`)
           .then((response) => {
             setEdificios(response.data);
           })
@@ -39,7 +46,7 @@ const CrearUsuario = () => {
     const onSubmit = async (data) => {
         setLoading(true);
         const respuesta = await axios.post(
-            `https://serpa-administracion-jose-martinez-teran.up.railway.app/users/crear-user`,
+            `http://localhost:8000/users/crear-user`,
             {
                 name: data.name.trim(),
                 surname: data.surname.trim(),
@@ -67,11 +74,9 @@ const CrearUsuario = () => {
         {edificio ? (
             <div>
                 <div className='divBotonAgregarEdificio'>
-                    <a href={`/Administracion`}>
-                        <button className="botonAgregarEdificio mt-4 ms-3 px-4">
-                            <i className="bi bi-arrow-left-short"></i>
-                        </button>
-                    </a>
+                    <button className="botonAgregarEdificio mt-4 ms-3 px-4" onClick={handleGoBack}>
+                        <i className="bi bi-arrow-left-short"></i>
+                    </button>
                 </div>
                 <h1 className='text-center text-dark'>{edificioName}</h1>
                 <div className="row">

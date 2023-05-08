@@ -19,10 +19,10 @@ function App() {
   return (
     <>
       {location.pathname === '/Administracion' && <NavBar />}
-      {location.pathname === '/Crear/Usuario/:edificioName' && <NavBar />}
-      {location.pathname === '/Edificio/:edificioName' && <NavBar />}
+      {location.pathname === '/Crear/Usuario/' && <NavBar />}
+      {location.pathname === '/Edificio/' && <NavBar />}
       {location.pathname === '/Perfil' && <NavBar />}
-      {location.pathname === '/Administracion/Recuperar-contraseña/:id' && <NavBar />}
+      {location.pathname === '/Administracion/Recuperar-contraseña/' && <NavBar />}
       {location.pathname === '/Crear/Edificio' && <NavBar />}
       <Routes>
         <Route path="/" element={<Inicio />} />
