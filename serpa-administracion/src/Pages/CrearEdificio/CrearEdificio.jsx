@@ -33,15 +33,21 @@ const CrearEdificio = () => {
     };
 
     return (
-        <div className="d-flex align-items-center" style={{ height: "100vh" }}>
+        <div className="d-flex align-items-center">
             <div className="container">
+                {/* <div className='divBotonAgregarEdificio'>
+                    <button className="botonAgregarEdificio mt-4 ms-3 px-4" onClick={handleGoBack}>
+                        <i className="bi bi-arrow-left-short"></i>
+                    </button>
+                </div> */}
                 <div className="row justify-content-center p-5 ms-2 mx-2">
-                    <h1 className='text-center p-3'>Crear edificio</h1>                    
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                            <div className="form-group">
-                                <label htmlFor="text">Nombre del Edificio</label>
+                    <div className=' col-11 col-sm-11 col-md-8 col-lg-6 col-xl-5 col-xxl-4 container-crear-usuario pt-2 pb-2'>
+                        <h1 className='text-center p-3'>Crear edificio</h1>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
                                 <input
                                     type="text"
+                                    placeholder='Nombre del Edificio'
                                     className={`form-control form-control-lg ${errors.name ? "is-invalid" : ""} mt-2`}
                                     {...register("name", {
                                         required: true,
@@ -57,36 +63,36 @@ const CrearEdificio = () => {
                                     </div>
                                 )}
                             </div>
-                            <div className="form-group mt-3">
-                            <label htmlFor="name2">Repetir nombre</label>
-                            <input
-                                type="name2"
-                                className={`form-control form-control-lg ${errors.name2 ? "is-invalid" : ""} mt-2`}
-                                {...register("name2", {
-                                    required: true,
-                                    validate: value => value === name || "Los nombres no coinciden."
-                                })}
-                            />
-                            {errors.name2 && errors.name2.type === "required" && (
-                                <div className="invalid-feedback">Nombre requerida</div>
-                            )}
-                            {errors.name2 && errors.name2.message && (
-                                <div className="invalid-feedback">{errors.name2.message}</div>
-                            )}
-                        </div>
-                        <button className="w-100 btn btn-dark rounded p-2 mt-3 btn-lg">
-                        {loading ? (
-                            <span
-                                className="spinner-border spinner-border-sm mr-2"
-                                role="status"
-                                aria-hidden="true"
-                            ></span>
-                        ) : (
-                            "Crear"
-                        )}
-                        </button>
-                    </form>
-                    <a href='/Administracion'><button className="w-100 btn btn-dark rounded p-2 mt-5 btn-lg">Volver a Administración</button></a>
+                            <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
+                                <input
+                                    type="name2"
+                                    placeholder='Repetir nombre'
+                                    className={`form-control form-control-lg ${errors.name2 ? "is-invalid" : ""} mt-2`}
+                                    {...register("name2", {
+                                        required: true,
+                                        validate: value => value === name || "Los nombres no coinciden."
+                                    })}
+                                />
+                                {errors.name2 && errors.name2.type === "required" && (
+                                    <div className="invalid-feedback">Nombre requerida</div>
+                                )}
+                                {errors.name2 && errors.name2.message && (
+                                    <div className="invalid-feedback">{errors.name2.message}</div>
+                                )}
+                            </div>
+                            <button className="btn-crear-usuario mt-3 mb-3">
+                                {loading ? (
+                                    <span
+                                        className="spinner-border spinner-border-sm mr-2"
+                                        role="status"
+                                        aria-hidden="true"
+                                    ></span>
+                                ) : (
+                                    "Crear"
+                                )}
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
