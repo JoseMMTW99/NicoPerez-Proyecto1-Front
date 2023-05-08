@@ -51,7 +51,7 @@ const CrearEdificio = () => {
         <div className="d-flex align-items-center mt-4">
             <div className="container">
                 <div className="row justify-content-center mx-2">
-                    <div className=' col-11 col-sm-11 col-md-8 col-lg-6 col-xl-5 col-xxl-4 container-crear-usuario pt-2 pb-2'>
+                    <div className=' col-11 col-sm-11 col-md-8 col-lg-6 col-xl-5 col-xxl-4 container-crear-usuario mt-5 pt-2 pb-2'>
                         <h1 className='text-center text-white p-3'>Crear edificio</h1>
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
