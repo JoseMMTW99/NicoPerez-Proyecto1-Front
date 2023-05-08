@@ -169,6 +169,7 @@ const UsuariosEdificio = () => {
                                                 <th className="fs-4">Subir archivo</th>
                                                 <th className="fs-4">Descargar archivo</th>
                                                 <th className="fs-4">Cambiar contraseña</th>
+                                                <th className="fs-4">Eliminar</th>
                                             </tr>
                                         </thead>
                                         <tbody className='text-center'>

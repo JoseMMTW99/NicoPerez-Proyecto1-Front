@@ -2,11 +2,20 @@ import React, { useState, useEffect } from 'react'
 import SubirArchivo from '../SubirArchivo/SubirArchivo'
 import axios from 'axios'
 import './filaUsuariosEdificio.css'
+import Swal from "sweetalert2";
 
 function FilaUsuariosEdificio(usuario) {
 
     const [error, setError] = useState(false)
     const [isLoading, setIsLoading] = useState(false);
+
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+          confirmButton: "btn btn-success",
+          cancelButton: "btn btn-danger",
+      },
+      buttonsStyling: false,
+  });
 
     const downloadPdf = async () => {
       setIsLoading(true);
@@ -37,6 +46,59 @@ function FilaUsuariosEdificio(usuario) {
         console.error(error);
       }
     };
+
+    const Apretado = async () => {
+      swalWithBootstrapButtons
+          .fire({
+              title: `¿Estas seguro que quieres eliminar este usuario?`,
+              text: "¡No podrás deshacer esto!",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonText: "Confirmar",
+              cancelButtonText: "Cancelar",
+              reverseButtons: true,
+          })
+          .then(async (result) => {
+              if (result.isConfirmed) {
+                  const swalLoading = Swal.fire({
+                    title: "Procesando... ¡No cierre esta ventana!",
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                    didOpen: () => {
+                        Swal.showLoading();
+                  },
+                });
+                await borrarUsuario();
+                swalLoading.close();
+                swalWithBootstrapButtons
+                  .fire(
+                      "¡Usuario eliminado!",
+                      "Se elimino el usuario con éxito.",
+                      "success"
+                  )
+                  .then(() => {
+                    window.location.reload(true);
+                  });
+              } else if (result.dismiss === Swal.DismissReason.cancel) {
+                swalWithBootstrapButtons.fire(
+                    "Cancelado",
+                    "¡Estuvo cerca!",
+                    "error"
+                );
+              }
+          });
+  };
+
+  const borrarUsuario = async () => {
+      await axios.delete(`https://serpa-administracion-jose-martinez-teran.up.railway.app/users/eliminar-user`, {
+          data: {
+              id: usuario.usuario._id
+          }
+      })
+          .catch((error) => {
+              console.error(error);
+          })
+  }
 
     return (
         <>
@@ -71,6 +133,11 @@ function FilaUsuariosEdificio(usuario) {
                         <i className="bi bi-lock-fill"></i>
                     </button>
                   </a>
+                </td>
+                <td className='border'>
+                  <button className="botonEliminarAdmin" onClick={Apretado}>
+                    <i className="bi bi-trash-fill"></i>
+                  </button>
                 </td>
             </tr>
             
