@@ -25,3 +25,25 @@
 .tituloEdificio{
     font-weight: 600;
 }
+
+.botonBorrarEdifcio{
+    background-color: #571422 ;
+    border: 1px solid #571422 ;
+    border-radius: 10px;
+    font-size: 2rem;
+    color: white;
+    font-weight: 600;
+}
+
+svg.bi-trash3-fill {
+    width: 25px;
+    height: 25px;
+}
+
+.swal2-confirm {
+    margin-left: 15px;
+}
+  
+.swal2-cancel {
+margin-right: 15px;
+}

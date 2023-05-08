@@ -13,11 +13,18 @@ const CambiarContraseñaAdmin = () => {
     const { user } = useParams();
     const navigate = useNavigate();
 
+    const tokenAdmin = Cookies.get('token');
+    if (tokenAdmin === undefined) {
+        window.location.replace('/')
+    }
+    
     const password = watch("password", "");
 
     const handleGoBack = () => {
         navigate(-1);
       };
+
+  
 
     const onSubmit = async (data) => {
         setLoading(true);
