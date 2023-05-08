@@ -65,7 +65,7 @@ const CambiarContraseñaEmail = () => {
                                     </div>
                                 )}
                             </div>
-                            <button className="btn-crear-usuario mt-3 mb-3">
+                            <button className="btn-crear-usuario mt-3 mb-3" disabled={enviado}>
                                 {loading ? (
                                     <span
                                         className="spinner-border spinner-border-sm mr-2"
