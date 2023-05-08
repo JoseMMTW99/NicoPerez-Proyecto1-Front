@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { createRouter } from '@remix-run/router';
 import Cookies from 'js-cookie'
 
@@ -8,6 +9,7 @@ const CrearEdificio = () => {
 
     const [loading, setLoading] = useState(false);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const navigate = useNavigate();
 
     const name = watch("name", "");
 
@@ -16,10 +18,14 @@ const CrearEdificio = () => {
         window.location.replace('/')
     }
 
+    const handleGoBack = () => {
+        navigate(-1);
+      };
+
     const onSubmit = async (data) => {
         setLoading(true);
         const respuesta = await axios.post(
-            `http://localhost:8000/edificio/crear-edificio`,
+            `https://serpa-administracion-jose-martinez-teran.up.railway.app/edificio/crear-edificio`,
             {
                 name: data.name.trim(),
             }
@@ -33,16 +39,17 @@ const CrearEdificio = () => {
     };
 
     return (
+    <>
+        <div className='divBotonVolverAtras'>
+            <button className="botonAgregarEdificio m-5 px-4" onClick={handleGoBack}>
+                <i className="bi bi-arrow-left-short"></i>
+            </button>
+        </div>
         <div className="d-flex align-items-center">
             <div className="container">
-                {/* <div className='divBotonAgregarEdificio'>
-                    <button className="botonAgregarEdificio mt-4 ms-3 px-4" onClick={handleGoBack}>
-                        <i className="bi bi-arrow-left-short"></i>
-                    </button>
-                </div> */}
-                <div className="row justify-content-center p-5 ms-2 mx-2">
+                <div className="row justify-content-center mx-2">
                     <div className=' col-11 col-sm-11 col-md-8 col-lg-6 col-xl-5 col-xxl-4 container-crear-usuario pt-2 pb-2'>
-                        <h1 className='text-center p-3'>Crear edificio</h1>
+                        <h1 className='text-center text-white p-3'>Crear edificio</h1>
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
                                 <input
@@ -96,6 +103,7 @@ const CrearEdificio = () => {
                 </div>
             </div>
         </div>
+    </>
     )
 }
 
