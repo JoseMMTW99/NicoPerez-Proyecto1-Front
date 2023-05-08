@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { createRouter } from '@remix-run/router';
 import Cookies from 'js-cookie'
+import './CrearEdificio.css'
 
 const CrearEdificio = () => {
 
@@ -41,7 +42,7 @@ const CrearEdificio = () => {
     return (
     <>
         <div className='divBotonVolverAtras'>
-            <button className="botonAgregarEdificio m-5 px-4" onClick={handleGoBack}>
+            <button className="botonAgregarEdificio mt-4 ms-4 px-4" onClick={handleGoBack}>
                 <i className="bi bi-arrow-left-short"></i>
             </button>
         </div>

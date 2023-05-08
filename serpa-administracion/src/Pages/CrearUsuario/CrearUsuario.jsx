@@ -74,7 +74,7 @@ const CrearUsuario = () => {
         {edificio ? (
             <div>
                 <div className='divBotonAgregarEdificio'>
-                    <button className="botonAgregarEdificio mt-4 ms-3 px-4" onClick={handleGoBack}>
+                    <button className="botonAgregarEdificio mt-4 ms-4 px-4" onClick={handleGoBack}>
                         <i className="bi bi-arrow-left-short"></i>
                     </button>
                 </div>
