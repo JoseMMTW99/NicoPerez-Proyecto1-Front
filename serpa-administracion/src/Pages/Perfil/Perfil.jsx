@@ -36,15 +36,13 @@ const downloadPdf = async () => {
       const date = new Date();
       const month = new Intl.DateTimeFormat('es-ES', { month: 'long' }).format(date);
 
-      const contentDisposition = response.headers['content-disposition'];
-      const filenameMatch = contentDisposition.match(/filename[^;=\n]*="?(.[^"\n]*).?/);
-      const fileExtension = filenameMatch && filenameMatch.length > 1 ? filenameMatch[1].split('.').pop() : '';
+      const fileExtension = response.data.type.split('/')[1];
 
-      const filename = `Comprobante Serpa ${users.name} ${month}.${fileExtension}`;
+      const downloadFilename = `Comprobante Serpa - ${users.name} ${users.surname} - ${month}.${fileExtension}`;
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement('a');
       link.href = url;
-      link.setAttribute('download', filename);
+      link.setAttribute('download', downloadFilename);
       document.body.appendChild(link);
       link.click();
       setIsLoading(false);
@@ -52,59 +50,82 @@ const downloadPdf = async () => {
       setIsLoading(false);
       setError(true);
     }
-  } catch (error) {
-    console.log(error);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const cerrarSesion = () => {
+    Cookies.remove('id');
+    Cookies.remove('token');
+    window.location.replace('/')
   }
-};
 
-const cerrarSesion = () => {
-  Cookies.remove('id');
-  Cookies.remove('token');
-  window.location.replace('/')
-}
+  const cambiarContraseña = () => {
+    window.location.replace('/CambiarContraseña')
+  }
 
-const cambiarContraseña = () => {
-  window.location.replace('/CambiarContraseña')
-}
-
-  return (
-    <>
-    <div className="d-flex align-items-center" style={{ height: "100vh" }}>
-      <div className="container">
-        <div className="row p-5 ms-2 mx-2">
-          <div className='col-md-6'>
-            <h1 className='pt-3'>{users.name} {users.surname}</h1>
-            <ul className='pt-3'>
-              <li>Edificio: {users.edificio}</li>
-              <li>Piso: {users.piso}</li>
-              <li>Puerta: {users.puerta}</li>
-            </ul>
-            {isLoading ? (
-                <div className="d-flex justify-content-center mt-3">
-                  <div className="spinner-border" role="status">
-                    <span className="visually-hidden">Descargando...</span>
-                  </div>
-                </div>
-              ) : (
-                <button className="col-12 rounded p-1 mt-3 btn btn-dark p-2 btn-lg" onClick={downloadPdf}>
-                  Descargar comprobante
-                </button>
-              )}
-              {
-                error ? <div className='text-center mt-3 fs-6'>¡No tienes ningún comprobante para descargar!</div> : <></>
-              }
-          </div>
-          <div className='col-md-6'>
-            <div className="d-flex flex-column">
-              <button className="col-12 col-md-7 rounded p-1 mt-3 btn btn-dark p-2 btn-lg ms-auto" onClick={cambiarContraseña}>Cambiar Contraseña</button>
-              <button className="col-12 col-md-7 rounded p-1 mt-3 btn btn-dark p-2 btn-lg ms-auto" onClick={cerrarSesion}>Cerrar Sesión</button>
+    return (
+      <>
+        <div className='cardPerfil mx-auto pt-5 pb-5 px-2'>
+          <div className='text-center'><h1 className='tituloPerfil'>Mi Perfil</h1></div>
+          <div className='d-flex flex-column justify-content-center text-center'>
+            <div>
+              <i class="bi bi-buildings-fill text-muted fs-3"></i> Edificio {users.edificio}
             </div>
+            <div>
+              <i class="bi bi-door-closed-fill text-muted fs-3"></i> Piso {users.piso} | Puerta {users.puerta}
+            </div>
+            {isLoading ? (
+              <div className="mt-3">
+                <div className="spinner-border" role="status">
+                  <span className="visually-hidden">Descargando...</span>
+                </div>
+              </div>
+            ) : (
+              <div className='divBotonVolverAtras text-center mt-4'>
+                <button className="botonAgregarEdificio p-2 fs-6" onClick={downloadPdf}>
+                  <i className="bi bi-download me-2"></i>Comprobante
+                </button>
+              </div>
+            )}
+            {
+              error ? <div className='text-center mt-3 fs-6'>¡No tienes ningún comprobante para descargar!</div> : <></>
+            }
           </div>
         </div>
-      </div>
-    </div>
-    </>
-  )
-}
+      </>
+    )
+  }
 
 export default Perfil
+
+
+{/* <div className="d-flex align-items-center">
+<div className="container">
+  <div className="row p-5 ms-2 mx-2">
+    <div className='col-md-6'>
+      <h1 className='pt-3'>{users.name} {users.surname}</h1>
+      <ul className='pt-3'>
+        <li>Edificio: {users.edificio}</li>
+        <li>Piso: {users.piso}</li>
+        <li>Puerta: {users.puerta}</li>
+      </ul>
+      {isLoading ? (
+          <div className="d-flex justify-content-center mt-3">
+            <div className="spinner-border" role="status">
+              <span className="visually-hidden">Descargando...</span>
+            </div>
+          </div>
+        ) : (
+          <button className="col-12 rounded p-1 mt-3 btn btn-dark p-2 btn-lg" onClick={downloadPdf}>
+            Descargar comprobante
+          </button>
+        )}
+        {
+          error ? <div className='text-center mt-3 fs-6'>¡No tienes ningún comprobante para descargar!</div> : <></>
+        }
+    </div>
+  </div>
+</div>
+</div> */}

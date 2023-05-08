@@ -39,6 +39,8 @@ const CrearEdificio = () => {
         }
     };
 
+    document.body.classList.add('crear-edificio');
+
     return (
     <>
         <div className='divBotonVolverAtras'>

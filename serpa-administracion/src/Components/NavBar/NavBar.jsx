@@ -8,7 +8,7 @@ import Cookies from 'js-cookie'
 function NavBar() {
 
     const [users, setUsers] = useState({})
-    const [admin, setAdmin] = useState({})
+    const [admin, setAdmin] = useState(false)
 
     const idUser = Cookies.get('id');
     if (idUser === undefined) {
@@ -26,8 +26,9 @@ function NavBar() {
             axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/users/${idUser}`)
                 .then((response) => {
                     setUsers(response.data);
-                    setAdmin(response.data.role) 
-                    
+                    if (response.data.role  === 'admin') {
+                        setAdmin(true) 
+                    }
                 })
                 .catch((error) => {
                     console.error(error);

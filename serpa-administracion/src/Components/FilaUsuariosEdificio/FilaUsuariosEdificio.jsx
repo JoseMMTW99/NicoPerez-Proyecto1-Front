@@ -21,7 +21,7 @@ function FilaUsuariosEdificio(usuario) {
     
           const fileExtension = response.data.type.split('/')[1];
     
-          const downloadFilename = `Comprobante Serpa ${usuario.usuario.name} ${month}.${fileExtension}`;
+          const downloadFilename = `Comprobante Serpa - ${usuario.usuario.name} ${usuario.usuario.surname} - ${month}.${fileExtension}`;
           const url = window.URL.createObjectURL(new Blob([response.data]));
           const link = document.createElement('a');
           link.href = url;

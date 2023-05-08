@@ -2,7 +2,7 @@
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-body:not(.bg-white):not(.crear-usuario) {
+body:not(.bg-white):not(.crear-usuario):not(.crear-edificio) {
   background: url("../src/assets/fondo.jpg") no-repeat center center fixed;
   background-size: cover;
 }
@@ -12,6 +12,11 @@ body.bg-white {
 }
 
 body.crear-usuario {
+  background: url("../src/assets/fondoClaro.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+body.crear-edificio {
   background: url("../src/assets/fondoClaro.jpg") no-repeat center center fixed;
   background-size: cover;
 }

@@ -114,6 +114,7 @@ const UsuariosEdificio = () => {
                 usuario.name.toUpperCase().includes(`${busqueda.toUpperCase()}`) ||
                 usuario.surname.toUpperCase().includes(`${busqueda.toUpperCase()}`) ||
                 usuario.dni.toLowerCase().includes(`${busqueda.toLowerCase()}`) ||
+                usuario.email.toLowerCase().includes(`${busqueda.toLowerCase()}`) ||
                 usuario.piso.toLowerCase().includes(`${busqueda.toLowerCase()}`) ||
                 usuario.puerta.toLowerCase().includes(`${busqueda.toLowerCase()}`) ||
                 usuario.tipo.toLowerCase().includes(`${busqueda.toLowerCase()}`) ||
@@ -152,8 +153,8 @@ const UsuariosEdificio = () => {
                             </div>
                             <div className='tabla-usuarios'>
                                 <div className="table-responsive">
-                                    <table className="table">
-                                        <thead>
+                                    <table className="table align-middle">
+                                        <thead className='align-middle'>
                                             <tr className='text-center'>
                                                 <th className="fs-4">Cliente</th>
                                                 <th className="fs-4">Correo</th>
@@ -162,9 +163,9 @@ const UsuariosEdificio = () => {
                                                 <th className="fs-4">Puerta</th>
                                                 <th className="fs-4">Tipo</th>
                                                 <th className="fs-4">Baulera</th>
-                                                <th className="fs-4">Subir Comprobante</th>
-                                                <th className="fs-4">Desc. Comp.</th>
-                                                <th className="fs-4">Camb. Contraseña</th>
+                                                <th className="fs-4">Subir archivo</th>
+                                                <th className="fs-4">Descargar archivo</th>
+                                                <th className="fs-4">Cambiar contraseña</th>
                                             </tr>
                                         </thead>
                                         <tbody className='text-center'>
