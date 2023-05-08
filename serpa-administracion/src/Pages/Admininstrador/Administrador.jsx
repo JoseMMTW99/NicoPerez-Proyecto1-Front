@@ -54,9 +54,6 @@ const Administrador = () => {
             </div>
 
         </div>
-        <div className="footerAdministrador">
-            <h3 className='fs-4 text-center'>Desarrollado por Uppering</h3>
-        </div>
         </>
     )
 }

@@ -11,6 +11,7 @@ import CrearEdificio from './Pages/CrearEdificio/CrearEdificio';
 import NavBar from './Components/NavBar/NavBar';
 import CambiarContraseñaEmail from './Pages/CambiarContraseñaEmail/CambiarContraseñaEmail';
 import CambiarContraseñaAdmin from './Pages/CambiarContraseñaAdmin/CambiarContraseñaAdmin';
+import Footer from './Components/Footer/Footer';
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
         <Route path="/Recuperar-contraseña/:token" element={<CambiarContraseña />} />
         <Route path="/Crear/Edificio" element={<CrearEdificio />} />
       </Routes>
+      <Footer />
     </>
   );
 }

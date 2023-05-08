@@ -9,9 +9,6 @@ function Inicio() {
     <div className='container-fluid'>
       <FormularioLogin/>
     </div>
-    <div className="footerInicio footerAdministrador text-white">
-      <h3 className='fs-4'>Desarrollado por Uppering</h3>
-    </div>
     </>
   )
 }

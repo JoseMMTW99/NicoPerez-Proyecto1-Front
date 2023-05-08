@@ -201,9 +201,6 @@ const UsuariosEdificio = () => {
                     </div>
                 </>
             )}
-            <div className="footerAdministrador">
-                <h3 className='fs-4 text-center text-white'>Desarrollado por Uppering</h3>
-            </div>
         </>
     )
 }

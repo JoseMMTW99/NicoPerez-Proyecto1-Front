@@ -113,9 +113,6 @@ const CambiarContraseñaAdmin = () => {
                             </button>
                         </form>
                     </div>
-                    <div className="footerAdministrador">
-                        <h3 className='fs-4 text-center mt-3'>Desarrollado por Uppering</h3>
-                    </div>
                 </div>
             </div>
         </>

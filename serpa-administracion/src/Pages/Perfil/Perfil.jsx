@@ -71,10 +71,10 @@ const downloadPdf = async () => {
           <div className='text-center'><h1 className='tituloPerfil'>Mi Perfil</h1></div>
           <div className='d-flex flex-column justify-content-center text-center'>
             <div>
-              <i class="bi bi-buildings-fill text-muted fs-3"></i> Edificio {users.edificio}
+              <i className="bi bi-buildings-fill text-muted fs-3"></i> Edificio {users.edificio}
             </div>
             <div>
-              <i class="bi bi-door-closed-fill text-muted fs-3"></i> Piso {users.piso} | Puerta {users.puerta}
+              <i className="bi bi-door-closed-fill text-muted fs-3"></i> Piso {users.piso} | Puerta {users.puerta}
             </div>
             {isLoading ? (
               <div className="mt-3">
@@ -94,38 +94,9 @@ const downloadPdf = async () => {
             }
           </div>
         </div>
+        <div className='divEspaciadoFooter'></div>
       </>
     )
   }
 
 export default Perfil
-
-
-{/* <div className="d-flex align-items-center">
-<div className="container">
-  <div className="row p-5 ms-2 mx-2">
-    <div className='col-md-6'>
-      <h1 className='pt-3'>{users.name} {users.surname}</h1>
-      <ul className='pt-3'>
-        <li>Edificio: {users.edificio}</li>
-        <li>Piso: {users.piso}</li>
-        <li>Puerta: {users.puerta}</li>
-      </ul>
-      {isLoading ? (
-          <div className="d-flex justify-content-center mt-3">
-            <div className="spinner-border" role="status">
-              <span className="visually-hidden">Descargando...</span>
-            </div>
-          </div>
-        ) : (
-          <button className="col-12 rounded p-1 mt-3 btn btn-dark p-2 btn-lg" onClick={downloadPdf}>
-            Descargar comprobante
-          </button>
-        )}
-        {
-          error ? <div className='text-center mt-3 fs-6'>¡No tienes ningún comprobante para descargar!</div> : <></>
-        }
-    </div>
-  </div>
-</div>
-</div> */}

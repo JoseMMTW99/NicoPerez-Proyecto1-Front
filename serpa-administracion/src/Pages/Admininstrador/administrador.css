@@ -17,6 +17,10 @@
     padding-bottom: 4rem;
 } 
 
+.cajaGrandeEdificios{
+    min-height: 65vh;
+}
+
 @media (max-width: 576px){
     .cajaEdificiosBorde{
         gap: 0%;

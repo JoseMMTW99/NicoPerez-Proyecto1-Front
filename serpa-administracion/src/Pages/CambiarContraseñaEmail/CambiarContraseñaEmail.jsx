@@ -84,9 +84,6 @@ const CambiarContraseñaEmail = () => {
                             error ? <><p className='fs-5 text-opacity-75 text-dark'>El e-mail no esta registrado.</p></> : <></>
                         }                        
                     </div>
-                    <div className="footerAdministrador">
-                        <h3 className='fs-4 text-center mt-3'>Desarrollado por Uppering</h3>
-                    </div>
                 </div>
             </div>
         </>
