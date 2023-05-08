@@ -19,7 +19,7 @@ function SubirArchivo(usuario) {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:8000/uploads/upload-file",
+        "https://serpa-administracion-jose-martinez-teran.up.railway.app/uploads/upload-file",
         {
           file: data.file[0],
           userId: usuario.usuario._id
