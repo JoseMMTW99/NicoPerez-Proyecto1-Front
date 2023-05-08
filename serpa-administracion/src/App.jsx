@@ -9,6 +9,8 @@ import UsuariosEdificio from './Pages/UsuariosEdificio/UsuariosEdificio';
 import CambiarContraseña from './Pages/CambiarContraseña/CambiarContraseña';
 import CrearEdificio from './Pages/CrearEdificio/CrearEdificio';
 import NavBar from './Components/NavBar/NavBar';
+import CambiarContraseñaEmail from './Pages/CambiarContraseñaEmail/CambiarContraseñaEmail';
+import CambiarContraseñaAdmin from './Pages/CambiarContraseñaAdmin/CambiarContraseñaAdmin';
 
 function App() {
 
@@ -16,14 +18,21 @@ function App() {
   
   return (
     <>
-      {location.pathname !== '/' && <NavBar />}
+      {location.pathname === '/Administracion' && <NavBar />}
+      {location.pathname === '/Crear/Usuario/:edificioName' && <NavBar />}
+      {location.pathname === '/Edificio/:edificioName' && <NavBar />}
+      {location.pathname === '/Perfil' && <NavBar />}
+      {location.pathname === '/Administracion/Recuperar-contraseña/:id' && <NavBar />}
+      {location.pathname === '/Crear/Edificio' && <NavBar />}
       <Routes>
         <Route path="/" element={<Inicio />} />
         <Route path="/Administracion" element={<Administrador />} />
         <Route path="/Crear/Usuario/:edificioName" element={<CrearUsuario   />} />
         <Route path="/Edificio/:edificioName" element={<UsuariosEdificio />} />
         <Route path="/Perfil" element={<Perfil />} />
-        <Route path="/CambiarContraseña" element={<CambiarContraseña />} />
+        <Route path="/Administracion/Recuperar-contraseña/:id" element={<CambiarContraseñaAdmin />} />
+        <Route path="/Recuperar-contraseña" element={<CambiarContraseñaEmail />} />
+        <Route path="/Recuperar-contraseña/:token" element={<CambiarContraseña />} />
         <Route path="/Crear/Edificio" element={<CrearEdificio />} />
       </Routes>
     </>

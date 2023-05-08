@@ -25,7 +25,7 @@ const UsuariosEdificio = () =>{
 
     useEffect(() => {
         const response = axios
-          .get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/edificio/get-edificio`)
+          .get(`http://localhost:8000/edificio/get-edificio`)
           .then((response) => {
             setEdificios(response.data);
           })
@@ -40,7 +40,7 @@ const UsuariosEdificio = () =>{
     }, [edificios, edificioName]);
 
     useEffect(() =>{
-        const response = axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/users/obtener-users`)
+        const response = axios.get(`http://localhost:8000/users/obtener-users`)
         .then((response) =>{
             const filteredUsuarios = response.data.filter((usuario) => usuario.edificio === edificioName);
             setUsuarios(filteredUsuarios);
@@ -69,7 +69,7 @@ const UsuariosEdificio = () =>{
         <>
         {edificio ? (
         <>
-            <div className='divBotonAgregarEdificio m-5'>
+            <div className='divBotonVolverAtras m-5'>
                 <button className="botonAgregarEdificio px-4">
                     <i className="bi bi-arrow-left-short"></i>
                 </button>

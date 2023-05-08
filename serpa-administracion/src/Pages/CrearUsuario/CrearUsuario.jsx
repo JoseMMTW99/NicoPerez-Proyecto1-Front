@@ -22,7 +22,7 @@ const CrearUsuario = () => {
 
     useEffect(() => {
         const response = axios
-          .get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/edificio/get-edificio`)
+          .get(`http://localhost:8000/edificio/get-edificio`)
           .then((response) => {
             setEdificios(response.data);
           })
@@ -39,7 +39,7 @@ const CrearUsuario = () => {
     const onSubmit = async (data) => {
         setLoading(true);
         const respuesta = await axios.post(
-            `https://serpa-administracion-jose-martinez-teran.up.railway.app/users/crear-user`,
+            `http://localhost:8000/users/crear-user`,
             {
                 name: data.name.trim(),
                 surname: data.surname.trim(),
@@ -66,7 +66,7 @@ const CrearUsuario = () => {
         <>
         {edificio ? (
             <div className="container-fluid container-body">
-                <div className='divBotonAgregarEdificio'>
+                <div className='divBotonVolverAtras'>
                     <a href={`/Administracion`}>
                         <button className="botonAgregarEdificio m-5 px-4">
                             <i className="bi bi-arrow-left-short"></i>

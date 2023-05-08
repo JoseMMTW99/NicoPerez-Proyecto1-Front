@@ -19,7 +19,7 @@ function FormularioLogin() {
     const onSubmit = async (data) => {
         setLoading(true);
         const respuesta = await axios.post(
-            `https://serpa-administracion-jose-martinez-teran.up.railway.app/users/login-user`,
+            `http://localhost:8000/users/login-user`,
             {
                 email: data.email.trim().toLowerCase(),
                 password: data.password,
@@ -130,7 +130,7 @@ function FormularioLogin() {
                                 </button>
                             </div>
                             <div className='text-end mt-4'>                            
-                                <a href='/' className='text-decoration-none'><h3 className='fs-6 text-muted'>¿Olvide mi contraseña?</h3></a>
+                                <a href='/Recuperar-contraseña' className='text-decoration-none'><h3 className='fs-6 text-muted'>¿Olvide mi contraseña?</h3></a>
                             </div>
                         </form>
                     </div>
