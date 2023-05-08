@@ -130,7 +130,7 @@ function FormularioLogin() {
                                 </button>
                             </div>
                             <div className='text-end mt-4'>                            
-                                <a href='/Recuperar-contraseña' className='text-decoration-none'><h3 className='fs-6 text-muted'>¿Olvide mi contraseña?</h3></a>
+                                <a href='/Recuperar-contraseña' className='text-decoration-none'><h3 className='fs-6 text-muted'>Olvide mi contraseña</h3></a>
                             </div>
                         </form>
                     </div>
