@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useParams } from 'react-router-dom';
+import Cookies from 'js-cookie'
 import axios from "axios";
 import './cambiarContraseñaAdmin.css'
 

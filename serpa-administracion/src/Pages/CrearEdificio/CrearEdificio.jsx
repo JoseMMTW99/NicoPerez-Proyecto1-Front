@@ -48,7 +48,7 @@ const CrearEdificio = () => {
                 <i className="bi bi-arrow-left-short"></i>
             </button>
         </div>
-        <div className="d-flex align-items-center">
+        <div className="d-flex align-items-center mt-4">
             <div className="container">
                 <div className="row justify-content-center mx-2">
                     <div className=' col-11 col-sm-11 col-md-8 col-lg-6 col-xl-5 col-xxl-4 container-crear-usuario pt-2 pb-2'>

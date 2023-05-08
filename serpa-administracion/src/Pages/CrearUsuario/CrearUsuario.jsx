@@ -73,10 +73,12 @@ const CrearUsuario = () => {
         <>
         {edificio ? (
             <div>
-                <div className='divBotonAgregarEdificio'>
-                    <button className="botonAgregarEdificio mt-4 ms-4 px-4" onClick={handleGoBack}>
-                        <i className="bi bi-arrow-left-short"></i>
-                    </button>
+                <div className='container-fluid p-0'>
+                    <div className='divBotonVolverAtras mt-4 ms-4 d-flex justify-content-start'>                        
+                        <button className="botonAgregarEdificio px-4" onClick={handleGoBack}>
+                            <i className="bi bi-arrow-left-short"></i>
+                        </button>
+                    </div>
                 </div>
                 <h1 className='text-center text-dark'>{edificioName}</h1>
                 <div className="row">

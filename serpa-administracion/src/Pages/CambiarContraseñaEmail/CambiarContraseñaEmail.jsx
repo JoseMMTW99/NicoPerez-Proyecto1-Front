@@ -10,7 +10,7 @@ const CambiarContraseñaEmail = () => {
     const [error, setError] = useState(false);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
-    // const password = watch("password", "");
+    const password = watch("password", "");
 
     const onSubmit = async (data) => {
         setLoading(true);

@@ -19,7 +19,7 @@ function App() {
   
   return (
     <>
-      {location.pathname !== '/' && location.pathname !== '/Recuperar-contraseña' && !location.pathname.startsWith('/Recuperar-contraseña/') && <NavBar />}
+      {location.pathname !== '/' && location.pathname !== '/Recuperar-contrase%C3%B1a' && !location.pathname.startsWith('/Recuperar-contrase%C3%B1a/') && <NavBar />}
       <Routes>
         <Route path="/" element={<Inicio />} />
         <Route path="/Administracion" element={<Administrador />} />
