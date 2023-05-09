@@ -76,14 +76,14 @@
     background-color: #c03dd1 ;
     border: 1px solid #c03dd1 ;
     border-radius: 10px;
-    font-size: 2rem;
+    font-size: 1.2rem;
     color: white;
     font-weight: 600;
 }
 
 svg.bi-plus {
-    width: 40px;
-    height: 40px;
+    width: 20px;
+    height: 20px;
 }
 
 .divCrearEdificio{

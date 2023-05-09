@@ -66,8 +66,8 @@ const downloadPdf = async () => {
   }
 
     return (
-      <>
-        <div className='cardPerfil mx-auto pt-5 pb-5 px-2'>
+      <div style={{ height: "60vh" }}>
+        <div className='cardPerfil mx-auto pt-5 pb-5 px-2' >
           <div className='text-center'><h1 className='tituloPerfil'>Mi Perfil</h1></div>
           <div className='text-center mb-4'><h3 className='fs-6 text-muted'>{users.tipo}</h3></div>
           <div className='d-flex flex-column justify-content-center text-center'>
@@ -95,8 +95,7 @@ const downloadPdf = async () => {
             }
           </div>
         </div>
-        <div className='divEspaciadoFooter'></div>
-      </>
+      </div>
     )
   }
 
