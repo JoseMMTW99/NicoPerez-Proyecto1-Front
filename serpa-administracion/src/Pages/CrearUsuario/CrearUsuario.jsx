@@ -41,6 +41,18 @@ const CrearUsuario = () => {
     }, [edificios, edificioName]);
 
     const onSubmit = async (data) => {
+        if(!data.baulera){
+            data.baulera = '-'
+        }
+        if(!data.dni){
+            data.dni = '-'
+        }
+        if(!data.piso){
+            data.piso = '-'
+        }
+        if(!data.puerta){
+            data.puerta = '-'
+        }
         setLoading(true);
         const respuesta = await axios.post(
             `https://serpa-administracion-jose-martinez-teran.up.railway.app/users/crear-user`,
@@ -48,6 +60,7 @@ const CrearUsuario = () => {
                 name: data.name.trim(),
                 surname: data.surname.trim(),
                 email: data.email.trim().toLowerCase(),
+                password: data.password.trim(),
                 dni: data.dni.trim(),
                 edificio: edificioName,
                 piso: data.piso.trim(),
@@ -126,18 +139,9 @@ const CrearUsuario = () => {
                                     placeholder='Documento'
                                     className={`form-control  ${errors.dni ? "is-invalid" : ""} mt-2`}
                                     {...register("dni", {
-                                        required: true,
-                                        maxLength: 40,
+                                        required: false,
                                     })}
                                 />
-                                {errors.dni && errors.dni.type === "required" && (
-                                    <div className="invalid-feedback">Documento requerido</div>
-                                )}
-                                {errors.dni && errors.dni.type === "maxLength" && (
-                                    <div className="invalid-feedback">
-                                        No puede contener más de 40 caracteres
-                                    </div>
-                                )}
                             </div>
                             <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-7  mx-auto">
                                 <input
@@ -162,24 +166,34 @@ const CrearUsuario = () => {
                                     </div>
                                 )}
                             </div>
+                            <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
+                                <input
+                                    type="text"
+                                    placeholder='Contraseña'
+                                    className={`form-control mt-2 mb-2 pt-2 pb-2 ${errors.password ? "is-invalid" : ""}`}
+                                    {...register("password", {
+                                        required: true,
+                                        maxLength: 40,
+                                    })}
+                                />
+                                {errors.password && errors.password.type === "required" && (
+                                    <div className="invalid-feedback">Contraseña requerida</div>
+                                )}
+                                {errors.password && errors.password.type === "maxLength" && (
+                                    <div className="invalid-feedback">
+                                        No puede contener más de 40 caracteres
+                                    </div>
+                                )}
+                            </div>
                             <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-7  mx-auto">
                                 <input
                                     type="text"
                                     placeholder='Piso'
                                     className={`form-control mt-2 mb-2 pt-2 pb-2 ${errors.piso ? "is-invalid" : ""}`}
                                     {...register("piso", {
-                                        required: true,
-                                        maxLength: 40,
+                                        required: false,
                                     })}
                                 />
-                                {errors.piso && errors.piso.type === "required" && (
-                                    <div className="invalid-feedback">Piso requerido</div>
-                                )}
-                                {errors.piso && errors.piso.type === "maxLength" && (
-                                    <div className="invalid-feedback">
-                                        No puede contener más de 40 caracteres
-                                    </div>
-                                )}
                             </div>
                             <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-7  mx-auto">
                                 <input
@@ -187,18 +201,9 @@ const CrearUsuario = () => {
                                     placeholder='Puerta'
                                     className={`form-control mt-2 mb-2 pt-2 pb-2 ${errors.puerta ? "is-invalid" : ""}`}
                                     {...register("puerta", {
-                                        required: true,
-                                        maxLength: 40,
+                                        required: false,
                                     })}
                                 />
-                                {errors.puerta && errors.puerta.type === "required" && (
-                                    <div className="invalid-feedback">Puerta requerida</div>
-                                )}
-                                {errors.puerta && errors.puerta.type === "maxLength" && (
-                                    <div className="invalid-feedback">
-                                        No puede contener más de 40 caracteres
-                                    </div>
-                                )}
                             </div>
                             <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-7  mx-auto">
                                 <input
@@ -206,18 +211,9 @@ const CrearUsuario = () => {
                                     placeholder='Baulera'
                                     className={`form-control mt-2 mb-2 pt-2 pb-2 ${errors.baulera ? "is-invalid" : ""}`}
                                     {...register("baulera", {
-                                        required: true,
-                                        maxLength: 40,
+                                        required: false,
                                     })}
                                 />
-                                {errors.baulera && errors.baulera.type === "required" && (
-                                    <div className="invalid-feedback">Campo requerido</div>
-                                )}
-                                {errors.baulera && errors.baulera.type === "maxLength" && (
-                                    <div className="invalid-feedback">
-                                        No puede contener más de 40 caracteres
-                                    </div>
-                                )}
                             </div>
                             <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-7  mx-auto mt-1">
                                 <select className="form-select mt-2 mb-2 pt-2 pb-2"
