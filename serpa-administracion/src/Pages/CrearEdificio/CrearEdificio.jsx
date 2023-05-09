@@ -42,7 +42,7 @@ const CrearEdificio = () => {
     return (
     <>
         <div className='divBotonVolverAtras'>
-            <button className="botonAgregarEdificio mt-4 ms-4 px-4" onClick={handleGoBack}>
+            <button className="botonAgregarEdificio mt-4 ms-4  px-2 py-0" onClick={handleGoBack}>
                 <i className="bi bi-arrow-left-short"></i>
             </button>
         </div>

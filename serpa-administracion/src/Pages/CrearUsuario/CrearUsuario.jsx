@@ -72,7 +72,7 @@ const CrearUsuario = () => {
             <div>
                 <div className='container-fluid p-0'>
                     <div className='divBotonVolverAtras mt-4 ms-4 d-flex justify-content-start'>                        
-                        <button className="botonAgregarEdificio px-4" onClick={handleGoBack}>
+                        <button className="botonAgregarEdificio px-2 py-0" onClick={handleGoBack}>
                             <i className="bi bi-arrow-left-short"></i>
                         </button>
                     </div>
