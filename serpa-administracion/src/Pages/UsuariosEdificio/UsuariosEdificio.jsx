@@ -154,23 +154,23 @@ const UsuariosEdificio = () => {
                                     />
                                 </div>
                             </div>
-                            <div className='tabla-usuarios'>
+                            <div className='tabla-usuarios fs-6'>
                                 <div className="table-responsive">
                                     <table className="table align-middle">
                                         <thead className='align-middle'>
                                             <tr className='text-center'>
-                                                <th className="fs-4">Cliente</th>
-                                                <th className="fs-4">Correo</th>
-                                                <th className="fs-4">Documento</th>
-                                                <th className="fs-4">Piso</th>
-                                                <th className="fs-4">Puerta</th>
-                                                <th className="fs-4">Tipo</th>
-                                                <th className="fs-4">Baulera</th>
-                                                <th className="fs-4">Ultimo comprobante</th>
-                                                <th className="fs-4">Subir archivo</th>
-                                                <th className="fs-4">Descargar archivo</th>
-                                                <th className="fs-4">Cambiar contraseña</th>
-                                                <th className="fs-4">Eliminar</th>
+                                                <th className="fs-5">Cliente</th>
+                                                <th className="fs-5">Correo</th>
+                                                <th className="fs-5">Documento</th>
+                                                <th className="fs-5">Piso</th>
+                                                <th className="fs-5">Puerta</th>
+                                                <th className="fs-5">Tipo</th>
+                                                <th className="fs-5">Baulera</th>
+                                                <th className="fs-5">Ultimo comprobante</th>
+                                                <th className="fs-5">Subir archivo</th>
+                                                <th className="fs-5">Descargar archivo</th>
+                                                <th className="fs-5">Cambiar contraseña</th>
+                                                <th className="fs-5">Eliminar</th>
                                             </tr>
                                         </thead>
                                         <tbody className='text-center'>
