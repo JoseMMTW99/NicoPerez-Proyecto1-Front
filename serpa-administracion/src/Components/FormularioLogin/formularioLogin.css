@@ -89,5 +89,10 @@ input:-webkit-autofill:active {
 }
 
 .botonLogin{
-    display: none;
+    border: 1px solid white;
+    background-color: #c03dd1;
+    border-radius: 5px;
+    padding-block: 0.4rem;
+    padding-inline: 1rem;
+    color: white;
 }

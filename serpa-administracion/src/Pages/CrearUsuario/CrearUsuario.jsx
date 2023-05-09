@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { createRouter } from '@remix-run/router';
-import { useNavigate } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import './crearUsuario.css'
 import Cookies from 'js-cookie'
@@ -16,16 +15,14 @@ const CrearUsuario = () => {
     const [edificios, setEdificios] = useState([]);
     const [edificio, setEdificio] = useState(null);
 
-    const navigate = useNavigate();
-
     const tokenAdmin = Cookies.get('token');
     if (tokenAdmin === undefined) {
         window.location.replace('/')
     }
 
     const handleGoBack = () => {
-        navigate(-1);
-      };
+        window.location.href = document.referrer;
+    };
 
     useEffect(() => {
         const response = axios
@@ -60,7 +57,7 @@ const CrearUsuario = () => {
             }
         );
         if (respuesta.status === 200) {
-            window.location.replace('/Administracion')
+            handleGoBack()
         }
         if (respuesta.status === 206) {
             setLoading(false);

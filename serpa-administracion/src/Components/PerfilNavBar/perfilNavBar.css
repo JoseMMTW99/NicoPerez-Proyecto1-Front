@@ -4,6 +4,7 @@
     position: absolute;
     right: 50px;
     z-index: 0;
+    top: 43px;
 }
 
 .iconoNavBarPerfil{
@@ -15,6 +16,8 @@
     align-items: center;
     justify-content: center;
     z-index: 1;
+    top:-12px;
+    position: relative;
 }
 
 .imagenNavBarPerfil{
@@ -26,7 +29,7 @@
     z-index: 10000;
     position: relative;
     left: -30px;
-    top: 80px;
+    top: 70px;
     z-index: 6;
     color: white;
     font-size: 1.3rem;
@@ -45,7 +48,4 @@
     .cajaPerfilNavBar{
         display: none;
     }
-}
-@media (min-width: 992px) {
-    
 }

@@ -116,8 +116,8 @@ function FormularioLogin() {
                             ) : (
                                 <></>
                             )}
-                            <div className='mt-3 d-flex justify-content-center'>
-                                <button type="submit" className="w-100 rounded btn btn-dark p-2 mt-2 btn-lg botonLogin">
+                            <div className='mt-4 d-flex justify-content-end'>
+                                <button type="submit" className="botonLogin">
                                     {loading ? (
                                         <span
                                             className="spinner-border spinner-border-sm mr-2"
@@ -125,12 +125,14 @@ function FormularioLogin() {
                                             aria-hidden="true"
                                         ></span>
                                     ) : (
-                                        "Iniciar Sesión"
+                                        <>
+                                        Iniciar Sesión<i className="bi bi-arrow-right-circle ms-2"></i>
+                                        </>
                                     )}
                                 </button>
                             </div>
                             <div className='text-end mt-4'>                            
-                                <a href='/Recuperar-contraseña' className='text-decoration-none'><h3 className='fs-6 text-muted'>Olvide mi contraseña</h3></a>
+                                <a href='/Recuperar-contraseña' className='text-decoration-none'><span className='fs-6 text-muted'>Olvide mi contraseña</span></a>
                             </div>
                         </form>
                     </div>

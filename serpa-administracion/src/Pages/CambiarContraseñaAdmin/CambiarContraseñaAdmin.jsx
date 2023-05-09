@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import Cookies from 'js-cookie'
 import axios from "axios";
@@ -12,7 +11,6 @@ const CambiarContraseñaAdmin = () => {
     const [errorMensaje, setErrorMensaje] = useState("");
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const { user } = useParams();
-    const navigate = useNavigate();
 
     const tokenAdmin = Cookies.get('token');
     if (tokenAdmin === undefined) {
@@ -22,7 +20,7 @@ const CambiarContraseñaAdmin = () => {
     const password = watch("password", "");
 
     const handleGoBack = () => {
-        navigate(-1);
+        window.location.href = document.referrer;
       };
 
   

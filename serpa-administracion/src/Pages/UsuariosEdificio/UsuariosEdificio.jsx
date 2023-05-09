@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from 'axios'
 import FilaUsuariosEdificio from '../../Components/FilaUsuariosEdificio/FilaUsuariosEdificio'
 import './usuariosEdificio.css'
@@ -21,7 +21,6 @@ const UsuariosEdificio = () => {
     const { edificioName } = useParams();
     const [edificios, setEdificios] = useState([]);
     const [edificio, setEdificio] = useState(null);
-    const navigate = useNavigate();
 
     const tokenAdmin = Cookies.get('token');
     if (tokenAdmin === undefined) {

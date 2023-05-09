@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import { createRouter } from '@remix-run/router';
 import Cookies from 'js-cookie'
 import './crearEdificio.css'
@@ -10,7 +9,6 @@ const CrearEdificio = () => {
 
     const [loading, setLoading] = useState(false);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const navigate = useNavigate();
 
     const name = watch("name", "");
 
@@ -20,7 +18,7 @@ const CrearEdificio = () => {
     }
 
     const handleGoBack = () => {
-        navigate(-1);
+        window.location.href = document.referrer;
       };
 
     const onSubmit = async (data) => {
