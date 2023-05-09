@@ -166,6 +166,7 @@ const UsuariosEdificio = () => {
                                                 <th className="fs-4">Puerta</th>
                                                 <th className="fs-4">Tipo</th>
                                                 <th className="fs-4">Baulera</th>
+                                                <th className="fs-4">Ultimo comprobante</th>
                                                 <th className="fs-4">Subir archivo</th>
                                                 <th className="fs-4">Descargar archivo</th>
                                                 <th className="fs-4">Cambiar contraseña</th>

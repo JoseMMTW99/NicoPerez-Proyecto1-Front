@@ -30,6 +30,9 @@ function SubirArchivo(usuario) {
           },
         }
       );
+      await axios.patch("https://serpa-administracion-jose-martinez-teran.up.railway.app/users/actualizar-fecha",{
+          id:usuario.usuario._id
+      })
       setLoading(false);
       setSuccess(true);
     } catch (error) {

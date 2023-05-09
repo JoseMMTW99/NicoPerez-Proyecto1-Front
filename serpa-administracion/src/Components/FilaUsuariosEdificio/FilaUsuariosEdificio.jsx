@@ -110,6 +110,7 @@ function FilaUsuariosEdificio(usuario) {
                 <td className="border">{usuario.usuario.puerta}</td>
                 <td className="border">{usuario.usuario.tipo}</td>
                 <td className="border">{usuario.usuario.baulera}</td>
+                <td className="border">{usuario.usuario.date}</td>
                 <td className="border"><SubirArchivo  usuario={usuario.usuario}/></td>
                 <td className='border'>
                 {isLoading ? (
