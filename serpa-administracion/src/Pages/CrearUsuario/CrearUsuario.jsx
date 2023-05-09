@@ -78,7 +78,7 @@ const CrearUsuario = () => {
                     </div>
                 </div>
                 <h1 className='text-center text-dark'>{edificioName}</h1>
-                <div className="row">
+                <div className="row w-100">
                     <div className=' col-11 col-sm-11 col-md-8 col-lg-6 col-xl-5 col-xxl-4 container-crear-usuario pt-2 pb-2'>
                         <h3 className='text-center mt-2 mb-4 text-white'>Nuevo Usuario</h3>
                         <form onSubmit={handleSubmit(onSubmit)}>
