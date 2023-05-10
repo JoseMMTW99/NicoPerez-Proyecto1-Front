@@ -25,6 +25,16 @@
     text-align: start;
 }
 
+.botonCerrarSesionNavBarUsuario{
+    background-color: #7e1493;
+    border: 1px solid #7e1493;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 600;
+    width: 100%;
+    text-align: start;
+}
+
 .divBotonAgregarEdificioNavBar{
     width: 100%;
 }
@@ -37,15 +47,30 @@
     .navbar-collapse{
         background-color: #7e1493;
     }
+    .containerNavBar{
+        margin-bottom: 0;
+    }
+    .navbar-expand-lg{
+        padding-bottom: 0;
+    }
 }
 @media (min-width: 576px) and (max-width:992px) {
     .navbar-collapse{
         background-color: #7e1493;
     }
+    .navbar-expand-lg{
+        padding-bottom: 0;
+    }
+    .containerNavBar{
+        margin-bottom: 0;
+    }
 }
 @media (min-width: 992px) {
     .divBotonAgregarEdificioNavBar{
         display: none;
+    }
+    .containerNavBar{
+        margin-bottom: 0rem;
     }
 }
 

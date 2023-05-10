@@ -9,6 +9,7 @@ function NavBar() {
 
     const [users, setUsers] = useState({})
     const [admin, setAdmin] = useState(false)
+    const [usuario, setUsuario] = useState(false)
 
     const idUser = Cookies.get('id');
     if (idUser === undefined) {
@@ -29,6 +30,9 @@ function NavBar() {
                     if (response.data.role  === 'admin') {
                         setAdmin(true) 
                     }
+                    if (response.data.role  === 'usuario') {
+                        setUsuario(true) 
+                    }
                 })
                 .catch((error) => {
                     console.error(error);
@@ -39,7 +43,7 @@ function NavBar() {
     return (
         <>
             <nav className="navbar navbar-expand-lg">
-                <div className="container-fluid p-0 mb-2">
+                <div className="container-fluid p-0 containerNavBar">
                     {
                         admin ? <><a href='/Administracion' className='navbar-brand col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2 ps-2'><img className="w-100" src={logo} /></a></>
                         : <img className="navbar-brand col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2 ps-2" src={logo} />
@@ -65,7 +69,19 @@ function NavBar() {
                                 </a>
                             </div>
                             <div className='divBotonAgregarEdificioNavBar'>
-                                <button className="botonCerrarSesionNavBar ps-3 pt-2 pb-2" onClick={cerrarSesion}>
+                                <button className="botonCerrarSesionNavBar border-0 ps-3 pt-2 pb-2" onClick={cerrarSesion}>
+                                    Salir
+                                </button>
+                            </div>
+                            </>
+                            :
+                            <></>
+                        }
+                        {
+                            usuario ? 
+                            <>
+                            <div className='divBotonAgregarEdificioNavBar'>
+                                <button className="botonCerrarSesionNavBarUsuario ps-3 pt-2 pb-2" onClick={cerrarSesion}>
                                     Salir
                                 </button>
                             </div>
