@@ -13,6 +13,7 @@ const CrearUsuario = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { edificioName } = useParams();
     const [edificios, setEdificios] = useState([]);
+    const [error, setError] = useState(false);
     const [edificio, setEdificio] = useState(null);
 
     const tokenAdmin = Cookies.get('token');
@@ -41,6 +42,14 @@ const CrearUsuario = () => {
     }, [edificios, edificioName]);
 
     const onSubmit = async (data) => {
+        setError(false)
+        setLoading(true);
+        if(!data.name){
+            data.name = '-'
+        }
+        if(!data.surname){
+            data.surname = '-'
+        }
         if(!data.baulera){
             data.baulera = '-'
         }
@@ -53,7 +62,6 @@ const CrearUsuario = () => {
         if(!data.puerta){
             data.puerta = '-'
         }
-        setLoading(true);
         const respuesta = await axios.post(
             `https://serpa-administracion-jose-martinez-teran.up.railway.app/users/crear-user`,
             {
@@ -70,10 +78,11 @@ const CrearUsuario = () => {
             }
         );
         if (respuesta.status === 200) {
-            handleGoBack()
+            window.location.replace(`/Edificio/${edificioName}`);
         }
         if (respuesta.status === 206) {
             setLoading(false);
+            setError(true)
         }
     };
 
@@ -91,7 +100,7 @@ const CrearUsuario = () => {
                     </div>
                 </div>
                 <h1 className='text-center text-dark'>{edificioName}</h1>
-                <div className="row w-100">
+                <div className="row w-100 justify-content-center m-0">
                     <div className=' col-11 col-sm-11 col-md-8 col-lg-6 col-xl-5 col-xxl-4 container-crear-usuario pt-2 pb-2'>
                         <h3 className='text-center mt-2 mb-4 text-white'>Nuevo Usuario</h3>
                         <form onSubmit={handleSubmit(onSubmit)}>
@@ -101,18 +110,9 @@ const CrearUsuario = () => {
                                     placeholder='Nombre'
                                     className={`form-control mt-2 mb-2 pt-2 pb-2 ${errors.name ? "is-invalid" : ""}`}
                                     {...register("name", {
-                                        required: true,
-                                        maxLength: 40,
+                                        required: false,
                                     })}
                                 />
-                                {errors.name && errors.name.type === "required" && (
-                                    <div className="invalid-feedback">Nombre requerido</div>
-                                )}
-                                {errors.name && errors.name.type === "maxLength" && (
-                                    <div className="invalid-feedback">
-                                        No puede contener más de 40 caracteres
-                                    </div>
-                                )}
                             </div>
                             <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-7  mx-auto">
                                 <input
@@ -120,18 +120,9 @@ const CrearUsuario = () => {
                                     placeholder='Apellido'
                                     className={`form-control mt-2 mb-2 pt-2 pb-2 ${errors.name ? "is-invalid" : ""}`}
                                     {...register("surname", {
-                                        required: true,
-                                        maxLength: 40,
+                                        required: false,
                                     })}
                                 />
-                                {errors.surname && errors.surname.type === "required" && (
-                                    <div className="invalid-feedback">Apellido requerido</div>
-                                )}
-                                {errors.surname && errors.surname.type === "maxLength" && (
-                                    <div className="invalid-feedback">
-                                        No puede contener más de 40 caracteres
-                                    </div>
-                                )}
                             </div>
                             <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-7  mx-auto">
                                 <input
@@ -150,21 +141,13 @@ const CrearUsuario = () => {
                                     className={`form-control mt-2 mb-2 pt-2 pb-2 ${errors.email ? "is-invalid" : ""}`}
                                     {...register("email", {
                                         required: true,
-                                        pattern: /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/i,
-                                        maxLength: 40,
                                     })}
                                 />
                                 {errors.email && errors.email.type === "required" && (
                                     <div className="invalid-feedback">Correo requerido</div>
                                 )}
-                                {errors.email && errors.email.type === "pattern" && (
-                                    <div className="invalid-feedback">Correo invalido</div>
-                                )}
-                                {errors.email && errors.email.type === "maxLength" && (
-                                    <div className="invalid-feedback">
-                                        No puede contener más de 40 caracteres
-                                    </div>
-                                )}
+
+                                { error ? <div className='text-danger'>Correo en uso. (Se usara para iniciar sesión, por lo que no se puede repetir)</div> : <></>}
                             </div>
                             <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
                                 <input
@@ -173,16 +156,10 @@ const CrearUsuario = () => {
                                     className={`form-control mt-2 mb-2 pt-2 pb-2 ${errors.password ? "is-invalid" : ""}`}
                                     {...register("password", {
                                         required: true,
-                                        maxLength: 40,
                                     })}
                                 />
                                 {errors.password && errors.password.type === "required" && (
                                     <div className="invalid-feedback">Contraseña requerida</div>
-                                )}
-                                {errors.password && errors.password.type === "maxLength" && (
-                                    <div className="invalid-feedback">
-                                        No puede contener más de 40 caracteres
-                                    </div>
                                 )}
                             </div>
                             <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-7  mx-auto">
@@ -217,11 +194,11 @@ const CrearUsuario = () => {
                             </div>
                             <div className="form-group col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 col-xxl-7  mx-auto mt-1">
                                 <select className="form-select mt-2 mb-2 pt-2 pb-2"
-                                    {...register("tipo", { required: true })}
+                                    {...register("tipo", { required: false })}
                                     id="tipo"
                                     name="tipo"
                                 >
-                                    <option className='text-dark' value="">Tipo</option>
+                                    <option className='text-dark' value="-">Tipo</option>
                                     <option className='text-dark' value="Departamento">Departamento</option>
                                     <option className='text-dark' value="Local">Local</option>
                                     <option className='text-dark' value="Oficina">Oficina</option>

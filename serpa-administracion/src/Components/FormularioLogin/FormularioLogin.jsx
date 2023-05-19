@@ -63,8 +63,6 @@ function FormularioLogin() {
                                             placeholder="Escriba aquí su usuario"
                                             {...register("email", {
                                                 required: true,
-                                                pattern: /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/i,
-                                                maxLength: 40,
                                             })}
                                         />
                                     </div>
@@ -72,14 +70,6 @@ function FormularioLogin() {
                             </div>
                             {errors.email && errors.email.type === "required" && (
                                 <p className="text-danger mt-2 ms-1 fs-6">Correo requerido</p>
-                            )}
-                            {errors.email && errors.email.type === "pattern" && (
-                                <p className="text-danger mt-2 ms-1 fs-6">Correo invalido</p>
-                            )}
-                            {errors.email && errors.email.type === "maxLength" && (
-                                <p className="text-danger mt-2 ms-1 fs-6">
-                                    No puede contener más de 40 caracteres
-                                </p>
                             )}
                             <div className="row">
                                 <div className="position-relative">
@@ -89,7 +79,7 @@ function FormularioLogin() {
                                             type={passwordVisible ? "text" : "password"}
                                             className={`form-control border-0 p-0 form-control-lg mt-2`}
                                             placeholder="Escriba aquí su contraseña"
-                                            {...register("password", { required: true, maxLength: 40 })}
+                                            {...register("password", { required: true })}
                                         />
                                     </div>
                                     <button
@@ -103,11 +93,6 @@ function FormularioLogin() {
                             </div>
                             {errors.password && errors.password.type === "required" && (
                                 <p className="text-danger mt-2 ms-1 fs-6">Contraseña requerida</p>
-                            )}
-                            {errors.password && errors.password.type === "maxLength" && (
-                                <p className="text-danger mt-2 ms-1 fs-6">
-                                    No puede contener más de 40 caracteres
-                                </p>
                             )}
                             {error ? (
                                 <>
