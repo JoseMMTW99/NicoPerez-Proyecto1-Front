@@ -86,12 +86,12 @@ const downloadPdf = async () => {
             ) : (
               <div className='divBotonVolverAtras text-center mt-4'>
                 <button className="botonAgregarEdificio p-2 fs-6" onClick={downloadPdf}>
-                  <i className="bi bi-download me-2"></i>Comprobante
+                  <i className="bi bi-download me-2"></i>Recibo
                 </button>
               </div>
             )}
             {
-              error ? <div className='text-center mt-3 fs-6'>¡No tienes ningún comprobante para descargar!</div> : <></>
+              error ? <div className='text-center mt-3 fs-6'>¡No tienes ningún recibo para descargar!</div> : <></>
             }
           </div>
         </div>
