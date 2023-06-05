@@ -129,6 +129,13 @@ function FilaUsuariosEdificio(usuario) {
                 }
                 </td>
                 <td className='border'>
+                  <a href={`/Administracion/Editar/Usuario/${usuario.usuario._id}/${usuario.usuario.edificio}`}>
+                    <button className="botonDescargarAdmin">
+                        <i className="bi bi-pencil-fill"></i>
+                    </button>
+                  </a>
+                </td>
+                <td className='border'>
                   <a href={`/Administracion/Recuperar-contraseña/${usuario.usuario._id}`}>
                     <button className="botonDescargarAdmin">
                         <i className="bi bi-lock-fill"></i>
