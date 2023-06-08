@@ -1,7 +1,7 @@
 .card-body{
     background-color: #8b6fcf ;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 .card-title{
@@ -18,7 +18,7 @@
     justify-content: center;
     z-index: 1;
     position: relative;
-    top: 40px;
+    top: 35px;
 }
 
 @media (max-width: 576px){
@@ -43,7 +43,7 @@
         width: 30%;
     }    
     .card-title{
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
     .iconoEdificios{
         width: 80px;
@@ -60,7 +60,7 @@
         width: 22.75%;
     }    
     .card-title{
-        font-size: 1.4rem;
+        font-size: 1.25rem;
     }
     .iconoEdificios{
         width: 100px;
