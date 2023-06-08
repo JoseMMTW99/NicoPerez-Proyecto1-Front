@@ -45,7 +45,7 @@ function NavBar() {
             <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid p-0 containerNavBar">
                     {
-                        admin ? <><a href='/Administracion' className='navbar-brand col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2 ps-2'><img className="w-100" src={logo} /></a></>
+                        admin ? <><a href='/Administracion' className='navbar-brand col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2 ps-2'><img className="w-75" src={logo} /></a></>
                         : <img className="navbar-brand col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2 ps-2" src={logo} />
                     }
                     <button className="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
