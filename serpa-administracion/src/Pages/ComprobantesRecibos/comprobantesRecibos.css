@@ -1,0 +1,103 @@
+.divComprobantes{
+    width: 98%;
+    margin: auto;
+    margin-top: 3rem;
+    padding-inline: 2rem;
+    padding-block: 2rem;
+    border-radius: 16px;
+    background-color: #FFFFFF;
+}
+
+.divComprobantes h1{
+    color: rgb(58,58,58, 0.9);
+    font-size: 3rem;
+    line-height: 3rem;
+    font-weight: 600;
+}
+
+.contenedorComprobantes{
+    width: 90%;
+    margin: auto;
+    margin-top: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 5%;
+}
+
+.cardComprobante{
+    background-color: #FFFFFF;
+    border: 2px solid rgb(58,58,58, 0.3);
+    border-radius: 10px;
+    width: 10%;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.imagenPDFComprobante{
+    width: 60%;
+    margin: auto;
+    margin-top: 1rem;
+}
+
+.imagenPDFComprobante img{
+    width: 100%;
+    filter: drop-shadow(0px 0px 5px rgb(58,58,58,0.6));
+}
+
+.fechaCardComprobante{
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 1.3rem;
+    color: rgb(58,58,58, 0.7);
+    font-weight: 700;
+}
+
+.botonDescargarCardComprobante{
+    display: flex;
+    justify-content: end;
+    padding-right: 1rem;
+    margin-top: 1rem;
+}
+
+.botonDescargarCardComprobante button{
+    padding-inline: 0.5rem;
+    padding-block: 0.2rem;
+    color: #FFFFFF;
+    background-color: #55a6fc;
+    border-radius: 5px;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.botonDescargarCardComprobante button:hover{
+    background-color: #79b6f7;
+    transform: scale(1.2);
+}
+
+.botonEliminarCardComprobante{
+    display: flex;
+    justify-content: end;
+    padding-right: 0.5rem;
+    margin-top: 1rem;
+}
+
+.botonEliminarCardComprobante button{
+    padding-inline: 0.5rem;
+    padding-block: 0.2rem;
+    color: #FFFFFF;
+    background-color: #CE1D1F;
+    border-radius: 5px;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.botonEliminarCardComprobante button:hover{
+    background-color: #d55052;
+    transform: scale(1.2);
+}
+
+.noHayDocumento{
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}

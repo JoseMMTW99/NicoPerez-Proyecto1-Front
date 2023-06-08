@@ -27,3 +27,19 @@
 .tituloPerfil{
     font-weight: 600;
 }
+
+.botonDocumentosPerfil{
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+    color: #FFFFFF;
+    background-color: #dc47ef;
+    border: none;
+    border-radius: 16px;
+    margin-top: 2rem;
+    transition: all 0.3s ease;
+}
+
+.botonDocumentosPerfil:hover{
+    background-color: #e171ef;
+    transform: scale(1.05);
+}

@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import './subirArchivo.css'
 
-function SubirArchivo(usuario) {
+function SubirArchivoUser(usuario) {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
@@ -23,7 +22,7 @@ function SubirArchivo(usuario) {
         {
           file: data.file[0],
           userId: usuario.usuario._id,
-          tipo: 'recibo'
+          tipo: 'comprobante'
         },
         {
           headers: {
@@ -80,4 +79,4 @@ function SubirArchivo(usuario) {
   );
 }
 
-export default SubirArchivo;
+export default SubirArchivoUser;

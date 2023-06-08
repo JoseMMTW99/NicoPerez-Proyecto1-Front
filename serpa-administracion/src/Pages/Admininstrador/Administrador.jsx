@@ -20,7 +20,7 @@ const Administrador = () => {
     }
   
     useEffect(() =>{
-        const response = axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/edificio/get-edificio`)
+        const response = axios.get(`http://localhost:8000/edificio/get-edificio`)
         .then((response) =>{
             setEdificios(response.data);
         })

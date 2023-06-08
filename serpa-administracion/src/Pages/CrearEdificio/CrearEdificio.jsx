@@ -24,7 +24,7 @@ const CrearEdificio = () => {
     const onSubmit = async (data) => {
         setLoading(true);
         const respuesta = await axios.post(
-            `https://serpa-administracion-jose-martinez-teran.up.railway.app/edificio/crear-edificio`,
+            `http://localhost:8000/edificio/crear-edificio`,
             {
                 name: data.name.trim(),
             }

@@ -24,7 +24,7 @@ function NavBar() {
 
     useEffect(() => {
         if (idUser !== undefined) {
-            axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/users/${idUser}`)
+            axios.get(`http://localhost:8000/users/${idUser}`)
                 .then((response) => {
                     setUsers(response.data);
                     if (response.data.role  === 'admin') {

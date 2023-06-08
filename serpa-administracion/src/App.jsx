@@ -13,6 +13,8 @@ import CambiarContraseñaEmail from './Pages/CambiarContraseñaEmail/CambiarCont
 import CambiarContraseñaAdmin from './Pages/CambiarContraseñaAdmin/CambiarContraseñaAdmin';
 import Footer from './Components/Footer/Footer';
 import EditarUsuario from './Pages/EditarUsuario/EditarUsuario';
+import ComprobantesRecibos from './Pages/ComprobantesRecibos/ComprobantesRecibos';
+import ComprobantesRecibosAdmin from './Pages/ComprobantesRecibosAdmin/ComprobantesRecibosAdmin';
 
 function App() {
 
@@ -25,9 +27,11 @@ function App() {
         <Route path="/" element={<Inicio />} />
         <Route path="/Administracion" element={<Administrador />} />
         <Route path="/Crear/Usuario/:edificioName" element={<CrearUsuario   />} />
-        <Route path="/Administracion/Editar/Usuario/:id/:edificioName" element={<EditarUsuario   />} />
+        <Route path="/Administracion/Editar/Usuario/:id/:edificioName" element={<EditarUsuario/>} />
+        <Route path="/Administracion/Usuario/Documentos/:id" element={<ComprobantesRecibosAdmin/>} />
         <Route path="/Edificio/:edificioName" element={<UsuariosEdificio />} />
         <Route path="/Perfil" element={<Perfil />} />
+        <Route path="/Perfil/Documentos" element={<ComprobantesRecibos />} />
         <Route path="/Administracion/Recuperar-contraseña/:id" element={<CambiarContraseñaAdmin />} />
         <Route path="/Recuperar-contraseña" element={<CambiarContraseñaEmail />} />
         <Route path="/Recuperar-contraseña/:token" element={<CambiarContraseña />} />

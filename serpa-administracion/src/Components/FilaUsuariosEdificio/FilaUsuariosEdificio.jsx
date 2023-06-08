@@ -20,7 +20,7 @@ function FilaUsuariosEdificio(usuario) {
     const downloadPdf = async () => {
       setIsLoading(true);
       try {
-        const response = await axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/uploads/getpdf/${usuario.usuario._id}`, {
+        const response = await axios.get(`http://localhost:8000/uploads/getpdf/${usuario.usuario._id}`, {
           responseType: 'blob',
         });
     
@@ -90,7 +90,7 @@ function FilaUsuariosEdificio(usuario) {
   };
 
   const borrarUsuario = async () => {
-      await axios.delete(`https://serpa-administracion-jose-martinez-teran.up.railway.app/users/eliminar-user`, {
+      await axios.delete(`http://localhost:8000/users/eliminar-user`, {
           data: {
               id: usuario.usuario._id
           }

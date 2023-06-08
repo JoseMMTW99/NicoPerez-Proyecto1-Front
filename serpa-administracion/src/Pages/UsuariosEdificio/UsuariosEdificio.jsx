@@ -74,7 +74,7 @@ const UsuariosEdificio = () => {
     };
 
     const borrarEdificio = async () => {
-        await axios.delete(`https://serpa-administracion-jose-martinez-teran.up.railway.app/edificio/delete-edificio`, {
+        await axios.delete(`http://localhost:8000/edificio/delete-edificio`, {
             data: {
                 name: edificioName
             }
@@ -86,7 +86,7 @@ const UsuariosEdificio = () => {
 
     useEffect(() => {
         const response = axios
-            .get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/edificio/get-edificio`)
+            .get(`http://localhost:8000/edificio/get-edificio`)
             .then((response) => {
                 setEdificios(response.data);
             })
@@ -101,7 +101,7 @@ const UsuariosEdificio = () => {
     }, [edificios, edificioName]);
 
     useEffect(() => {
-        const response = axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/users/obtener-users`)
+        const response = axios.get(`http://localhost:8000/users/obtener-users`)
             .then((response) => {
                 const filteredUsuarios = response.data.filter((usuario) => usuario.edificio === edificioName);
                 setUsuarios(filteredUsuarios);

@@ -28,7 +28,7 @@ const EditarUsuario = () => {
 
         const getUser = async () =>{
         const respuesta = await axios
-        .get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/users/${id}`)
+        .get(`http://localhost:8000/users/${id}`)
         .then((response) => {
             setUser(response.data);
             if (response.status === 200) {
@@ -91,7 +91,7 @@ const EditarUsuario = () => {
             data.puerta = '-'
         }
         const respuesta = await axios.patch(
-            `https://serpa-administracion-jose-martinez-teran.up.railway.app/users/editar-user`,
+            `http://localhost:8000/users/editar-user`,
             {
                 id,
                 name: data.name.trim(),

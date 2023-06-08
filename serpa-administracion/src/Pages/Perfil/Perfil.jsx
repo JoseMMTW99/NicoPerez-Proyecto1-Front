@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './perfil.css'
 import axios from 'axios'
 import Cookies from 'js-cookie'
+import SubirArchivoUser from '../../Components/SubirArchivoUser/SubirArchivoUser'
 
 function Perfil() {
 
@@ -15,7 +16,7 @@ function Perfil() {
 
   useEffect(() =>{
     if (idUser !== undefined){
-        axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/users/${idUser}`)
+        axios.get(`http://localhost:8000/users/${idUser}`)
         .then((response) =>{
             setUsers(response.data);
         })
@@ -28,7 +29,7 @@ function Perfil() {
 const downloadPdf = async () => {
   setIsLoading(true);
   try {
-    const response = await axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/uploads/getpdf/${idUser}`, {
+    const response = await axios.get(`http://localhost:8000/uploads/getpdf/${idUser}`, {
       responseType: 'blob',
     });
 
@@ -77,7 +78,14 @@ const downloadPdf = async () => {
             <div>
               <i className="bi bi-door-closed-fill text-muted fs-3"></i> Piso {users.piso} | Puerta {users.puerta}
             </div>
-            {isLoading ? (
+            <div>
+              <a href="/Perfil/Documentos">
+                <button className='botonDocumentosPerfil'>
+                  VER DOCUMENTOS
+                </button>
+              </a>
+            </div>
+            {/* {isLoading ? (
               <div className="mt-3">
                 <div className="spinner-border" role="status">
                   <span className="visually-hidden">Descargando...</span>
@@ -93,6 +101,7 @@ const downloadPdf = async () => {
             {
               error ? <div className='text-center mt-3 fs-6'>¡No tienes ningún recibo para descargar!</div> : <></>
             }
+            <SubirArchivoUser usuario={users}/> */}
           </div>
         </div>
       </div>
