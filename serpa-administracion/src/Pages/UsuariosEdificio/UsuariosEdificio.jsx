@@ -29,7 +29,7 @@ const UsuariosEdificio = () => {
 
     const handleGoBack = () => {
         window.location.replace('/Administracion')
-      };
+    };
 
     const Apretado = async () => {
         swalWithBootstrapButtons
@@ -138,7 +138,7 @@ const UsuariosEdificio = () => {
                             </button>
                         </div>
                     </div>
-                    <h1 className='text-center mb-3 text-white tituloEdificio mx-auto mt-4'>{edificioName}</h1>
+                    <h2 className='text-center text-white tituloEdificio mx-auto'>{edificioName}</h2>
                     <div className='d-flex m-5 mt-5'>
                         <div className="pb-5 w-100">
                             <div className="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3 col-xxl-2">
@@ -158,19 +158,19 @@ const UsuariosEdificio = () => {
                                     <table className="table align-middle">
                                         <thead className='align-middle'>
                                             <tr className='text-center'>
-                                                <th className="fs-5">Cliente</th>
-                                                <th className="fs-5">Correo</th>
-                                                <th className="fs-5">Documento</th>
-                                                <th className="fs-5">Piso</th>
-                                                <th className="fs-5">Puerta</th>
-                                                <th className="fs-5">Tipo</th>
-                                                <th className="fs-5">Baulera</th>
-                                                <th className="fs-5">Ultimo comprobante</th>
-                                                <th className="fs-5">Subir archivo</th>
-                                                <th className="fs-5">Descargar archivo</th>
-                                                <th className="fs-5">Editar</th>
-                                                <th className="fs-5">Cambiar contraseña</th>
-                                                <th className="fs-5">Eliminar</th>
+                                                <th className="fs-6">Cliente</th>
+                                                <th className="fs-6">Correo</th>
+                                                <th className="fs-6">Documento</th>
+                                                <th className="fs-6">Piso</th>
+                                                <th className="fs-6">Puerta</th>
+                                                <th className="fs-6">Tipo</th>
+                                                <th className="fs-6">Baulera</th>
+                                                <th className="fs-6">Ultimo comprobante</th>
+                                                <th className="fs-6">Subir archivo</th>
+                                                <th className="fs-6">Descargar archivo</th>
+                                                <th className="fs-6">Editar</th>
+                                                <th className="fs-6">Cambiar contraseña</th>
+                                                <th className="fs-6">Eliminar</th>
                                             </tr>
                                         </thead>
                                         <tbody className='text-center'>
