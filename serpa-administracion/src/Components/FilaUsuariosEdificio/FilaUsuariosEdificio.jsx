@@ -135,29 +135,23 @@ function FilaUsuariosEdificio(usuario) {
           </OverlayTrigger>
         </td>
         <td className="border">{usuario.usuario.baulera}</td>
-        <td className="border">{usuario.usuario.date}</td>
         <td className="border"><SubirArchivo usuario={usuario.usuario} /></td>
-        <td className="border">
-  <OverlayTrigger
-    placement="right"
-    overlay={<Tooltip id="tooltip">{usuario.usuario.date}</Tooltip>}
-  >
-    <div style={{ display: 'inline-block', width: '100%' }}>
-      {isLoading ? (
-        <div className="d-flex justify-content-center mt-3">
-          <div className="spinner-border" role="status">
-            <span className="visually-hidden">Descargando...</span>
-          </div>
-        </div>
-      ) : (
-        <button className="botonDescargarAdmin" onClick={downloadPdf}>
-          <i className="bi bi-download"></i>
-        </button>
-      )}
-      {error ? <div className='text-center text-muted fs-6'>¡No hay comprobante!</div> : <></>}
-    </div>
-  </OverlayTrigger>
-</td>
+        <td className='border'>
+          {isLoading ? (
+            <div className="d-flex justify-content-center mt-3">
+              <div className="spinner-border" role="status">
+                <span className="visually-hidden">Descargando...</span>
+              </div>
+            </div>
+          ) : (
+            <button className="botonDescargarAdmin" onClick={downloadPdf}>
+              <div className='fs-6'>{usuario.usuario.date === "Sin archivo" ? "---" : usuario.usuario.date}</div>
+            </button>
+          )}
+          {
+            error ? <div className='text-center text-muted fs-6'>¡No hay comprobante!</div> : <></>
+          }
+        </td>
         <td className='border'>
           <a href={`/Administracion/Editar/Usuario/${usuario.usuario._id}/${usuario.usuario.edificio}`}>
             <button className="botonDescargarAdmin">
