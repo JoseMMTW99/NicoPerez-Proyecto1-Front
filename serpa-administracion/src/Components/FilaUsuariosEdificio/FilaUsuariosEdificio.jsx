@@ -144,8 +144,16 @@ function FilaUsuariosEdificio(usuario) {
               </div>
             </div>
           ) : (
-            <button className="botonDescargarAdmin" onClick={downloadPdf}>
-              <div className='fs-6'>{usuario.usuario.date === "Sin archivo" ? "---" : usuario.usuario.date}</div>
+            <button className="botonDescargarAdmin ps-3 pe-3 pt-1 pb-1" onClick={downloadPdf}>
+              <div className='fs-6'>
+                {usuario.usuario.date !== "Sin archivo" && (
+                  <>
+                    <i className="bi bi-download" style={{ marginRight: '0.5rem' }}></i>
+                    {usuario.usuario.date}
+                  </>
+                )}
+                {usuario.usuario.date === "Sin archivo" && "---"}
+              </div>
             </button>
           )}
           {
