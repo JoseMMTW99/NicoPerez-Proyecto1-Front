@@ -12,6 +12,7 @@ import NavBar from './Components/NavBar/NavBar';
 import CambiarContraseñaEmail from './Pages/CambiarContraseñaEmail/CambiarContraseñaEmail';
 import CambiarContraseñaAdmin from './Pages/CambiarContraseñaAdmin/CambiarContraseñaAdmin';
 import Footer from './Components/Footer/Footer';
+import EditarUsuario from './Pages/EditarUsuario/EditarUsuario';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/" element={<Inicio />} />
         <Route path="/Administracion" element={<Administrador />} />
         <Route path="/Crear/Usuario/:edificioName" element={<CrearUsuario   />} />
+        <Route path="/Administracion/Editar/Usuario/:id/:edificioName" element={<EditarUsuario   />} />
         <Route path="/Edificio/:edificioName" element={<UsuariosEdificio />} />
         <Route path="/Perfil" element={<Perfil />} />
         <Route path="/Administracion/Recuperar-contraseña/:id" element={<CambiarContraseñaAdmin />} />

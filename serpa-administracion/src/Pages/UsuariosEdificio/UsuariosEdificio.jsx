@@ -168,6 +168,7 @@ const UsuariosEdificio = () => {
                                                 <th className="fs-5">Ultimo comprobante</th>
                                                 <th className="fs-5">Subir archivo</th>
                                                 <th className="fs-5">Descargar archivo</th>
+                                                <th className="fs-5">Editar</th>
                                                 <th className="fs-5">Cambiar contraseña</th>
                                                 <th className="fs-5">Eliminar</th>
                                             </tr>
