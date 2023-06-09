@@ -74,7 +74,7 @@ const UsuariosEdificio = () => {
     };
 
     const borrarEdificio = async () => {
-        await axios.delete(`http://localhost:8000/edificio/delete-edificio`, {
+        await axios.delete(`https://serpa-administracion-jose-martinez-teran.up.railway.app/edificio/delete-edificio`, {
             data: {
                 name: edificioName
             }
@@ -86,7 +86,7 @@ const UsuariosEdificio = () => {
 
     useEffect(() => {
         const response = axios
-            .get(`http://localhost:8000/edificio/get-edificio`)
+            .get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/edificio/get-edificio`)
             .then((response) => {
                 setEdificios(response.data);
             })
@@ -101,7 +101,7 @@ const UsuariosEdificio = () => {
     }, [edificios, edificioName]);
 
     useEffect(() => {
-        const response = axios.get(`http://localhost:8000/users/obtener-users`)
+        const response = axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/users/obtener-users`)
             .then((response) => {
                 const filteredUsuarios = response.data.filter((usuario) => usuario.edificio === edificioName);
                 setUsuarios(filteredUsuarios);
@@ -160,16 +160,12 @@ const UsuariosEdificio = () => {
                                             <tr className='text-center'>
                                                 <th className="fs-6">Cliente</th>
                                                 <th className="fs-6">Correo</th>
-                                                <th className="fs-6">Documento</th>
                                                 <th className="fs-6">Piso</th>
                                                 <th className="fs-6">Puerta</th>
                                                 <th className="fs-6">Tipo</th>
-                                                <th className="fs-6">Baulera</th>
                                                 <th className="fs-6">Subir archivo</th>
                                                 <th className="fs-6">Descargar archivo</th>
-                                                <th className="fs-6">Editar</th>
-                                                <th className="fs-6">Cambiar contraseña</th>
-                                                <th className="fs-6">Eliminar</th>
+                                                <th className="fs-6">Perfil</th>
                                             </tr>
                                         </thead>
                                         <tbody className='text-center'>

@@ -20,3 +20,7 @@ body.crear-edificio {
   background: url("../src/assets/fondoClaro.jpg") no-repeat center center fixed;
   background-size: cover;
 }
+
+button {
+  border: none;
+}

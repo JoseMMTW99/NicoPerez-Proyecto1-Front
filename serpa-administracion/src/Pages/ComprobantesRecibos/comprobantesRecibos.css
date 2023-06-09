@@ -22,20 +22,17 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
-    gap: 5%;
 }
 
 .cardComprobante{
     background-color: #FFFFFF;
     border: 2px solid rgb(58,58,58, 0.3);
     border-radius: 10px;
-    width: 10%;
     padding-bottom: 1rem;
     margin-bottom: 2rem;
 }
 
 .imagenPDFComprobante{
-    width: 60%;
     margin: auto;
     margin-top: 1rem;
 }
@@ -100,4 +97,71 @@
 .noHayDocumento{
     font-size: 1.5rem;
     margin-bottom: 2rem;
+}
+
+
+@media (max-width: 576px){
+    .contenedorTituloYSubirDocumento {
+        justify-content: center;
+    }
+    .contenedorTituloYSubirDocumento h1{
+        font-size: 2rem;
+    }
+    .contenedorTituloYSubirDocumento h3{
+        display: none;
+    }
+    
+    .contenedorComprobantes{
+        gap: 0%;
+    }
+
+    .cardComprobante{
+        width: 100%;
+    }
+
+    .imagenPDFComprobante{
+        width: 70%;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 992px){
+    .contenedorTituloYSubirDocumento {
+        justify-content: center;
+    }
+    .contenedorTituloYSubirDocumento h1{
+        font-size: 2.5rem;
+    }
+    .contenedorTituloYSubirDocumento h3{
+        display: none;
+    }
+    
+    .contenedorComprobantes{
+        gap: 5%;
+    }
+
+    .cardComprobante{
+        width: 30%;
+    }
+
+    .imagenPDFComprobante{
+        width: 70%;
+    }
+}
+
+@media (min-width: 992px){
+    .contenedorTituloYSubirDocumento {
+        justify-content: space-between;
+    }
+    
+    .contenedorComprobantes{
+        gap: 6.25%;
+    }
+
+    .cardComprobante{
+        width: 15%;
+    }
+
+    .imagenPDFComprobante{
+        width: 60%;
+    }
 }

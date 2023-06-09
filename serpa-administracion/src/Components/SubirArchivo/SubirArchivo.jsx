@@ -19,7 +19,7 @@ function SubirArchivo(usuario) {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:8000/uploads/upload-file",
+        "https://serpa-administracion-jose-martinez-teran.up.railway.app/uploads/upload-file",
         {
           file: data.file[0],
           userId: usuario.usuario._id,
@@ -31,11 +31,12 @@ function SubirArchivo(usuario) {
           },
         }
       );
-      await axios.patch("http://localhost:8000/users/actualizar-fecha",{
+      await axios.patch("https://serpa-administracion-jose-martinez-teran.up.railway.app/users/actualizar-fecha",{
           id:usuario.usuario._id
       })
       setLoading(false);
       setSuccess(true);
+      window.location.reload(true)
     } catch (error) {
       setLoading(false);
       setError(true);

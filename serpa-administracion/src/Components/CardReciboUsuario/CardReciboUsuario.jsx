@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import icono from '../../assets/pdf.png'
+import Swal from "sweetalert2";
 import axios from 'axios'
 import Cookies from 'js-cookie'
 
@@ -10,10 +11,18 @@ function CardReciboUsuario(props) {
     const [isLoading, setIsLoading] = useState(false);
     const [isLoadingEliminar, setIsLoadingEliminar] = useState(false);
 
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success",
+        cancelButton: "btn btn-danger",
+      },
+      buttonsStyling: false,
+    });
+
     const deletePdf = async () => {
         setIsLoadingEliminar(true);
         try {
-          const response = await axios.delete(`http://localhost:8000/uploads/delete-pdf/${comprobante.id}`);
+          const response = await axios.delete(`https://serpa-administracion-jose-martinez-teran.up.railway.app/uploads/delete-pdf/${comprobante.id}`);
           if (response.status === 200) {    
             setIsLoadingEliminar(false);
           } else if (response.status === 206) {
@@ -27,7 +36,7 @@ function CardReciboUsuario(props) {
     const downloadPdf = async () => {
         setIsLoading(true);
         try {
-          const response = await axios.get(`http://localhost:8000/uploads/getpdf-especifico/${comprobante.id}`, {
+          const response = await axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/uploads/getpdf-especifico/${comprobante.id}`, {
             responseType: 'blob',
           });
       
@@ -52,6 +61,50 @@ function CardReciboUsuario(props) {
           }
         };
 
+  const Apretado = async () => {
+    swalWithBootstrapButtons
+      .fire({
+        title: `¿Estas seguro que quieres eliminar este archivo?`,
+        text: "¡No podrás deshacer esto!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Confirmar",
+        cancelButtonText: "Cancelar",
+        reverseButtons: true,
+      })
+      .then(async (result) => {
+        if (result.isConfirmed) {
+          const swalLoading = Swal.fire({
+            title: "Procesando... ¡No cierre esta ventana!",
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            didOpen: () => {
+              Swal.showLoading();
+            },
+          });
+          await deletePdf();
+          swalLoading.close();
+          swalWithBootstrapButtons
+            .fire(
+              "¡Archivo eliminado!",
+              "Se elimino el archivo con éxito.",
+              "success"
+            )
+            .then(() => {
+              window.location.reload(true);
+            });
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          swalWithBootstrapButtons.fire(
+            "Cancelado",
+            "¡Estuvo cerca!",
+            "error"
+          );
+        }
+      });
+  };
+
+
+
     return (
         <>
         <div className='cardComprobante'>
@@ -59,7 +112,7 @@ function CardReciboUsuario(props) {
             <div className='fechaCardComprobante'>{comprobante.date}</div>
             <div className='d-flex justify-content-end'>
                 <div className='botonEliminarCardComprobante'>
-                    <button onClick={deletePdf}>
+                    <button onClick={Apretado}>
                         {isLoadingEliminar ? (
                             <span
                                 className="spinner-border spinner-border-sm mr-2"

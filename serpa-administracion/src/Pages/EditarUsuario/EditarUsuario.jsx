@@ -21,14 +21,14 @@ const EditarUsuario = () => {
     }
 
     const handleGoBack = () => {
-        window.location.replace(`/Edificio/${edificioName}`)
+        window.location.replace(`/Administracion/Perfil/${id}`)
     };
 
     useEffect(() => {
 
         const getUser = async () =>{
         const respuesta = await axios
-        .get(`http://localhost:8000/users/${id}`)
+        .get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/users/${id}`)
         .then((response) => {
             setUser(response.data);
             if (response.status === 200) {
@@ -91,7 +91,7 @@ const EditarUsuario = () => {
             data.puerta = '-'
         }
         const respuesta = await axios.patch(
-            `http://localhost:8000/users/editar-user`,
+            `https://serpa-administracion-jose-martinez-teran.up.railway.app/users/editar-user`,
             {
                 id,
                 name: data.name.trim(),

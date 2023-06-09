@@ -15,7 +15,7 @@ const CambiarContraseñaEmail = () => {
     const onSubmit = async (data) => {
         setLoading(true);
         const response = await axios.post(
-            `http://localhost:8000/users/recuperar-password`,
+            `https://serpa-administracion-jose-martinez-teran.up.railway.app/users/recuperar-password`,
             {
                 email: data.email
             }

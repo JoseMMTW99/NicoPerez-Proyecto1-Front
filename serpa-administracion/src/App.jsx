@@ -15,6 +15,7 @@ import Footer from './Components/Footer/Footer';
 import EditarUsuario from './Pages/EditarUsuario/EditarUsuario';
 import ComprobantesRecibos from './Pages/ComprobantesRecibos/ComprobantesRecibos';
 import ComprobantesRecibosAdmin from './Pages/ComprobantesRecibosAdmin/ComprobantesRecibosAdmin';
+import PerfilAdmin from './Pages/PerfilAdmin/PerfilAdmin';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
         <Route path="/Administracion/Usuario/Documentos/:id" element={<ComprobantesRecibosAdmin/>} />
         <Route path="/Edificio/:edificioName" element={<UsuariosEdificio />} />
         <Route path="/Perfil" element={<Perfil />} />
+        <Route path="/Administracion/Perfil/:id" element={<PerfilAdmin />} />
         <Route path="/Perfil/Documentos" element={<ComprobantesRecibos />} />
         <Route path="/Administracion/Recuperar-contraseña/:id" element={<CambiarContraseñaAdmin />} />
         <Route path="/Recuperar-contraseña" element={<CambiarContraseñaEmail />} />

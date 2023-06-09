@@ -22,7 +22,7 @@ function ComprobantesRecibos() {
   
     useEffect(() =>{
       if (idUser !== undefined){
-          axios.get(`http://localhost:8000/users/${idUser}`)
+          axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/users/${idUser}`)
           .then((response) =>{
               setUsers(response.data);
           })
@@ -31,7 +31,7 @@ function ComprobantesRecibos() {
           })
 
           const getPdfs = async () => {
-            const response = await axios.get(`http://localhost:8000/uploads/getpdf/${idUser}`);
+            const response = await axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/uploads/getpdf/${idUser}`);
             setComprobantes(response.data.comprobantes);
             setRecibos(response.data.recibos);
           }
@@ -40,8 +40,20 @@ function ComprobantesRecibos() {
       }
   }, [idUser])
 
+  
+    const handleGoBack = () => {
+        window.location.replace(`/Perfil`)
+    };
+
     return (
         <>
+            <div className='container-fluid p-0'>
+                <div className='divBotonVolverAtras mt-4 ms-4 d-flex justify-content-start'>                        
+                    <button className="botonAgregarEdificio px-2 py-0" onClick={handleGoBack}>
+                        <i className="bi bi-arrow-left-short"></i>
+                    </button>
+                </div>
+            </div>
             <div className='divComprobantes'>
                 <h1>RECIBOS</h1>
                 <div className='contenedorComprobantes'>                
