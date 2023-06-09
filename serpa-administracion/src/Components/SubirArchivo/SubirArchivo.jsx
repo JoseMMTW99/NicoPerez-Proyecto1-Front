@@ -47,7 +47,7 @@ function SubirArchivo(usuario) {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className="formSubirArchivo">
-        <div className="input-group w-75 mx-auto">
+        <div className="input-group w-100 mx-auto">
           <input
             type="file"
             className="form-control"
