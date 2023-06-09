@@ -163,7 +163,7 @@ const UsuariosEdificio = () => {
                                                 <th className="fs-6">Piso</th>
                                                 <th className="fs-6">Puerta</th>
                                                 <th className="fs-6">Tipo</th>
-                                                <th className="fs-6 columnaSubirArchivo">Subir archivo</th>
+                                                <th className="fs-6">Subir archivo</th>
                                                 <th className="fs-6">Descargar archivo</th>
                                                 <th className="fs-6">Perfil</th>
                                             </tr>

@@ -58,7 +58,7 @@ function FilaUsuariosEdificio(usuario) {
   return (
     <>
       <tr>
-        <td className="border">{usuario.usuario.name} {usuario.usuario.surname}</td>
+        <td className="border columnaSubirArchivo">{usuario.usuario.name} {usuario.usuario.surname}</td>
         <td className="border">{usuario.usuario.email}</td>
         <td className="border">{usuario.usuario.piso}</td>
         <td className="border">{usuario.usuario.puerta}</td>
@@ -72,7 +72,7 @@ function FilaUsuariosEdificio(usuario) {
             </div>
           </OverlayTrigger>
         </td>
-        <td className="border columnaSubirArchivo"><SubirArchivo usuario={usuario.usuario} /></td>
+        <td className="border"><SubirArchivo usuario={usuario.usuario} /></td>
         <td className='border'>
           {isLoading ? (
             <div className="d-flex justify-content-center mt-3">
