@@ -72,7 +72,7 @@ function FilaUsuariosEdificio(usuario) {
             </div>
           </OverlayTrigger>
         </td>
-        <td className="border"><SubirArchivo usuario={usuario.usuario} /></td>
+        <td className="border columnaSubirArchivo"><SubirArchivo usuario={usuario.usuario} /></td>
         <td className='border'>
           {isLoading ? (
             <div className="d-flex justify-content-center mt-3">
