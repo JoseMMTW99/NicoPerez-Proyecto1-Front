@@ -54,7 +54,6 @@ const Administrador = () => {
                         </button>
                     </a>
                 </div>
-
             </div>
         </>
     )

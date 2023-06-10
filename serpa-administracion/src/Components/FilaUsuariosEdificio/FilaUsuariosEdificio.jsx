@@ -97,6 +97,7 @@ function FilaUsuariosEdificio(usuario) {
             error ? <div className='text-center text-muted fs-6'>¡No hay comprobante!</div> : <></>
           }
         </td>
+        <td>Boton ultimo comprobante de pago</td>
         <td className='border'>
           <a href={`/Administracion/Perfil/${usuario.usuario._id}`}>
             <button className="botonDescargarAdmin">

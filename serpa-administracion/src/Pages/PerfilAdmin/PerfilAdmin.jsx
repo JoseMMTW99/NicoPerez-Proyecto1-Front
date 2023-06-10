@@ -129,58 +129,17 @@ const Apretado = async () => {
       <div>
         <div className='cardPerfil mx-auto pt-5 pb-5 px-2' >
           <div className='text-center'><h1 className='tituloPerfil'>{users.name} {users.surname}</h1></div>
-          {/* <div className='tabla-usuarios fs-6 mt-5 mb-3'>
+          { <div className='tabla-usuarios fs-6'>
             <div className="table-responsive">
               <table className="table align-middle">
                 <tbody className='text-center'>
                   <tr>
-                    <td>Nombre</td>
-                    <td>{users.name}</td>
-                  </tr>
-                  <tr>
-                    <td>Apellido</td>
-                    <td>{users.surname}</td>
-                  </tr>
-                  <tr>
-                    <td>Edificio</td>
-                    <td>{users.edificio}</td>
-                  </tr>
-                  <tr>
-                    <td>Piso</td>
-                    <td>{users.piso}</td>
-                  </tr>
-                  <tr>
-                    <td>Puerta</td>
-                    <td>{users.puerta}</td>
-                  </tr>
-                  <tr>
-                    <td>Tipo</td>
-                    <td>{users.tipo}</td>
-                  </tr>
-                  <tr>
-                    <td>Baulera</td>
-                    <td>{users.baulera}</td>
-                  </tr>
-                  <tr>
-                    <td>Email</td>
-                    <td>{users.email}</td>
-                  </tr>
-                  <tr>
-                    <td>Contraseña</td>
-                    <td>{users.password}</td>
-                  </tr>
-                  <tr>
-                    <td>DNI</td>
-                    <td>{users.dni}</td>
-                  </tr>
-                  <tr>
-                    <td>Ultimo archivo</td>
-                    <td>{users.date}</td>
+                    <td><i className="bi bi-envelope-fill text-muted fs-3 me-1 iconoPerfilAdmin"></i>{users.email}</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-          </div> */}
+          </div>}
           <div className='text-center mb-4'><h3 className='fs-6 text-muted'>{users.tipo}</h3></div>
           <div className='d-flex flex-column justify-content-center text-center'>
             <div>
@@ -191,9 +150,6 @@ const Apretado = async () => {
             </div>
             <div>
               <i className="bi bi-archive-fill text-muted fs-3 me-1 iconoPerfilAdmin"></i> Baulera {users.baulera}
-            </div>
-            <div>
-              <i className="bi bi-envelope-fill text-muted fs-3 me-1 iconoPerfilAdmin"></i> {users.email}
             </div>
             <div>
               <i className="bi bi-lock-fill text-muted fs-3 me-1 iconoPerfilAdmin"></i> {users.password}
@@ -211,8 +167,8 @@ const Apretado = async () => {
                 </button>
               </a>
             </div>
-            <div className='d-flex justify-content-evenly mt-5'>
-              <div class="btn-group" role="group" aria-label="Basic example">
+            <div className='d-flex justify-content-evenly mt-3'>
+              <div className="btn-group" role="group" aria-label="Basic example">
                 <a href={`/Administracion/Editar/Usuario/${users._id}/${users.edificio}`}>
                   <button className="botonDescargarPerfilAdmin">
                     <i className="bi bi-pencil-fill"></i>

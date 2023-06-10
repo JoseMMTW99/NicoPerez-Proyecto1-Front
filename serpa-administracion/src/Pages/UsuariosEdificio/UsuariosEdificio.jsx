@@ -141,8 +141,9 @@ const UsuariosEdificio = () => {
                     <h2 className='text-center text-white tituloEdificio mx-auto'>{edificioName}</h2>
                     <div className='d-flex m-5 mt-5'>
                         <div className="pb-5 w-100">
-                            <div className="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3 col-xxl-2">
-                                <div className="input-group mb-3">
+                            <div className="col-12 col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6">
+                                <div className="input-group">
+                                <div className='divBotonAgregarUsuario ms-1 me-1 mb-2'>
                                     <input
                                         type="text"
                                         className="form-control barraBusqueda"
@@ -151,6 +152,25 @@ const UsuariosEdificio = () => {
                                         aria-label="Search"
                                         aria-describedby="search-button"
                                     />
+                                    </div>
+                                    <div className='divBotonAgregarUsuario pt-1 ms-1 me-1 mb-2'>
+                                        <a href={`/Crear/Usuario/${edificioName}`}>
+                                            <button className="botonAgregarEdificio">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-plus" viewBox="0 0 16 18">
+                                                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                                                </svg>
+                                                Crear usuario
+                                            </button>
+                                        </a>
+                                    </div>
+                                    <div className='divBotonAgregarUsuario pt-1 ms-1 me-1 mb-2'>
+                                    <button className="botonBorrarEdifcio" onClick={Apretado}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash3-fill" viewBox="0 0 10 18">
+                                            <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
+                                        </svg>
+                                        <span className='ms-2'>Borrar edificio</span>
+                                    </button>
+                                    </div>
                                 </div>
                             </div>
                             <div className='tabla-usuarios fs-6'>
@@ -164,7 +184,8 @@ const UsuariosEdificio = () => {
                                                 <th className="fs-6">Puerta</th>
                                                 <th className="fs-6">Tipo</th>
                                                 <th className="fs-6">Subir archivo</th>
-                                                <th className="fs-6">Descargar archivo</th>
+                                                <th className="fs-6">Ult. Recibo</th>
+                                                <th className="fs-6">Ult. Comp. de pago</th>
                                                 <th className="fs-6">Perfil</th>
                                             </tr>
                                         </thead>
@@ -176,22 +197,6 @@ const UsuariosEdificio = () => {
                                     </table>
                                 </div>
                             </div>
-                            <div className='divBotonAgregarUsuario mt-4'>
-                                <a href={`/Crear/Usuario/${edificioName}`}>
-                                    <button className="botonAgregarEdificio mt-3 pb-1">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-plus" viewBox="0 0 16 18">
-                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                                        </svg>
-                                        Crear usuario
-                                    </button>
-                                </a>
-                            </div>
-                            <button className="botonBorrarEdifcio mt-3 pb-1" onClick={Apretado}>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash3-fill" viewBox="0 0 10 18">
-                                    <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
-                                </svg>
-                                <span className='ms-2'>Borrar edificio</span>
-                            </button>
                         </div>
                     </div>
                 </>
