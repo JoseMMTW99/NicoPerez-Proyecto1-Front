@@ -48,8 +48,13 @@ function NavBar() {
                         admin ? <><a href='/Administracion' className='navbar-brand col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2 ps-2'><img className="w-75" src={logo} /></a></>
                         : <img className="navbar-brand col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 col-xxl-2 ps-2" src={logo} />
                     }
-                    <button className="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
+                    <button className="navbar-toggler p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <label className="burger" htmlFor="burgerButton">
+                            <input type="checkbox" id="burgerButton"/>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </label>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0 pe-2">

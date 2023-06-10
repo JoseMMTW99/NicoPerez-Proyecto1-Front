@@ -58,7 +58,7 @@ function FilaUsuariosEdificio(usuario) {
   return (
     <>
       <tr>
-        <td className="border">{usuario.usuario.name} {usuario.usuario.surname}</td>
+        <td className="border columnaSubirArchivo">{usuario.usuario.name} {usuario.usuario.surname}</td>
         <td className="border">{usuario.usuario.email}</td>
         <td className="border">{usuario.usuario.piso}</td>
         <td className="border">{usuario.usuario.puerta}</td>
