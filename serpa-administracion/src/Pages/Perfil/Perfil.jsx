@@ -74,13 +74,8 @@ const downloadPdf = async () => {
             <div>
               <i className="bi bi-door-closed-fill text-muted fs-3"></i> Piso {users.piso} | Puerta {users.puerta}
             </div>
-            <div>
-              <a href="/Perfil/Documentos">
-                <button className='botonDocumentosPerfil'>
-                  VER DOCUMENTOS
-                </button>
-              </a>
-            </div>
+            <h3 className='tituloSubirComprobantePerfil'>SUBIR COMPROBANTE DE PAGO</h3>
+            <SubirArchivoUser usuario={users}/>
             <div>
               <button className='botonDocumentosPerfil' onClick={downloadPdf}>
                 { !isLoading ?
@@ -95,8 +90,13 @@ const downloadPdf = async () => {
                 error ? <div className='text-center text-muted fs-6'>¡No hay recibo cargado!</div> : <></>
               }
             </div>
-            <h3 className='tituloSubirComprobantePerfil'>SUBIR COMPROBANTE DE PAGO</h3>
-            <SubirArchivoUser usuario={users}/>
+            <div>
+              <a href="/Perfil/Documentos">
+                <button className='botonDocumentosPerfil'>
+                  VER DOCUMENTOS
+                </button>
+              </a>
+            </div>
           </div>
         </div>
       </div>
