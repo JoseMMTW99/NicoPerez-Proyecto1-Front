@@ -74,8 +74,6 @@ const downloadPdf = async () => {
             <div>
               <i className="bi bi-door-closed-fill text-muted fs-3"></i> Piso {users.piso} | Puerta {users.puerta}
             </div>
-            <h3 className='tituloSubirComprobantePerfil'>SUBIR COMPROBANTE DE PAGO</h3>
-            <SubirArchivoUser usuario={users}/>
             <div>
               <button className='botonDocumentosPerfil' onClick={downloadPdf}>
                 { !isLoading ?
@@ -97,6 +95,8 @@ const downloadPdf = async () => {
                 </button>
               </a>
             </div>
+            <h3 className='tituloSubirComprobantePerfil'>SUBIR COMPROBANTE DE PAGO</h3>
+            <SubirArchivoUser usuario={users}/>
           </div>
         </div>
       </div>

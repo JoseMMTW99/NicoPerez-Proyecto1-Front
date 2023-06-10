@@ -135,22 +135,22 @@ const Apretado = async () => {
           <div className='text-center mb-4'><h3 className='fs-6 text-muted'>{users.tipo}</h3></div>
           <div className='d-flex flex-column justify-content-center text-center'>
             <div>
-              <i className="bi bi-buildings-fill text-muted fs-3 me-1"></i> Edificio {users.edificio}
+              <i className="bi bi-buildings-fill text-muted fs-4 me-1"></i> Edificio {users.edificio}
             </div>
             <div>
-              <i className="bi bi-door-closed-fill text-muted fs-3 me-1"></i> Piso {users.piso} | Puerta {users.puerta}
+              <i className="bi bi-door-closed-fill text-muted fs-4 me-1"></i> Piso {users.piso} | Puerta {users.puerta}
             </div>
             <div>
-              <i className="bi bi-archive-fill text-muted fs-3 me-1 iconoPerfilAdmin"></i> Baulera {users.baulera}
+              <i className="bi bi-archive-fill text-muted fs-4 me-1 iconoPerfilAdmin"></i> Baulera {users.baulera}
             </div>
             <div>
-              <i className="bi bi-lock-fill text-muted fs-3 me-1 iconoPerfilAdmin"></i> {users.password}
+              <i className="bi bi-lock-fill text-muted fs-4 me-1 iconoPerfilAdmin"></i> {users.password}
             </div>
             <div>
-              <i className="bi bi-person-vcard-fill text-muted fs-3 me-1 iconoPerfilAdmin"></i> {users.dni}
+              <i className="bi bi-person-vcard-fill text-muted fs-4 me-1 iconoPerfilAdmin"></i> {users.dni}
             </div>
             <div>
-              <i className="bi bi-calendar-week-fill text-muted fs-3 me-1 iconoPerfilAdmin"></i> Ultimo archivo: {users.date}
+              <i className="bi bi-calendar-week-fill text-muted fs-4 me-1 iconoPerfilAdmin"></i> Ultimo archivo: {users.date}
             </div>
             <div>
               <a href={`/Administracion/Usuario/Documentos/${users._id}`}>

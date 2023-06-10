@@ -109,7 +109,7 @@ function CardReciboUsuario(props) {
         <>
         <div className='cardComprobante'>
             <div className='imagenPDFComprobante'><img src={icono} alt="Comprobante Serpa Administración" /></div>
-            <div className='fechaCardComprobante'>{comprobante.date}</div>
+            <div className='fechaCardComprobante fs-6'>{comprobante.date}</div>
             <div className='d-flex justify-content-end'>
                 <div className='botonEliminarCardComprobante'>
                     <button onClick={Apretado}>

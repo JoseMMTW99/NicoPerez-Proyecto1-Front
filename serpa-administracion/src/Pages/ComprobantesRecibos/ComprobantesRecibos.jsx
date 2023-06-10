@@ -19,28 +19,28 @@ function ComprobantesRecibos() {
     if (idUser === undefined) {
         window.location.replace('/')
     }
-  
-    useEffect(() =>{
-      if (idUser !== undefined){
-          axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/users/${idUser}`)
-          .then((response) =>{
-              setUsers(response.data);
-          })
-          .catch((error) =>{
-              console.error(error);
-          })
 
-          const getPdfs = async () => {
-            const response = await axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/uploads/getpdf/${idUser}`);
-            setComprobantes(response.data.comprobantes);
-            setRecibos(response.data.recibos);
-          }
+    useEffect(() => {
+        if (idUser !== undefined) {
+            axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/users/${idUser}`)
+                .then((response) => {
+                    setUsers(response.data);
+                })
+                .catch((error) => {
+                    console.error(error);
+                })
 
-          getPdfs()
-      }
-  }, [idUser])
+            const getPdfs = async () => {
+                const response = await axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/uploads/getpdf/${idUser}`);
+                setComprobantes(response.data.comprobantes);
+                setRecibos(response.data.recibos);
+            }
 
-  
+            getPdfs()
+        }
+    }, [idUser])
+
+
     const handleGoBack = () => {
         window.location.replace(`/Perfil`)
     };
@@ -48,7 +48,7 @@ function ComprobantesRecibos() {
     return (
         <>
             <div className='container-fluid p-0'>
-                <div className='divBotonVolverAtras mt-4 ms-4 d-flex justify-content-start'>                        
+                <div className='divBotonVolverAtras mt-4 ms-4 d-flex justify-content-start'>
                     <button className="botonAgregarEdificio px-2 py-0" onClick={handleGoBack}>
                         <i className="bi bi-arrow-left-short"></i>
                     </button>
@@ -56,12 +56,12 @@ function ComprobantesRecibos() {
             </div>
             <div className='divComprobantes'>
                 <h1>RECIBOS</h1>
-                <div className='contenedorComprobantes'>                
+                <div className='contenedorComprobantes'>
                     {recibos.length === 0 ? (
                         <div className='noHayDocumento'>No hay comprobantes subidos.</div>
                     ) : (
                         recibos.map(comprobante => (
-                            <CardComprobanteUsuario comprobante={comprobante} user={users} key={comprobante.id}/>
+                            <CardComprobanteUsuario comprobante={comprobante} user={users} key={comprobante.id} />
                         ))
                     )}
                 </div>
@@ -71,7 +71,7 @@ function ComprobantesRecibos() {
                     <h1>COMPROBANTES DE PAGO</h1>
                     <div className='d-flex justify-content-center'>
                         <h3>SUBE UN COMPROBANTE<i className="bi bi-arrow-right-short fs-5 ms-1"></i></h3>
-                        <SubirArchivoUser usuario={users}/>
+                        <SubirArchivoUser usuario={users} />
                     </div>
                 </div>
                 <div className='contenedorComprobantes'>
