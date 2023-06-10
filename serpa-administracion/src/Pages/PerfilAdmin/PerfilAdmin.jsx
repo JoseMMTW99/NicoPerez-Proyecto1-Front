@@ -129,17 +129,9 @@ const Apretado = async () => {
       <div>
         <div className='cardPerfil mx-auto pt-5 pb-5 px-2' >
           <div className='text-center'><h1 className='tituloPerfil'>{users.name} {users.surname}</h1></div>
-          { <div className='tabla-usuarios fs-6'>
-            <div className="table-responsive">
-              <table className="table align-middle">
-                <tbody className='text-center'>
-                  <tr>
-                    <td><i className="bi bi-envelope-fill text-muted fs-3 me-1 iconoPerfilAdmin"></i>{users.email}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>}
+          <div className='emailInfoPerfil'>
+            <i className="bi bi-envelope-fill text-muted fs-3 me-1 iconoPerfilAdmin"></i>{users.email}
+          </div>
           <div className='text-center mb-4'><h3 className='fs-6 text-muted'>{users.tipo}</h3></div>
           <div className='d-flex flex-column justify-content-center text-center'>
             <div>

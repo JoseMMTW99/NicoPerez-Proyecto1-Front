@@ -10,13 +10,45 @@ import Tooltip from 'react-bootstrap/Tooltip';
 function FilaUsuariosEdificio(usuario) {
 
   const [error, setError] = useState(false)
+  const [error2, setError2] = useState(false)
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoading2, setIsLoading2] = useState(false);
   const [tipo, setTipo] = useState("");
 
   const downloadPdf = async () => {
     setIsLoading(true);
     try {
       const response = await axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/uploads/getpdf-ultimo/${usuario.usuario._id}`, {
+        responseType: 'blob',
+      });
+  
+      if (response.status === 200) {
+        const date = new Date();
+        const month = new Intl.DateTimeFormat('es-ES', { month: 'long' }).format(date);
+  
+        const fileExtension = response.data.type.split('/')[1];
+  
+        const downloadFilename = `Recibo Serpa - ${usuario.usuario.name} ${usuario.usuario.surname} - ${month}.${fileExtension}`;
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', downloadFilename);
+        document.body.appendChild(link);
+        link.click();
+        setIsLoading(false);
+      } else if (response.status === 206) {
+        setIsLoading(false);
+        setError(true);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const downloadPdf2 = async () => {
+    setIsLoading2(true);
+    try {
+      const response = await axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/uploads/getpdf-ultimo-comprobante/${usuario.usuario._id}`, {
         responseType: 'blob',
       });
   
@@ -33,10 +65,10 @@ function FilaUsuariosEdificio(usuario) {
         link.setAttribute('download', downloadFilename);
         document.body.appendChild(link);
         link.click();
-        setIsLoading(false);
+        setIsLoading2(false);
       } else if (response.status === 206) {
-        setIsLoading(false);
-        setError(true);
+        setIsLoading2(false);
+        setError2(true);
       }
     } catch (error) {
       console.error(error);
@@ -97,7 +129,30 @@ function FilaUsuariosEdificio(usuario) {
             error ? <div className='text-center text-muted fs-6'>¡No hay comprobante!</div> : <></>
           }
         </td>
-        <td>Boton ultimo comprobante de pago</td>
+        <td>
+        {isLoading2 ? (
+          <div className="d-flex justify-content-center mt-3">
+            <div className="spinner-border" role="status">
+              <span className="visually-hidden">Descargando...</span>
+            </div>
+          </div>
+        ) : (
+          <button className="botonDescargarAdmin ps-3 pe-3 pt-1 pb-1" onClick={downloadPdf2}>
+            <div className='fs-6'>
+              {usuario.usuario.dateComprobante !== "Sin archivo" && (
+                <>
+                  <i className="bi bi-download" style={{ marginRight: '0.5rem' }}></i>
+                  {usuario.usuario.dateComprobante}
+                </>
+              )}
+              {usuario.usuario.dateComprobante === "Sin archivo" && "---"}
+            </div>
+          </button>
+        )}
+        {
+          error2 ? <div className='text-center text-muted fs-6'>¡No hay comprobante!</div> : <></>
+        }          
+        </td>
         <td className='border'>
           <a href={`/Administracion/Perfil/${usuario.usuario._id}`}>
             <button className="botonDescargarAdmin">

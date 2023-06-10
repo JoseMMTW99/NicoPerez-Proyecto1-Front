@@ -29,7 +29,7 @@ function Perfil() {
 const downloadPdf = async () => {
   setIsLoading(true);
   try {
-    const response = await axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/uploads/getpdf/${idUser}`, {
+    const response = await axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/uploads/getpdf-ultimo/${idUser}`, {
       responseType: 'blob',
     });
 
@@ -62,13 +62,9 @@ const downloadPdf = async () => {
     window.location.replace('/')
   }
 
-  const cambiarContraseña = () => {
-    window.location.replace('/CambiarContraseña')
-  }
-
     return (
       <div>
-        <div className='cardPerfil mx-auto pt-5 pb-5 px-2' >
+        <div className='cardPerfil mx-auto mt-5 pt-5 pb-5 px-2' >
           <div className='text-center'><h1 className='tituloPerfil'>Mi Perfil</h1></div>
           <div className='text-center mb-4'><h3 className='fs-6 text-muted'>{users.tipo}</h3></div>
           <div className='d-flex flex-column justify-content-center text-center'>
@@ -85,23 +81,22 @@ const downloadPdf = async () => {
                 </button>
               </a>
             </div>
-            {/* {isLoading ? (
-              <div className="mt-3">
-                <div className="spinner-border" role="status">
-                  <span className="visually-hidden">Descargando...</span>
-                </div>
-              </div>
-            ) : (
-              <div className='divBotonVolverAtras text-center mt-4'>
-                <button className="botonAgregarEdificio p-2 fs-6" onClick={downloadPdf}>
-                  <i className="bi bi-download me-2"></i>Recibo
-                </button>
-              </div>
-            )}
-            {
-              error ? <div className='text-center mt-3 fs-6'>¡No tienes ningún recibo para descargar!</div> : <></>
-            }
-            <SubirArchivoUser usuario={users}/> */}
+            <div>
+              <button className='botonDocumentosPerfil' onClick={downloadPdf}>
+                { !isLoading ?
+                <>DESCARGAR RECIBO</>
+                :
+                <>
+                  <span className="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>
+                </>
+                }
+              </button>
+              {
+                error ? <div className='text-center text-muted fs-6'>¡No hay recibo cargado!</div> : <></>
+              }
+            </div>
+            <h3 className='tituloSubirComprobantePerfil'>SUBIR COMPROBANTE DE PAGO</h3>
+            <SubirArchivoUser usuario={users}/>
           </div>
         </div>
       </div>

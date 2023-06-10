@@ -6,21 +6,18 @@
 @media (max-width: 576px) {
     .cardPerfil{
         width: 80%;
-        margin-top: 5rem;
     }     
 }
 
 @media (min-width: 576px) and (max-width: 992px) {
     .cardPerfil{
         width: 50%;
-        margin-top: 5rem;
     }   
 }
 
 @media (min-width: 992px) {
     .cardPerfil{
         width: 40%;
-        margin-top: 5rem;
     }   
 }
 
@@ -42,4 +39,11 @@
 .botonDocumentosPerfil:hover{
     background-color: #e171ef;
     transform: scale(1.05);
+}
+
+.tituloSubirComprobantePerfil{
+    font-weight: 600;
+    margin-top: 2rem;
+    text-align: center;
+    padding-inline: 1rem;
 }
