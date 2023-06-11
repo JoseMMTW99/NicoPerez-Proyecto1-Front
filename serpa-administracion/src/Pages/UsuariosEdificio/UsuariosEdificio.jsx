@@ -139,7 +139,7 @@ const UsuariosEdificio = () => {
                         </div>
                     </div>
                     <h2 className='text-center text-white tituloEdificio mx-auto'>{edificioName}</h2>
-                    <div className='d-flex m-5 mt-5'>
+                    <div className='d-flex responsive-tabla mt-5'>
                         <div className="pb-5 w-100">
                             <div className="col-12 col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6">
                                 <div className="input-group">
