@@ -67,14 +67,14 @@ function ComprobantesRecibos() {
                 </div>
             </div>
             <div className='divComprobantes'>
-                <div className='d-flex justify-content-between'>
-                    <h4  className='pt-2'>COMPROBANTES DE PAGO</h4>
+                <div className='d-flex flex-wrap contenedorTituloYSubirDocumento'>
+                    <h4 className='pt-2'>COMPROBANTES DE PAGO</h4>
                     <div className='d-flex justify-content-center'>
                         <SubirArchivoUser usuario={users} />
                     </div>
                 </div>
                 <div className='contenedorComprobantes'>
-                    {comprobantes.length === 0 ? (
+                    {comprobantes === undefined ? (
                         <div className='noHayDocumento'>No hay recibos subidos.</div>
                     ) : (comprobantes.map(comprobante => (
                         <CardReciboUsuario comprobante={comprobante} user={users} key={comprobante.id} />
