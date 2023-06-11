@@ -110,15 +110,26 @@
     }
     
     .contenedorComprobantes{
-        gap: 0%;
+        gap: 3%;
     }
 
     .cardComprobante{
-        width: 100%;
+        width: 30%;
     }
 
     .imagenPDFComprobante{
-        width: 70%;
+        width: 50%;
+    }
+    .fechaCardComprobante{
+        margin-top: 0.5rem;
+    }
+    
+    .botonDescargarCardComprobante{
+        padding-right: 0.5rem;
+    }
+
+    .botonEliminarCardComprobante{
+        padding-right: 0.3rem;
     }
 }
 
