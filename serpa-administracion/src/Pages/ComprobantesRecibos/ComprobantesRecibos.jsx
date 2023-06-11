@@ -55,7 +55,7 @@ function ComprobantesRecibos() {
                 </div>
             </div>
             <div className='divComprobantes'>
-                <h1>RECIBOS</h1>
+                <h4  className='pt-2'>RECIBOS</h4>
                 <div className='contenedorComprobantes'>
                     {recibos.length === 0 ? (
                         <div className='noHayDocumento'>No hay comprobantes subidos.</div>
@@ -68,9 +68,8 @@ function ComprobantesRecibos() {
             </div>
             <div className='divComprobantes'>
                 <div className='d-flex justify-content-between'>
-                    <h1>COMPROBANTES DE PAGO</h1>
+                    <h4  className='pt-2'>COMPROBANTES DE PAGO</h4>
                     <div className='d-flex justify-content-center'>
-                        <h3>SUBE UN COMPROBANTE<i className="bi bi-arrow-right-short fs-5 ms-1"></i></h3>
                         <SubirArchivoUser usuario={users} />
                     </div>
                 </div>
