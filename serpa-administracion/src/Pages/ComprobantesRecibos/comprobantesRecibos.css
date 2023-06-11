@@ -147,7 +147,25 @@
     }
 }
 
-@media (min-width: 992px){
+@media (min-width: 992px) and (max-width: 1500px){
+    .contenedorTituloYSubirDocumento {
+        justify-content: space-between;
+    }
+    
+    .contenedorComprobantes{
+        gap: 1.25%;
+    }
+
+    .cardComprobante{
+        width: 11%;
+    }
+
+    .imagenPDFComprobante{
+        width: 70%;
+    }
+}
+
+@media (min-width: 1501px){
     .contenedorTituloYSubirDocumento {
         justify-content: space-between;
     }
