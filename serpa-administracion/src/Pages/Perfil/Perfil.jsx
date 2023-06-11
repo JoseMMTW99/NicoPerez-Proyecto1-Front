@@ -77,7 +77,7 @@ const downloadPdf = async () => {
             <div>
               <button className='botonDocumentosPerfil' onClick={downloadPdf}>
                 { !isLoading ?
-                <>DESCARGAR RECIBO</>
+                <>DESCARGAR ULTIMO RECIBO</>
                 :
                 <>
                   <span className="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>
@@ -91,7 +91,7 @@ const downloadPdf = async () => {
             <div>
               <a href="/Perfil/Documentos">
                 <button className='botonDocumentosPerfil'>
-                  VER DOCUMENTOS
+                  VER ANTERIORES
                 </button>
               </a>
             </div>
