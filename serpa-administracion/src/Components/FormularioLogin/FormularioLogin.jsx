@@ -42,7 +42,7 @@ function FormularioLogin() {
     };
 
     return (
-        <div className="d-flex align-items-center" style={{ height: "90vh" }}>
+        <div className="d-flex align-items-center">
             <div className="container container-login  rounded-5">
                 <div className="row justify-content-center">
                     <div className="col-12">
