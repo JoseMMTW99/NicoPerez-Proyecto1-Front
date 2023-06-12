@@ -126,8 +126,8 @@ const Apretado = async () => {
               </button>
           </div>
       </div>
-      <div>
-        <div className='cardPerfil mx-auto pt-5 pb-5 px-2' >
+      <div className='cardPerfilAdmin'>
+        <div className='cardPerfil pt-5 pb-5 mx-auto px-2' >
           <div className='text-center'><h1 className='tituloPerfil'>{users.name} {users.surname}</h1></div>
           <div className='emailInfoPerfil'>
             <i className="bi bi-envelope-fill text-muted fs-3 me-1 iconoPerfilAdmin"></i>{users.email}

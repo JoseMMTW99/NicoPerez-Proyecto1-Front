@@ -63,6 +63,10 @@
         font-size: 1.3rem;
         transition: all .3s ease;
     }
+
+    .cardPerfil{
+        margin-top: 1rem;
+    }
 }
 
 @media (min-width: 576px) and (max-width: 992px){
