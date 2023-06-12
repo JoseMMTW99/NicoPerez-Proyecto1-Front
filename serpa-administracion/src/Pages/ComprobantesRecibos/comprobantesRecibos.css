@@ -10,7 +10,6 @@
 
 .divComprobantes h1{
     color: rgb(58,58,58, 0.9);
-    font-size: 2rem;
     line-height: 3rem;
     font-weight: 600;
 }
@@ -111,15 +110,26 @@
     }
     
     .contenedorComprobantes{
-        gap: 0%;
+        gap: 3%;
     }
 
     .cardComprobante{
-        width: 100%;
+        width: 30%;
     }
 
     .imagenPDFComprobante{
-        width: 70%;
+        width: 50%;
+    }
+    .fechaCardComprobante{
+        margin-top: 0.5rem;
+    }
+    
+    .botonDescargarCardComprobante{
+        padding-right: 0.5rem;
+    }
+
+    .botonEliminarCardComprobante{
+        padding-right: 0.3rem;
     }
 }
 
@@ -147,7 +157,25 @@
     }
 }
 
-@media (min-width: 992px){
+@media (min-width: 992px) and (max-width: 1500px){
+    .contenedorTituloYSubirDocumento {
+        justify-content: space-between;
+    }
+    
+    .contenedorComprobantes{
+        gap: 1.25%;
+    }
+
+    .cardComprobante{
+        width: 11%;
+    }
+
+    .imagenPDFComprobante{
+        width: 70%;
+    }
+}
+
+@media (min-width: 1501px){
     .contenedorTituloYSubirDocumento {
         justify-content: space-between;
     }

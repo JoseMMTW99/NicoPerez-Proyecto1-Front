@@ -126,7 +126,7 @@ function FilaUsuariosEdificio(usuario) {
             </button>
           )}
           {
-            error ? <div className='text-center text-muted fs-6'>¡No hay comprobante!</div> : <></>
+            error ? <div className='text-center text-muted fs-6'>¡No hay recibo!</div> : <></>
           }
         </td>
         <td>

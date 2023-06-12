@@ -56,9 +56,8 @@ function ComprobantesRecibosAdmin() {
             </div>
             <div className='divComprobantes'>
                 <div className='d-flex flex-wrap contenedorTituloYSubirDocumento'>
-                    <h1>RECIBOS</h1>
+                    <h4 className='pt-2'>RECIBOS</h4>
                     <div className='d-flex justify-content-center'>
-                        <h3>SUBE UN RECIBO<i className="bi bi-arrow-right-short fs-5 ms-1"></i></h3>
                         <SubirArchivo usuario={users} />
                     </div>
                 </div>
@@ -74,9 +73,8 @@ function ComprobantesRecibosAdmin() {
             </div>
             <div className='divComprobantes'>
                 <div className='d-flex flex-wrap contenedorTituloYSubirDocumento'>
-                    <h1>COMPROBANTES DE PAGO</h1>
+                    <h4 className='pt-2'>COMPROBANTES DE PAGO</h4>
                     <div className='d-flex justify-content-center'>
-                        <h3>SUBE UN COMPROBANTE<i className="bi bi-arrow-right-short fs-5 ms-1"></i></h3>
                         <SubirArchivoUser usuario={users} />
                     </div>
                 </div>
