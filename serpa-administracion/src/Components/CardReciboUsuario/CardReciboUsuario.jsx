@@ -54,7 +54,6 @@ function CardReciboUsuario(props) {
             setIsLoading(false);
           } else if (response.status === 206) {
             setIsLoading(false);
-            setError(true);
           }
           } catch (error) {
             console.error(error);

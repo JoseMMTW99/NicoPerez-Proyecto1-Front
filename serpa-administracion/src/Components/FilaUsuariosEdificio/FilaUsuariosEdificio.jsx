@@ -21,7 +21,7 @@ function FilaUsuariosEdificio(usuario) {
       const response = await axios.get(`https://serpa-administracion-jose-martinez-teran.up.railway.app/uploads/getpdf-ultimo/${usuario.usuario._id}`, {
         responseType: 'blob',
       });
-  
+      
       if (response.status === 200) {
         const date = new Date();
         const month = new Intl.DateTimeFormat('es-ES', { month: 'long' }).format(date);
